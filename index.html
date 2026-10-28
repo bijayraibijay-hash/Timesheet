@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Timesheet</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Timesheet">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#2e7d5b">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFBUlEQVR4nO3dXXLTQBBF4QnFesiCyFbIQ9bChtgRD5MSws619TfTt2fO9wwVqXXUMiZlv/z49bMAX/kWfQDwRRyQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjfow8gzJ+P39v/8Ov7W7sjsfUyyUcw7EphixlyGTmOy4NQRg1lwDi6NXFvsEqGiiMwi7VhEhkhDpMm7mWvJHcctlms5U0kaxwpsljLmEjKN8HSlVFyHnOyzZFxxDcSrZBMcVxbxq6LFPijA+WI45Jrc+ElcTueRhLEcfJKNL0Gzsd2nnsch6ffee5ZjnMX3zgyjjvjMT9gGseBKVvNN/vxV47vcwww2QPHY/ivdLvNsXdGblncSH06XnGM+ttZSc/L6LGSdIJbBL7hdoZLHAOXUWXsw+Kxsn0WGbO4kehkM/32eYthPb5ULX7i6/ubyWJ4Kv6xsnFS4bfRhTaeS3hDwXFMWEaVoo/IOKYto/LvI/6x8tioZVTmZxcWx5Ybwnx2l9hyjlHLIyYOyliz7cP9sYJAAXGwNu55Lo/ecVCGYtiH3WNlzjIqt3PvGkf4W34D6DlDr83hduv0ZzWBfnGwNq7SbZJGm8PqpgnkMweXOHwm4sBkGp3i4JlyrT7zdNkcMNQjjqeZm2xRK09n0mF5sDkgxcfB2lDCJ9M8Dl6KttN6tvGbA7aC4wjfnOZi58PmgNQ2Dl5wtNZ0wpGbg2fKFoFT4rECiTggEQck4oDUMI7+n24wqsezavcPFjYHJOKARByQiAMScTzy5+P3zP8DQBzPTZsIcWw1YSKZPmqyhZu3EJ5e/voHJnmThs3xz/bFMMkWIY7jhk+EOD4dvswDJ0Icn17f3868khgyEeL4D4msEccXSKRq+5UaA/yvvcM3x0aNkc3xxMxbhDg2mTMR4tjhTCIpnqE3iGO3k1skkQTft+JpVyInH0mH/+5JbeMY/g4L3yJNfzqPlQs8TiTvHZLjO95SaLFF5v2OtyHdJJJ3bZQOcaSezmF9Xou0/hHxm2OkJ8uNkxcvfDLxccBWjzgcPm81HYdP9mVzQOoUx5wvS9vpM0+XzcGTZc1kGi5xFJuJhPOZQ784eLJcpdskjTZHcbppolhNoGscLI/zes7Qa3MUs1unM7dz7x2H4ZdymzD8IveAzUEf9wzLKIaPFfiIiYPlsea5Nkrg5qCPyraM4v9YGbsP87NL8H0r5hM8bON5zft9K9P24V9GCY+jTNlHijKKQxzbjdFHorNo+/kc2+0aWfgtdUy6c3TZHLtmkejmW6Qro/jEUYbuI2MZxeexsth71X1G+aXUp2MXRzm0FaxmWg1wFkaPlcWBGbk9ZQYoo3hujurw9Q6ccsZjfsA3jirLuLMc5y7ucRSPTwJVnI/tvARxlIteUlx4JdyOp5EccVTXvuoMfFvFP4sqUxzF718lB2Qpo6SLo0qaSKIsKsf3OZ5KN+WS85hTbo5FihWSMYsqdxyVbSJ5s6hGiGNhUkn2JhZDxVEFJjJMFtWAcSy6VTJYE4uR41i7PJRRg1ibJY57SX87q6d548BTKd8EQx/EAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHpL8kiwp8nkp0cQAAAABJRU5ErkJggg==">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f7f5;--card:#fff;--text:#1d2420;--muted:#667069;--accent:#2e7d5b;--line:#dde2de;--danger:#b3261e;--warn:#b26a00;--blue:#2563a8;--purple:#7b4bb7;--teal:#0f8b8d;--indigo:#4153b5;--day:#d9480f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121513;--card:#1c211e;--text:#eef2ef;--muted:#9aa59e;--accent:#4fb58a;--line:#2e3631;--danger:#f2877f;--warn:#f0b35a;--blue:#7fb2ee;--purple:#c0a2ee;--teal:#56d4c8;--indigo:#9fabf2;--day:#ff9d6c}}
+:root[data-theme="dark"]{--bg:#121513;--card:#1c211e;--text:#eef2ef;--muted:#9aa59e;--accent:#4fb58a;--line:#2e3631;--danger:#f2877f;--warn:#f0b35a;--blue:#7fb2ee;--purple:#c0a2ee;--teal:#56d4c8;--indigo:#9fabf2;--day:#ff9d6c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0 auto;background:var(--bg);color:var(--text);font:16px/1.4 -apple-system,Helvetica,Arial,sans-serif;max-width:560px;padding:16px}
+h1{font-size:22px;margin:0 0 2px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.grid>*{min-width:0}
+input[type=date],input[type=time]{-webkit-appearance:none;appearance:none;display:block;text-align:left}
+label{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}
+input,select{width:100%;min-width:0;max-width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);min-height:44px}
+.full{grid-column:1/-1}
+button{font:inherit;border:0;border-radius:12px;padding:12px;background:var(--accent);color:#fff;font-weight:600;width:100%;margin-top:12px;min-height:46px}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tabs button{margin:0;background:var(--bg);color:var(--text);border:1px solid var(--line);font-weight:500}
+.tabs button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.preview{margin-top:10px;font-size:14px;color:var(--muted)}
+.lbl{color:var(--muted);font-size:13px}
+.big{font-size:28px;font-weight:700;color:var(--accent)}
+.big.neg{color:var(--danger)}.big.low{color:var(--warn)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin:8px 0 4px}
+.bar i{display:block;height:100%;background:var(--accent)}
+.week{display:flex;justify-content:space-between;font-weight:600;padding:10px 0 4px;margin-top:4px;gap:8px}
+.wsub{font-size:12px;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--line)}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);gap:8px}
+.row small{color:var(--muted);display:block}
+.hrs{font-weight:600;white-space:nowrap}
+.del{background:none;color:var(--danger);width:auto;margin:0;padding:6px 10px;min-height:0;font-weight:500}
+.empty{color:var(--muted);text-align:center;padding:16px 0}
+.pos{color:var(--accent)}.neg{color:var(--danger)}
+.navb{display:flex;gap:6px}
+.lg{color:var(--warn)}
+button:disabled{opacity:.4}
+.hnav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;-webkit-overflow-scrolling:touch}
+.hnav button{width:auto;flex:none;margin:0;padding:8px 14px;min-height:40px;border-radius:20px;background:var(--card);color:var(--text);border:1px solid var(--line);font-size:14px;font-weight:600}
+.hnav button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.hsec{display:none}.hsec.on{display:block}
+html.lk #lk{display:block!important}html.lk body>*:not(#lk):not(script){visibility:hidden}
+.ct{font-size:19px;font-weight:800;letter-spacing:.2px}
+.card.k1{border-top:4px solid var(--accent)}.card.k2{border-top:4px solid var(--blue)}.card.k3{border-top:4px solid var(--purple)}
+.card.k4{border-top:4px solid var(--teal)}.card.k5{border-top:4px solid var(--indigo)}.card.k6{border-top:4px solid var(--warn)}
+details>summary{font-size:18px;font-weight:800}
+details.k2>summary{color:var(--blue)}details.k5>summary{color:var(--indigo)}details.k6>summary{color:var(--warn)}
+.k2 .two>div>.lbl:first-child{font-weight:700;font-size:15px;color:var(--blue)}
+.k3>.lbl:first-child{font-weight:700;font-size:15px;color:var(--purple)}
+.k4>.lbl:first-child{font-weight:700;font-size:15px;color:var(--teal)}
+.k4 .bar i{background:var(--teal)}.k4 #wk{color:var(--teal);font-size:22px}
+#lv:not(.neg):not(.low){color:var(--blue)}#sk:not(.neg){color:var(--purple)}
+#cks{font-size:17px}
+.chip{display:inline-block;width:auto;margin:4px 6px 0 0;padding:8px 12px;min-height:0;background:var(--bg);color:var(--text);border:1px solid var(--line);font-weight:600}
+.chip.on{background:var(--purple);color:#fff;border-color:var(--purple)}
+.mini{width:auto;margin:2px 0 2px 4px;padding:6px 10px;min-height:0;font-size:13px}
+.rt{border-collapse:collapse;width:100%;font-size:13px}.rt td,.rt th{border:1px solid var(--line);padding:5px 6px;text-align:center;vertical-align:top;white-space:nowrap}
+#pvw{display:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:90;background:#fff;color:#111;overflow:auto;padding:0 12px 28px;-webkit-overflow-scrolling:touch}
+.pvbar{position:sticky;top:0;background:#fff;padding:10px 0;padding-top:calc(10px + env(safe-area-inset-top,0px));z-index:2;border-bottom:1px solid #ddd;margin-bottom:12px}
+.pvbar .r2{display:flex;gap:8px}.pvbar button{margin:0}.pvtip{font-size:12px;color:#555;margin-top:6px}
+.pr{max-width:210mm;margin:0 auto;font:10pt/1.4 Arial,Helvetica,sans-serif;color:#111;background:#fff}
+.pr h1{font-size:20pt;margin:0;color:#1f5c43}
+.pr h2{font-size:12pt;margin:14px 0 6px;padding-bottom:3px;border-bottom:2px solid #2e7d5b;color:#1f5c43;break-after:avoid}
+.pr .top{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;border-bottom:3px solid #2e7d5b;padding-bottom:8px;margin-bottom:10px}
+.pr .meta{font-size:9pt;color:#444;text-align:right}.pr .who{font-size:10pt;color:#333;margin-top:2px}
+.pr table{width:100%;border-collapse:collapse;font-size:9pt;margin-bottom:6px}
+.pr th{background:#e6f1ec;text-align:left;padding:4px 5px;border:1px solid #b9cfc4;color:#143d2d}
+.pr td{padding:3px 5px;border:1px solid #cdd8d2;vertical-align:top;color:#111;background:#fff}
+.pr tr:nth-child(even) td{background:#f5f9f7}
+.pr .n{text-align:right;white-space:nowrap}
+.pr .kv{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+.pr .kv div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted #999;padding:3px 0}
+.pr p{text-align:justify;font-size:9pt;color:#333;margin:6px 0}
+.pr .sig{display:flex;gap:26px;margin-top:38px}.pr .sig div{flex:1;border-top:1px solid #111;padding-top:4px;font-size:9pt;text-align:center}
+.pr .flag{color:#a4161a;font-weight:700}.pr .ok{color:#1f6b3b;font-weight:700}.pr tr{break-inside:avoid}.pr thead{display:table-header-group}
+@media print{@page{size:A4;margin:12mm}body>*:not(#pvw){display:none!important}body{padding:0!important;background:#fff!important;max-width:none!important}:root{padding:0!important}#pvw{position:static;overflow:visible;padding:0}.pvbar{display:none}}
+.pane{display:none}.pane.on{display:block}
+html,body{height:100%}
+body{max-width:none;margin:0;padding:0;overflow:hidden}
+#app{display:flex;flex-direction:column;height:100%;max-width:560px;margin:0 auto}
+#scr{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:16px 16px 24px}
+#tabs{flex:none;display:flex;background:var(--card);border-top:1px solid var(--line)}
+.hnav{top:0}
+.grid{align-items:end}
+@media print{html,body{height:auto!important;overflow:visible!important}}
+#tabs button{flex:1;margin:0;border-radius:0;background:none;color:var(--muted);font-size:12px;min-height:54px;padding:6px 0;font-weight:600;line-height:1.3}
+#tabs button.on{color:var(--accent)}
+.pd{width:84px;min-height:30px;padding:3px 6px;display:inline-block;font-size:13px}
+.sec{background:var(--bg);color:var(--text);border:1px solid var(--line);font-weight:500}
+details summary{cursor:pointer}textarea{width:100%;min-height:70px;margin-top:10px;font:13px monospace;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);padding:8px}.navb button{margin-top:10px;padding:10px 4px;font-size:14px}
+</style>
+</head>
+<body>
+<script>try{if(JSON.parse(localStorage.getItem("timesheet_settings")||"{}").pin)document.documentElement.className="lk"}catch(e){}</script>
+<div id="app"><div id="scr">
+<div style="display:flex;justify-content:space-between;gap:8px;font-size:12px;margin:0 0 4px"><span class="lbl" id="emp" style="font-weight:600;color:var(--text)"></span><select id="jobsel" aria-label="Choose job" style="display:none;width:auto;max-width:52%;min-height:34px;padding:2px 8px;font-size:13px;font-weight:700"></select><button id="lknow" class="sec" style="width:auto;margin:0;padding:2px 10px;min-height:0;font-size:12px;display:none">🔒 Lock</button><span class="lbl" style="white-space:nowrap">Made by Bijay Rai</span></div>
+<h1 id="ttl">My Timesheet</h1>
+<div class="sub" id="sbt">saved on this phone</div>
+<div class="lbl" id="bkw" style="margin:-6px 0 12px;color:var(--warn)"></div>
+
+<div class="pane on" id="p1">
+<div class="hnav" data-g="c"><button data-h="c1" class="on">✏️ Manual clock</button><button data-h="c2">⏱️ Quick clock</button><button data-h="c3">🔒 Password</button></div>
+<div class="hsec on" id="c1" data-g="c">
+<div class="card k2">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div class="ct" style="color:var(--blue)">Manual clock</div><div id="tdy" style="text-align:right;line-height:1.15"></div></div>
+  <div id="hld" style="margin:6px 0 12px"></div>
+  <div class="tabs"><button id="tS" class="on">Shift</button><button id="tL">Leave</button></div>
+  <div class="grid" id="fS">
+    <div class="full"><label>Date</label><input type="date" id="d"></div>
+    <div id="hln" class="full lbl" style="color:var(--day);font-weight:700"></div>
+    <div><label>Clock in</label><input type="time" id="ci"></div>
+    <div><label>Clock out</label><input type="time" id="co"></div>
+    <div><label>Break in (start of break)</label><input type="time" id="bi"></div>
+    <div><label>Break out (back from break)</label><input type="time" id="bo"></div>
+    <label class="full" style="display:flex;gap:8px;align-items:center;font-weight:700;color:var(--blue);font-size:14px"><input type="checkbox" id="hf" style="width:auto;min-height:0;margin:0"> Half shift (no break)</label>
+    <div class="full"><label>Notes (optional)</label><input type="text" id="n"></div>
+    <div class="full"><label>Pay type</label><select id="pt"><option value="n">Normal pay</option><option value="sat">Saturday penalty</option><option value="sun">Sunday penalty</option><option value="ph">Public holiday penalty</option></select></div>
+    <button id="cp" class="sec full" style="margin-top:0">Copy last shift's times</button>
+  </div>
+  <div class="grid" id="fL" style="display:none">
+    <div class="full"><label>Leave type</label><select id="lty"><option value="a">Annual leave</option><option value="k">Sick leave</option><option value="o">Day off (not working)</option></select></div>
+    <div class="full"><label>Leave date</label><input type="date" id="ld"></div>
+    <div class="full" id="ld2w" style="display:none"><label>Last day off (leave empty for just one day)</label><input type="date" id="ld2"></div>
+    <div><label id="lhl">Hours of leave taken</label><input type="number" id="lh" step="0.1" min="0" value="7.6"></div>
+    <div class="full"><label>Reason / note</label><input type="text" id="ln" placeholder="Why are you taking leave? (e.g. flu, doctor, family event)"></div>
+    <div><label>Opening leave balance (hours)</label><input type="number" id="ls" step="0.1" min="0"></div>
+    <div><label>Leave earned per year (hours)</label><input type="number" id="le" step="0.1" min="0"></div>
+    <div><label>Opening sick leave (hours)</label><input type="number" id="ss" step="0.1" min="0"></div>
+    <div><label>Sick leave earned per year (hours)</label><input type="number" id="se" step="0.1" min="0"></div>
+  </div>
+  <div id="rw" style="display:none;margin-top:10px"><label>Reason for change (note)</label><input type="text" id="rs" placeholder="e.g. forgot to add my break"></div>
+  <div class="preview" id="pv">Hours: –</div>
+  <div id="fal" style="display:none;margin-top:10px;padding:10px 12px;border-radius:12px;font-size:14px;font-weight:600;line-height:1.45"></div>
+  <button id="add">Save shift</button>
+  <button id="cx" style="display:none;background:var(--bg);color:var(--text);border:1px solid var(--line)">Cancel edit</button>
+</div>
+
+<div class="card k6" id="lkb" style="display:none"><b>🔒 Protect your timesheet</b><div class="lbl" style="margin:4px 0 8px">Set a password so nobody else can open your hours and pay.</div><div style="display:flex;gap:8px"><button id="lkb1" style="margin:0">Set password</button><button id="lkb2" class="sec" style="margin:0">Not now</button></div></div>
+</div>
+<div class="hsec" id="c2" data-g="c">
+<div class="card k1">
+  <div class="ct" style="color:var(--accent)">Quick clock</div>
+  <div style="font-weight:600;margin:4px 0" id="cks">Not clocked in</div>
+  <div id="opn" style="color:var(--warn);font-weight:700;font-size:13px;margin-bottom:4px"></div>
+  <div id="cal" style="display:none;margin-bottom:8px;padding:10px 12px;border-radius:12px;border:2px solid var(--danger);color:var(--danger);font-size:14px;font-weight:700;line-height:1.45"></div>
+  <div class="grid" style="margin-top:8px">
+    <div><label>Date (clock in or day off)</label><input type="date" id="ckd"></div>
+    <div><label>Time (leave empty = now)</label><input type="time" id="ckt"></div>
+  </div>
+  <div class="grid" style="margin-top:10px">
+    <button id="b1" style="margin-top:0">Clock in</button><button id="b2" style="margin-top:0">Start break</button>
+    <button id="b3" style="margin-top:0">Finish break</button><button id="b4" style="margin-top:0">Clock out</button>
+  </div>
+  <label style="display:flex;gap:8px;align-items:center;margin-top:10px;font-weight:700;color:var(--blue);font-size:14px"><input type="checkbox" id="ckh" style="width:auto;min-height:0;margin:0"> Half shift (no break)</label>
+  <div style="margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)">
+    <button id="dob" class="sec" style="margin:0;color:var(--purple);border-color:var(--purple);font-weight:800">🌴 Mark this date as a day off</button>
+    <input type="text" id="dno" placeholder="Add a note (optional)" style="margin-top:8px">
+    <button id="dou" class="sec" style="display:none">Undo day off</button>
+  </div>
+  <button id="ckx" class="sec" style="display:none">Discard this shift</button>
+</div>
+</div>
+<div class="hsec" id="c3" data-g="c">
+<div class="card k6" id="pwc"><div class="ct" style="color:var(--warn)">🔒 Password lock</div>
+  <div class="lbl" id="pws" style="margin:6px 0;font-weight:700"></div>
+  <div id="pwcur" style="display:none"><label>Current password</label><input type="password" id="pw0" autocomplete="off" autocapitalize="off"></div>
+  <label style="margin-top:8px">New password (at least 4 characters)</label><input type="password" id="pw1" autocomplete="off" autocapitalize="off">
+  <label style="margin-top:8px">Confirm new password</label><input type="password" id="pw2" autocomplete="off" autocapitalize="off">
+  <label style="display:flex;gap:8px;align-items:center;margin-top:10px"><input type="checkbox" id="pws2" style="width:auto;min-height:0;margin:0"> Show passwords</label>
+  <button id="pwset">Set password</button>
+  <div id="rcbox" style="display:none;margin-top:12px;padding:10px;border:2px dashed var(--warn);border-radius:10px"><div class="lbl"><b>Your recovery code.</b> Save it now. It is shown only once.</div><div id="rcv" style="font-size:22px;font-weight:800;letter-spacing:1px;margin:6px 0;word-break:break-all"></div><div style="display:flex;gap:8px"><button id="rccp" style="margin:0">Copy code</button><button id="rcsh" class="sec" style="margin:0">Share (save to Keep)</button></div><button id="rcdone" class="sec">I have saved it</button></div>
+  <button id="pwnow" class="sec" style="display:none">Lock now</button>
+  <button id="rcnew" class="sec" style="display:none">Make a new recovery code</button>
+  <button id="pwoff" class="sec" style="display:none">Remove password</button>
+  <div style="margin-top:12px"><label style="display:flex;gap:8px;align-items:center;font-weight:700;color:var(--blue)"><input type="checkbox" id="fidc" style="width:auto;min-height:0;margin:0"> Unlock with Face ID</label><div class="lbl" id="fidl" style="margin-top:4px"></div></div>
+  <label style="margin-top:12px">Lock the app</label>
+  <select id="pwauto"><option value="0">As soon as I leave the app</option><option value="60000">After 1 minute away</option><option value="300000">After 5 minutes away</option></select>
+  <div class="lbl" style="margin-top:8px"><b>Forgot your password?</b> On the lock screen tap <b>Forgot password?</b>, enter your recovery code and choose a new password, or turn the password off. Your data is kept. If you have no recovery code, the only way in is to erase the app’s data and restore your backup. This lock keeps other people out of the app, but it isn’t full encryption.</div>
+</div>
+</div>
+</div>
+<div class="pane" id="p2">
+<div class="hnav" data-g="s"><button data-h="s1" class="on">📊 Overview</button><button data-h="s2">💉 Leave</button><button data-h="s3">💰 Money</button></div>
+<div class="card k4"><div class="ct" style="color:var(--teal)">Summary period</div><div id="sp_box" style="margin-top:8px"></div></div>
+<div class="hsec on" id="s1" data-g="s">
+<div class="card k2">
+  <div class="two">
+    <div><div class="lbl" id="bkt">Banked hours</div><div class="big" id="bank">0h 00m</div><div class="lbl" id="bkl">completed weeks vs <span class="wh">38</span>h</div></div>
+    <div><div class="lbl" id="lvt">Annual leave left</div><div class="big" id="lv">0h</div><div class="lbl" id="lvsub"></div></div>
+  </div>
+  <div class="lbl" id="lvy" style="margin-top:8px"></div>
+  <div id="lvb" style="margin-top:8px;font-size:14px"></div>
+  <div class="grid" style="margin-top:10px"><div><label>Joining date</label><input type="date" id="jdt"></div><div class="lbl" id="jn" style="align-self:end;padding-bottom:12px"></div></div>
+</div>
+
+<div class="card k4">
+  <div class="lbl" id="wkt">This week</div>
+  <div><b id="wk">0h 00m</b> <span class="lbl" id="wkof">of <span class="wh">38</span>h</span></div>
+  <div class="bar"><i id="bar" style="width:0%"></i></div>
+  <div class="lbl" id="wkn"></div>
+</div>
+</div>
+<div class="hsec" id="s2" data-g="s">
+<div class="card k3"><div class="lbl" id="skt">Sick leave left</div><div class="big" id="sk">0h</div><div class="lbl" id="sksub"></div><div id="skb" style="margin-top:8px;font-size:14px"></div></div>
+
+<details class="card k5" id="dtd"><summary style="font-weight:700">Leave &amp; extra hours details</summary>
+  <div class="grid" style="margin-top:10px">
+    <div class="full"><label>Show</label><select id="dt1"><option value="a">Annual leave taken</option><option value="k">Sick leave taken</option><option value="x">Extra hours (banked)</option></select></div>
+    <div><label>Detail</label><select id="dt3"><option value="w">By week / entry</option><option value="m">By month</option></select></div>
+  </div>
+  <div id="dto" style="margin-top:10px"></div>
+</details>
+</div>
+<div class="hsec" id="s3" data-g="s">
+<div class="card k1" id="ytc"><div class="ct" style="color:var(--accent)">💰 Year to date</div>
+  <label style="margin-top:8px">Financial year (1 July to 30 June)</label><select id="ytY"></select>
+  <div id="yto" style="margin-top:10px"></div>
+</div>
+</div>
+</div>
+<div class="pane" id="p3">
+<div id="hnav" class="hnav" data-g="h"><button data-h="h1" class="on">📋 Entries</button><button data-h="h2">📊 Reports</button><button data-h="h3">🎉 Holidays</button><button data-h="h4">💾 Backup</button><button data-h="h5">⚙️ Settings</button></div>
+<div class="hsec on" id="h1" data-g="h">
+<div class="card k5">
+  <div class="lbl" id="vl">All entries</div>
+  <div class="grid" style="margin-top:8px">
+    <div><label>Year</label><select id="yr"></select></div>
+    <div><label>Month</label><select id="mo"></select></div>
+    <div class="full"><label>Jump to week number (uses the year above, or this year)</label><input type="number" id="jd" min="1" max="53" placeholder="e.g. 42"></div>
+  </div>
+  <div class="navb"><button id="pw">◀ Prev</button><button id="tw">This week</button><button id="nw">Next ▶</button><button id="al">All</button></div>
+  <button id="rp" class="sec">Share / copy report of what's showing</button>
+</div>
+
+<div class="card k1" id="sum" style="display:none"></div>
+
+<div class="card" id="list"></div>
+</div>
+<div class="hsec" id="h2" data-g="h">
+<details class="card k2" id="repd"><summary style="font-weight:700">Charts &amp; tables</summary>
+  <div class="grid" style="margin-top:10px">
+    <div class="full" id="cp_box"></div>
+    <div><label>Show</label><select id="rp2"><option value="h">Hours worked</option><option value="p">Wages</option></select></div>
+    <div class="full"><label>View</label><select id="rp3"><option value="c">Chart</option><option value="t">Table</option></select></div>
+  </div>
+  <div id="repo" style="margin-top:10px"></div>
+  <button id="rcsv" class="sec">Share table as CSV (Excel / Numbers)</button>
+</details>
+
+<div class="card k5"><div class="ct" style="color:var(--indigo)">Print report (A4)</div>
+  <label style="margin-top:8px">Report period</label>
+  <select id="pr1"><option value="w">Weekly</option><option value="m">Monthly</option><option value="y">Yearly</option><option value="p">Pay period</option><option value="c">Custom dates</option><option value="a">Everything</option><option value="v">What is showing now</option></select>
+  <div class="grid" style="margin-top:8px">
+    <div id="prWw"><label>Week number</label><input type="number" id="prW" min="1" max="53"></div>
+    <div id="prMw" style="display:none"><label>Month</label><select id="prM"></select></div>
+    <div id="prYw"><label>Year</label><select id="prY"></select></div>
+    <div id="prFw" style="display:none"><label>From date</label><input type="date" id="prf"></div>
+    <div id="prTw" style="display:none"><label>To date</label><input type="date" id="prt"></div>
+    <div id="prPw" class="full" style="display:none"><label>Pay period</label><select id="prPS"></select></div>
+  </div>
+  <div class="lbl" id="prl" style="margin-top:6px;font-weight:600"></div>
+  <label style="margin-top:8px">Report type</label>
+  <select id="pr2"><option value="s">Standard report</option><option value="d">Dispute-ready record (hours, pay check, changes)</option></select>
+  <button id="prb">Preview &amp; print</button>
+</div>
+</div>
+<div class="hsec" id="h3" data-g="h">
+<div class="card k6"><div class="ct" style="color:var(--warn)">Public holidays &amp; special days</div>
+  <div class="lbl" id="hlc" style="margin:6px 0"></div>
+  <div id="hp_box"></div>
+  <div style="margin-top:8px"><label>Show</label><select id="hs"><option value="p">Public holidays</option><option value="a">Plus special days</option></select></div>
+  <div id="hlo" style="margin-top:10px"></div>
+</div>
+</div>
+<div class="hsec" id="h4" data-g="h">
+<div class="card k2"><div class="ct" style="color:var(--blue)">Backup &amp; restore</div>
+  <div class="lbl" id="bst" style="margin:6px 0"></div>
+  <button id="bnow">Back up now (share to Keep, Files…)</button>
+  <button id="bpr" class="sec">Paste &amp; restore from clipboard</button>
+  <div id="bpend" class="lbl" style="display:none;margin-top:10px"><span id="bptx"></span><div style="display:flex;gap:8px;margin-top:6px"><button id="bpy" style="margin:0">Restore now</button><button id="bpn" class="sec" style="margin:0">Cancel</button></div></div>
+  <div id="bpm" class="lbl" style="margin-top:8px"></div>
+  <div class="grid" style="margin-top:10px"><button id="bsf" style="margin:0">Save backup file</button><button id="bof" class="sec" style="margin:0">Open backup file</button></div>
+  <input type="file" id="bfi" accept=".json,.txt,application/json,text/plain" style="display:none">
+  <div style="margin-top:12px"><label>Backup text (copy this if sharing doesn\u2019t work)</label><textarea id="bbx" readonly placeholder="Tap Back up now to fill this in"></textarea><button id="bcp" class="sec">Copy backup text</button></div>
+  <div style="margin-top:12px"><label>Restore from text: paste a backup here</label><textarea id="brx" placeholder="Paste your backup text here"></textarea><button id="brt2" class="sec">Restore from this text</button></div>
+  <div class="grid" style="margin-top:12px">
+    <div class="full"><label>Remind me to back up</label><select id="bf"><option value="7">Every week</option><option value="14">Every 2 weeks</option><option value="30">Every month</option><option value="0">Off</option></select></div>
+    <div><label>Day</label><select id="brd"><option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option></select></div>
+    <div><label>Time</label><input type="time" id="brt" value="21:05"></div>
+  </div>
+  <button id="bics" class="sec">Add this reminder to my calendar</button>
+  <div style="margin-top:14px;font-weight:700">Automatic copies on this phone</div>
+  <div class="lbl">The app keeps a copy each day (last 7 days) and one before every restore. They protect against mistakes, but they are lost if the app’s data is cleared, so keep making real backups too.</div>
+  <div id="snl" style="margin-top:6px"></div>
+</div>
+
+<div class="card k4"><div class="ct" style="color:var(--teal)">📴 Works without internet</div>
+  <div class="lbl" id="ofs" style="margin-top:6px;font-weight:600">Checking\u2026</div>
+  <div class="lbl" style="margin-top:6px">Upload <b>sw.js</b> to GitHub next to <b>index.html</b>. After the app has opened once with internet, it opens with no signal too. Your shifts are always saved on the phone.</div>
+</div>
+
+<div class="card k1"><div class="ct" style="color:var(--accent)">Share this app</div>
+  <div class="lbl" style="margin-top:6px">Send the app to anyone with an iPhone or Android phone. iPhone: open the link in Safari, tap Share, then Add to Home Screen. Android: open it in Chrome, tap the menu (three dots), then Install app or Add to Home screen. Your shifts and pay are never shared.</div>
+  <button id="shb">Share app link</button>
+  <button id="shc" class="sec">Copy link</button>
+</div>
+</div>
+<div class="hsec" id="h5" data-g="h">
+<div class="card k6" id="jbc"><div class="ct" style="color:var(--warn)">💼 Jobs</div>
+  <div class="lbl" style="margin:6px 0">Each job keeps its own shifts, pay rate, penalty and overtime rules, leave balances, pay period and reports. Backups include every job.</div>
+  <div id="jbl"></div>
+  <label style="margin-top:10px">Add another job</label><input type="text" id="jbn" placeholder="Employer or job name">
+  <button id="jba">Add job</button>
+</div>
+
+<details class="card k6"><summary style="font-weight:700">Pay settings &amp; backup</summary>
+  <div class="grid" style="margin-top:10px"><div><label>Hourly rate ($)</label><input type="number" id="rt" step="0.01" min="0"></div><div><label>Sunday extra (%)</label><input type="number" id="sn" step="1" min="0"></div></div>
+  <div class="grid" style="margin-top:10px"><div><label>Saturday extra (%)</label><input type="number" id="sa" step="1" min="0"></div><div><label>Public holiday extra (%)</label><input type="number" id="hp" step="1" min="0"></div></div>
+  <div class="lbl" style="margin-top:6px">Pay is an estimate before tax. Enter the extra % for each penalty type (for example 50 for time and a half), then choose the pay type on each shift. Always check your payslip.</div>
+  <div class="grid" style="margin-top:12px"><div class="full"><label>Your name</label><input type="text" id="nm" placeholder="Type your name"></div><div class="full"><label>Employer’s name (shows top left)</label><input type="text" id="pl"></div><div class="full"><label>Location (for public holidays)</label><select id="loc"></select></div><div class="full"><label>Weekly hours target (usually 38)</label><input type="number" id="wkh" step="0.5" min="1" max="80"></div></div>
+  <div class="lbl" id="stg" style="margin-top:12px"></div>
+  <div class="lbl" id="lbk" style="margin-top:4px"></div>
+  <button id="bks">Share backup (pick Google Keep)</button>
+  <button id="bkc" class="sec">Copy backup</button>
+  <textarea id="bk" placeholder="Backup text appears here. To restore, paste a backup here and tap Restore."></textarea>
+  <button id="bkr" class="sec">Restore from pasted backup</button>
+  <div class="lbl" id="bkm" style="margin-top:8px"></div>
+</details>
+<details class="card k6" id="prd"><summary style="font-weight:700">Pay rules, tax &amp; super</summary>
+  <div class="lbl" style="margin:8px 0">These settings belong to the job you are viewing. Saturday, Sunday and public holiday rates are in Pay settings above.</div>
+  <div class="ct" style="font-size:16px;color:var(--blue)">Pay period</div>
+  <div class="grid" style="margin-top:6px">
+    <div><label>You are paid</label><select id="pfq"><option value="w">Weekly</option><option value="f">Fortnightly</option></select></div>
+    <div><label>A pay period starts on</label><input type="date" id="paq"></div>
+  </div>
+  <div class="lbl" id="pfl" style="margin-top:6px"></div>
+  <div class="ct" style="font-size:16px;color:var(--blue);margin-top:14px">Overtime</div>
+  <div class="grid" style="margin-top:6px">
+    <div><label>Daily overtime after (hours)</label><input type="number" id="otdq" step="0.1" min="0" placeholder="none"></div>
+    <div><label>Weekly overtime after (hours)</label><input type="number" id="otwq" step="0.1" min="0" placeholder="none"></div>
+    <div><label>First overtime hours (each day)</label><input type="number" id="ot1q" step="0.1" min="0" placeholder="2"></div>
+    <div><label>Rate for those hours (\u00d7)</label><input type="number" id="om1q" step="0.05" min="1" placeholder="1.5"></div>
+    <div class="full"><label>Rate after that (\u00d7)</label><input type="number" id="om2q" step="0.05" min="1" placeholder="2"></div>
+  </div>
+  <div class="ct" style="font-size:16px;color:var(--blue);margin-top:14px">Night loading</div>
+  <div class="grid" style="margin-top:6px">
+    <div class="full"><label>Extra pay for night hours (%)</label><input type="number" id="nlpq" step="1" min="0" placeholder="0 (off)"></div>
+    <div><label>Night starts</label><input type="time" id="nlsq"></div>
+    <div><label>Night ends</label><input type="time" id="nleq"></div>
+  </div>
+  <div class="ct" style="font-size:16px;color:var(--blue);margin-top:14px">Tax &amp; super</div>
+  <div class="grid" style="margin-top:6px">
+    <div class="full"><label>Tax estimate</label><select id="txmq"><option value="r">Resident, tax-free threshold claimed</option><option value="n">Resident, no tax-free threshold</option><option value="w">Working holiday maker</option><option value="f">Flat percentage</option><option value="o">Don\u2019t estimate tax</option></select></div>
+    <div><label>Flat tax rate (%)</label><input type="number" id="txpq" step="0.1" min="0" placeholder="e.g. 30"></div>
+    <div><label>Medicare levy (2%)</label><select id="mclq"><option value="y">Include</option><option value="n">Don\u2019t include</option></select></div>
+    <div class="full"><label>Super rate (%)</label><input type="number" id="suprq" step="0.1" min="0" placeholder="12"></div>
+  </div>
+  <div class="lbl" style="margin-top:8px">Overtime counts shifts only. If an overtime hour is also on a weekend or public holiday, the higher rate is used. Night loading is added on top. These are estimates, so check your award and payslip.</div>
+</details>
+
+
+</div>
+</div>
+</div>
+<nav id="tabs"><button data-t="p1" class="on">⏱<br>Clock</button><button data-t="p2">📊<br>Summary</button><button data-t="p3">📅<br>History</button></nav>
+</div>
+
+<div id="pvw"><div class="pvbar"><div class="r2"><button id="pvp">Print / Save as PDF</button><button id="pvc" class="sec">Close</button></div><div class="pvtip">Tip: tap Print. On iPhone, pinch out on the preview and use Share to save the PDF. On Android, choose Save as PDF as the printer.</div></div><div id="pvb" class="pr"></div></div>
+
+<div id="lk" style="display:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:100;background:var(--bg);padding:24px;text-align:center;padding-top:calc(80px + env(safe-area-inset-top,0px))">
+  <div class="lbl" style="position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;font-size:12px">Made by Bijay Rai</div>
+  <div style="font-size:44px">🔒</div><h1 id="lkn">My Timesheet</h1><div class="sub">Enter your password</div>
+  <input type="password" id="lkp" maxlength="64" autocomplete="off" autocapitalize="off" style="text-align:center;font-size:20px;max-width:260px">
+  <button id="lku" style="max-width:220px;margin:12px auto 0;display:block">Unlock</button>
+  <button id="lkfid" class="sec" style="max-width:220px;margin:10px auto 0;display:none;font-weight:700">Unlock with Face ID</button>
+  <div class="lbl" id="lkm" style="margin-top:12px"></div>
+  <button id="lkf" class="sec" style="max-width:220px;margin:24px auto 0;font-size:13px;display:block">Forgot password?</button>
+  <div id="lkr" style="display:none;margin-top:12px"><div class="lbl">Enter your recovery code, then choose a new password.</div>
+    <input type="text" id="rcin" placeholder="XXXX-XXXX-XXXX-XXXX" autocapitalize="characters" autocomplete="off" style="max-width:280px;text-align:center;margin-top:8px">
+    <input type="password" id="rn1" placeholder="New password" autocomplete="off" autocapitalize="off" style="max-width:280px;text-align:center;margin-top:8px">
+    <input type="password" id="rn2" placeholder="Confirm new password" autocomplete="off" autocapitalize="off" style="max-width:280px;text-align:center;margin-top:8px">
+    <button id="rcgo" style="max-width:280px;margin:10px auto 0;display:block">Reset password</button>
+    <button id="rcoff" class="sec" style="max-width:280px;margin:8px auto 0;display:block">Turn off password instead</button>
+    <button id="rcer" class="sec" style="max-width:280px;margin:8px auto 0;display:block;font-size:13px">No code? Erase app data</button></div>
+</div>
+<script>
+var PH={"2026":{"ACT":"01-01|New Year's Day;01-26|Australia Day;03-09|Canberra Day;04-03|Good Friday;04-04|Easter Saturday;04-05|Easter Sunday;04-06|Easter Monday;04-25|Anzac Day;04-27|Additional public holiday for Anzac Day;06-01|Reconciliation Day;06-08|King's Birthday;10-05|Labour Day;12-25|Christmas Day;12-26|Boxing Day;12-28|Additional public holiday for Boxing Day","NSW":"01-01|New Year's Day;01-26|Australia Day;04-03|Good Friday;04-04|Easter Saturday;04-05|Easter Sunday;04-06|Easter Monday;04-25|Anzac Day;04-27|Additional public holiday for Anzac Day;06-08|King's Birthday;10-05|Labour Day;12-25|Christmas Day;12-26|Boxing Day;12-28|Additional public holiday for Boxing Day","NT":"01-01|New Year's Day;01-26|Australia Day;04-03|Good Friday;04-04|Easter Saturday;04-05|Easter Sunday;04-06|Easter Monday;04-25|Anzac Day;05-04|May Day;06-08|King's Birthday;08-03|Picnic Day;12-24|Christmas Eve (from 7 pm)|H;12-25|Christmas Day;12-26|Boxing Day;12-28|Additional public holiday for Boxing Day;12-31|New Year's Eve (from 7 pm)|H","QLD":"01-01|New Year's Day;01-26|Australia Day;04-03|Good Friday;04-04|The day after Good Friday;04-05|Easter Sunday;04-06|Easter Monday;04-25|Anzac Day;05-04|Labour Day;08-12|Royal Queensland Show (Brisbane area only)|P;10-05|King's Birthday;12-24|Christmas Eve (from 6 pm)|H;12-25|Christmas Day;12-26|Boxing Day;12-28|Additional public holiday for Boxing Day","SA":"01-01|New Year's Day;01-26|Australia Day;03-09|Adelaide Cup Day;04-03|Good Friday;04-04|Easter Saturday;04-05|Easter Sunday;04-06|Easter Monday;04-25|Anzac Day;06-08|King's Birthday;10-05|Labour Day;12-24|Christmas Eve (from 7 pm)|H;12-25|Christmas Day;12-26|Proclamation Day holiday;12-28|Additional public holiday for Proclamation Day holiday;12-31|New Year's Eve (from 7 pm)|H","TAS":"01-01|New Year's Day;01-26|Australia Day;02-09|Royal Hobart Regatta (Hobart and southern areas)|S;03-09|Eight Hours Day;04-03|Good Friday;04-06|Easter Monday;04-07|Easter Tuesday (generally Tasmanian Public Service only)|P;04-25|Anzac Day;06-08|King's Birthday;10-22|Royal Hobart Show (Hobart and southern areas)|S;11-02|Recreation Day (northern areas)|N;12-25|Christmas Day;12-28|Boxing Day","VIC":"01-01|New Year's Day;01-26|Australia Day;03-09|Labour Day;04-03|Good Friday;04-04|Saturday before Easter Sunday;04-05|Easter Sunday;04-06|Easter Monday;04-25|Anzac Day;06-08|King's Birthday;09-25|Friday before the AFL Grand Final;11-03|Melbourne Cup;12-25|Christmas Day;12-26|Boxing Day;12-28|Additional public holiday for Boxing Day","WA":"01-01|New Year's Day;01-26|Australia Day;03-02|Labour Day;04-03|Good Friday;04-05|Easter Sunday;04-06|Easter Monday;04-25|Anzac Day;04-27|Additional public holiday for Anzac Day;06-01|Western Australia Day;09-28|King's Birthday;12-25|Christmas Day;12-26|Boxing Day;12-28|Additional public holiday for Boxing Day"},"2027":{"ACT":"01-01|New Year's Day;01-26|Australia Day;03-08|Canberra Day;03-26|Good Friday;03-27|Easter Saturday;03-28|Easter Sunday;03-29|Easter Monday;04-26|Anzac Day;05-31|Reconciliation Day;06-14|King's Birthday;10-04|Labour Day;12-25|Christmas Day;12-26|Boxing Day;12-27|Additional public holiday for Christmas Day;12-28|Additional public holiday for Boxing Day","NSW":"01-01|New Year's Day;01-26|Australia Day;03-26|Good Friday;03-27|Easter Saturday;03-28|Easter Sunday;03-29|Easter Monday;04-25|Anzac Day;04-26|Additional public holiday for Anzac Day;06-14|King's Birthday;10-04|Labour Day;12-25|Christmas Day;12-26|Boxing Day;12-27|Additional public holiday for Christmas Day;12-28|Additional public holiday for Boxing Day","NT":"01-01|New Year's Day;01-26|Australia Day;03-26|Good Friday;03-27|Easter Saturday;03-28|Easter Sunday;03-29|Easter Monday;04-26|Anzac Day;05-03|May Day;06-14|King's Birthday;08-02|Picnic Day;12-24|Christmas Eve (from 7 pm)|H;12-25|Christmas Day;12-26|Boxing Day;12-27|Additional public holiday for Christmas Day;12-28|Additional public holiday for Boxing Day;12-31|New Year's Eve (from 7 pm)|H","QLD":"01-01|New Year's Day;01-26|Australia Day;03-26|Good Friday;03-27|The day after Good Friday;03-28|Easter Sunday;03-29|Easter Monday;04-26|Anzac Day;05-03|Labour Day;08-11|Royal Queensland Show (Brisbane area only)|P;10-04|King's Birthday;12-24|Christmas Eve (from 6 pm)|H;12-25|Christmas Day;12-26|Boxing Day;12-27|Additional public holiday for Christmas Day;12-28|Additional public holiday for Boxing Day","SA":"01-01|New Year's Day;01-26|Australia Day;03-08|Adelaide Cup Day;03-26|Good Friday;03-27|Easter Saturday;03-28|Easter Sunday;03-29|Easter Monday;04-25|Anzac Day;06-14|King's Birthday;10-04|Labour Day;12-24|Christmas Eve (from 7 pm)|H;12-25|Christmas Day;12-26|Proclamation Day holiday;12-27|Additional public holiday for Christmas Day;12-28|Additional public holiday for Proclamation Day holiday;12-31|New Year's Eve (from 7 pm)|H","TAS":"01-01|New Year's Day;01-26|Australia Day;02-08|Royal Hobart Regatta (Hobart and southern areas)|S;03-08|Eight Hours Day;03-26|Good Friday;03-29|Easter Monday;03-30|Easter Tuesday (generally Tasmanian Public Service only)|P;04-25|Anzac Day;06-14|King's Birthday;10-21|Royal Hobart Show (Hobart and southern areas)|S;11-01|Recreation Day (northern areas)|N;12-25|Christmas Day;12-27|Additional public holiday for Christmas Day;12-28|Boxing Day","VIC":"01-01|New Year's Day;01-26|Australia Day;03-08|Labour Day;03-26|Good Friday;03-27|Saturday before Easter Sunday;03-28|Easter Sunday;03-29|Easter Monday;04-25|Anzac Day;06-14|King's Birthday;11-02|Melbourne Cup;12-25|Christmas Day;12-26|Boxing Day;12-27|Additional public holiday for Christmas Day;12-28|Additional public holiday for Boxing Day","WA":"01-01|New Year's Day;01-26|Australia Day;03-01|Labour Day;03-26|Good Friday;03-28|Easter Sunday;03-29|Easter Monday;04-25|Anzac Day;04-26|Additional public holiday for Anzac Day;06-07|Western Australia Day;09-27|King's Birthday;12-25|Christmas Day;12-26|Boxing Day;12-27|Additional public holiday for Christmas Day;12-28|Additional public holiday for Boxing Day"}};
+var LOCS=[["ACT","Australian Capital Territory"],["NSW","New South Wales"],["NT","Northern Territory"],["QLD","Queensland"],["SA","South Australia"],["TAS-S","Tasmania \u2013 Hobart & southern areas"],["TAS-N","Tasmania \u2013 northern areas"],["VIC","Victoria"],["WA","Western Australia"]],hcache={};
+var KEY="timesheet_v1",SKEY="timesheet_settings",TARGET=38*60,data=[],st={open:0,year:152,rate:0,sun:0,paid:{},clk:null};
+var JF=["rate","sun","sat","ph","join","open","year","sickOpen","sickYear","weekly","place","paid","recv","clk","pf","pa","otd","otw","ot1","om1","om2","nlp","nls","nle","supr","txm","txp","mcl"];
+function JDEF(){return {open:0,year:152,rate:0,sun:0,paid:{},clk:null,weekly:38}}
+function jdK(id){return id==="j1"?KEY:KEY+"_"+id}
+function jcK(id){return "timesheet_cfg_"+id}
+function jpick(o){var c={};JF.forEach(function(f){if(o[f]!==undefined)c[f]=o[f]});return c}
+(function(){var g={};try{g=JSON.parse(localStorage.getItem(SKEY)||"{}")}catch(e){}
+  var jobs=(g.jobs&&g.jobs.length)?g.jobs:[{id:"j1",name:""}],cj=g.cj,ok=false;jobs.forEach(function(j){if(j.id===cj)ok=true});if(!ok)cj=jobs[0].id;
+  var cfg=null;try{cfg=JSON.parse(localStorage.getItem(jcK(cj))||"null")}catch(e){}
+  if(!cfg)cfg=jpick(g);
+  JF.forEach(function(f){delete g[f]});
+  st=Object.assign(st,g,cfg);st.jobs=jobs;st.cj=cj;
+  try{data=JSON.parse(localStorage.getItem(jdK(cj))||"[]")}catch(e){try{data=JSON.parse(localStorage.getItem(jdK(cj)+"_bak")||"[]")}catch(e2){}}})();
+function setTarget(){TARGET=Math.round((parseFloat(st.weekly)||38)*60)}function WH(){return String(TARGET/60)}setTarget();
+function save(){payDirty=true;try{var k=jdK(st.cj),old=localStorage.getItem(k),nw=JSON.stringify(data);if(old&&old!==nw)localStorage.setItem(k+"_bak",old);localStorage.setItem(k,nw);
+  st.jobs.forEach(function(j){if(j.id===st.cj)j.name=st.place||j.name||""});
+  var g={},c={};Object.keys(st).forEach(function(f){if(JF.indexOf(f)>=0)c[f]=st[f];else g[f]=st[f]});
+  localStorage.setItem(SKEY,JSON.stringify(g));localStorage.setItem(jcK(st.cj),JSON.stringify(c));stgUI();snapSoon()}catch(e){toast("Could not save. Your phone storage may be full. Make a backup now.")}}
+function $(i){return document.getElementById(i)}
+var tt0=null;function toast(t){var b=document.getElementById("toast");if(!b){b=document.createElement("div");b.id="toast";b.style.cssText="position:fixed;left:12px;right:12px;bottom:calc(76px + env(safe-area-inset-bottom,0px));background:var(--text);color:var(--bg);padding:12px 14px;border-radius:12px;z-index:50;font-size:14px;text-align:center";document.body.appendChild(b)}b.textContent=t;b.style.display="block";clearTimeout(tt0);tt0=setTimeout(function(){b.style.display="none"},5000)}
+window.alert=function(t){toast(String(t))};
+function note(t){var n=document.getElementById("bkm");if(n)n.textContent=t;toast(t)}
+var armed=null,pend=null;
+function m(t){if(!t)return null;var p=t.split(":");return +p[0]*60+ +p[1]}
+function calc(ci,bi,bo,co){var a=m(ci),b=m(bi),c=m(bo),z=m(co);if(a===null||z===null)return null;if(z<a)z+=1440;
+  if(b!==null&&c!==null){if(b<a)b+=1440;if(c<b)c+=1440;return (b-a)+(z-c)}return z-a}
+function fmt(x){if(x===null||x<0)return "–";return Math.floor(x/60)+"h "+String(Math.round(x%60)).padStart(2,"0")+"m"}
+function sg(x){return (x<0?"−":"+")+fmt(Math.abs(x))}
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function monday(s){var d=new Date(s+"T00:00:00");d.setDate(d.getDate()-(d.getDay()+6)%7);return iso(d)}
+function pretty(s){return new Date(s+"T00:00:00").toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})}
+function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+var mode="S",editId=null;
+function setMode(x){mode=x;$("tS").className=x=="S"?"on":"";$("tL").className=x=="L"?"on":"";
+  $("fS").style.display=x=="S"?"":"none";$("fL").style.display=x=="L"?"":"none";
+  $("add").textContent=x=="S"?"Save shift":"Save leave";prev()}
+$("tS").onclick=function(){if(!editId)setMode("S")};$("tL").onclick=function(){if(!editId)setMode("L")};
+function warn(){var a=m($("ci").value),z=m($("co").value);if(a===null||z===null)return "";if(z<a)z+=1440;var w="",b=m($("bi").value),c=m($("bo").value),br=0;
+  if(b!==null&&c!==null){if(b<a)b+=1440;if(c<b)c+=1440;br=c-b}
+  if(z-a>720)w+=" ⚠ Over 12 hours long.";
+  if(z-a>300&&br<30)w+=" ⚠ Break under 30 min on a shift over 5h (check your award).";return w}
+function prev(){fAlert();$("pv").textContent=mode=="S"?"Hours: "+fmt(calc($("ci").value,$("bi").value,$("bo").value,$("co").value))+warn():"Leave counts towards your "+WH()+" hours that week."}
+["ci","bi","bo","co"].forEach(function(i){$(i).addEventListener("input",prev);$(i).addEventListener("change",prev)});
+$("d").value=$("ld").value=iso(new Date());
+$("ls").value=st.open;$("le").value=st.year;
+$("ls").addEventListener("change",function(){st.open=parseFloat($("ls").value)||0;save();render()});
+$("le").addEventListener("change",function(){st.year=parseFloat($("le").value)||0;save();render()});
+$("add").onclick=function(){
+  if(editId&&!$("rs").value.trim()&&!data.some(function(x){return String(x.id)===editId&&x.t=="o"})){alert("Please write why you changed it.");return}
+  if(mode=="S"){
+    var rc=chkShift($("ci").value,$("bi").value,$("bo").value,$("co").value);
+    if(rc.E.length){fAlert();alert("Times don\u2019t match: "+rc.E[0]);nudge();return}
+    var hasOut=!!$("co").value,h=hasOut?calc($("ci").value,$("bi").value,$("bo").value,$("co").value):0;
+    if(!$("d").value||!$("ci").value||(hasOut&&h===null)){alert("Please enter a date and a clock-in time. You can add the clock-out later.");return}
+    commit({id:Date.now(),t:"s",d:$("d").value,ci:$("ci").value,bi:$("bi").value,bo:$("bo").value,co:$("co").value,n:$("n").value,pt:$("pt").value,half:$("hf").checked,open:!hasOut,h:h});if(!hasOut)toast("Saved as in progress. Add the clock-out in History when you finish.");$("hf").checked=false;$("bi").disabled=$("bo").disabled=false;
+    ["ci","bi","bo","co","n"].forEach(function(i){$(i).value=""});
+  }else{
+    var o=$("lty").value=="o",lh=parseFloat($("lh").value);
+    if(!$("ld").value||(!o&&!(lh>0))||(o&&!(lh>=0))){alert(o?"Please enter the date of the day off.":"Please enter a date and the hours of leave.");return}
+    if(o){var d1=$("ld").value,last=$("ld2").value;
+      if(editId||!last||last<d1)commit({id:Date.now(),t:"o",d:d1,n:$("ln").value,h:Math.round((lh||0)*60)});
+      else{var c0=0;for(var xd=d1;xd<=last&&c0<31;xd=addD(xd,1),c0++)commit({id:Date.now()+c0,t:"o",d:xd,n:$("ln").value,h:Math.round((lh||0)*60)})}
+      $("ln").value="";$("ld2").value=""}
+    else{commit({id:Date.now(),t:"l",d:$("ld").value,n:$("ln").value,k:$("lty").value=="k"?"sick":"annual",h:Math.round(lh*60)});$("ln").value=""}
+  }
+  save();prev();render();autoPT();
+};
+function follow(d){if(viewW&&monday(d)!==viewW){viewW=monday(d);viewY=addD(viewW,3).slice(0,4);$("jd").value=isoWk(viewW)}}
+function commit(o){follow(o.d);
+  if(editId){var i=data.findIndex(function(x){return String(x.id)===editId});
+    if(i>-1){var old=data[i];o.id=old.id;
+      var was=old.t=="o"?"day off on "+old.d+(old.h?" ("+fmt(old.h)+" credited)":""):old.t=="l"?fmt(old.h)+" leave on "+old.d:old.ci+"–"+old.co+" on "+old.d;
+      o.log=$("rs").value.trim()?(old.log||[]).concat([{at:iso(new Date()),why:$("rs").value.trim(),was:was}]):old.log;data[i]=o}
+    endEdit()}else data.push(o)}
+function endEdit(){editId=null;$("rw").style.display="none";$("cx").style.display="none";$("rs").value="";setMode(mode)}
+$("cx").onclick=function(){endEdit();["ci","bi","bo","co","n","ln"].forEach(function(i){$(i).value=""});$("hf").checked=false;$("bi").disabled=$("bo").disabled=false};
+function startEdit(id){showTab("p1");showH("c1");var e=data.filter(function(x){return String(x.id)===id})[0];if(!e)return;editId=id;
+  if(e.t=="l"||e.t=="o"){setMode("L");$("lty").value=e.t=="o"?"o":(e.k=="sick"?"k":"a");ltyUI(true);$("ld").value=e.d;$("lh").value=(e.h/60).toFixed(2).replace(/\.?0+$/,"");$("ln").value=e.n||""}
+  else{setMode("S");$("hf").checked=!!e.half;$("bi").disabled=$("bo").disabled=!!e.half;$("d").value=e.d;$("pt").value=e.pt||(new Date(e.d+"T00:00:00").getDay()==0?"sun":"n");$("ci").value=e.ci;$("bi").value=e.bi||"";$("bo").value=e.bo||"";$("co").value=e.co;$("n").value=e.n||""}
+  $("rw").style.display="";$("rs").value="";$("cx").style.display="";$("add").textContent="Update";prev();
+  document.querySelector(".tabs").scrollIntoView({behavior:"smooth"})}
+function wkMon(y,n){var j=new Date(y+"-01-04T00:00:00");j.setDate(j.getDate()-(j.getDay()+6)%7+(n-1)*7);return iso(j)}
+function addD(s,n){var d=new Date(s+"T00:00:00");d.setDate(d.getDate()+n);return iso(d)}
+function isoWk(w){var d=new Date(w+"T00:00:00Z");d.setUTCDate(d.getUTCDate()+3);var j=new Date(Date.UTC(d.getUTCFullYear(),0,1));return Math.ceil(((d-j)/864e5+1)/7)}
+function logH(e){return (e.log||[]).map(function(x){return '<small class="lg">✎ '+pretty(x.at)+': '+esc(x.why)+' (was '+esc(x.was)+')</small>'}).join("")}
+function render(){
+  data.sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:b.id-a.id});
+  var thisW=monday(iso(new Date())),weeks={},wp={};
+  data.forEach(function(e){var w=monday(e.d);weeks[w]=weeks[w]||0;weeks[w]+=e.h;wp[w]=(wp[w]||0)+payE(e)});
+  var asc=Object.keys(weeks).sort(),cum=0,after={};
+  var jw=st.join?monday(st.join):"";
+  asc.forEach(function(w){if(w<thisW&&(!jw||w>=jw)){cum+=weeks[w]-TARGET}after[w]=cum});
+  var bank=cum,tw=weeks[thisW]||0;
+  $("bank").textContent=sg(bank);$("bank").className="big"+(bank<0?" neg":"");
+  $("wk").textContent=fmt(tw);$("bar").style.width=Math.min(100,tw/TARGET*100)+"%";
+  var need=TARGET-bank-tw;
+  $("wkn").textContent=bank?(need>0?"To clear your banked "+(bank<0?"deficit":"hours")+" and hit "+WH()+"h: "+fmt(need)+" more"
+    :"Target met with banked hours – extra "+fmt(-need)):(need>0?fmt(need)+" to go":"Target met");
+  var rate=st.year*60/52,cy=viewY||iso(new Date()).slice(0,4),acc=0,accY=0,tkY=0;
+  if(st.join){for(var ww=monday(st.join);ww<=thisW;){var a=Math.min(weeks[ww]||0,TARGET)/TARGET*rate;acc+=a;if(addD(ww,3).slice(0,4)===cy)accY+=a;var dd=new Date(ww+"T00:00:00");dd.setDate(dd.getDate()+7);ww=iso(dd)}}
+  var taken=0;data.forEach(function(e){if(e.t=="l"&&e.k!="sick"){taken+=e.h;if(e.d.slice(0,4)===cy)tkY+=e.h}});
+  var left=st.open*60+acc-taken;
+  $("lv").textContent=(left<0?"−":"")+fmt(Math.abs(left));$("lv").className="big"+(left<=0?" neg":left<TARGET?" low":"");
+  $("lvsub").innerHTML=(left/60/(TARGET/300)).toFixed(1)+" days<br>+"+fmt(rate)+" for a full "+WH()+"h week";
+  $("lvy").textContent=st.join?cy+": earned "+fmt(accY)+" · taken "+fmt(tkY)+" · left from this year "+fmt(accY-tkY):"Set your joining date so leave builds up every week.";
+  $("lvb").innerHTML='<div class="row"><span>Opening balance</span><span class="hrs">'+fmt(st.open*60)+'</span></div><div class="row"><span>+ Earned from working</span><span class="hrs pos">'+fmt(acc)+'</span></div><div class="row"><span>− Annual leave taken</span><span class="hrs neg">'+fmt(taken)+'</span></div><div class="row"><span><b>= Leave left</b></span><span class="hrs"><b>'+(left<0?"−":"")+fmt(Math.abs(left))+'</b></span></div>';
+  fillYears();
+  $("jn").textContent=st.join?"Joined "+new Date(st.join+"T00:00:00").toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"})+wn(thisW).replace("job week","week")+" now":"Set the day you started";
+  var shown=data.filter(function(e){return viewW?monday(e.d)===viewW:((!viewY||e.d.slice(0,4)===viewY)&&(!viewM||e.d.slice(5,7)===viewM))});
+  var sRate=((st.sickYear!=null?st.sickYear:2*TARGET/60)*60)/52,accS=0,tkS=0;
+  if(st.join){for(var xs=monday(st.join);xs<=thisW;xs=addD(xs,7))accS+=Math.min(weeks[xs]||0,TARGET)/TARGET*sRate}
+  data.forEach(function(e){if(e.t=="l"&&e.k=="sick")tkS+=e.h});
+  var lfS=(st.sickOpen||0)*60+accS-tkS,sg2=function(v){return (v<0?"\u2212":"")+fmt(Math.abs(v))};
+  $("sk").textContent=sg2(lfS);$("sk").className="big"+(lfS<=0?" neg":"");
+  $("sksub").textContent=(lfS/60/(TARGET/300)).toFixed(1)+" days"+(st.join?"":" \u00b7 set your joining date to start earning");
+  $("skb").innerHTML='<div class="row"><span>Opening balance</span><span class="hrs">'+fmt((st.sickOpen||0)*60)+'</span></div><div class="row"><span>+ Earned from working</span><span class="hrs pos">'+fmt(accS)+'</span></div><div class="row"><span>\u2212 Sick leave taken</span><span class="hrs neg">'+fmt(tkS)+'</span></div><div class="row"><span><b>= Sick leave left</b></span><span class="hrs"><b>'+sg2(lfS)+'</b></span></div>';
+  fillPrY();perFillAll();openUI();sumPeriod();ytdDraw();drawDtl();drawRep();drawHol();
+  ctx={shown:shown,weeks:weeks,bank:bank,left:left,leftS:lfS,wp:wp,after:after};
+  var sc=$("sum");
+  if(!viewW&&viewY){
+    var ps=viewY+"-"+(viewM||"01")+"-01",pe=viewM?iso(new Date(+viewY,+viewM,0)):viewY+"-12-31";
+    var wo=0,lt=0,ds={},sn=0,pw={},pp=0,pn=0,sl=0;
+    data.forEach(function(e){if(e.d>=ps&&e.d<=pe){pw[monday(e.d)]=1;pp+=payE(e);if(e.t=="s"&&pctOf(e)>0)pn+=e.h;if(e.t=="l"){if(e.k=="sick")sl+=e.h;else lt+=e.h}else if(e.t!="o"){wo+=e.h;ds[e.d]=1;sn++}}});
+    var ex=0,sh=0,okc=0,dc=0,best=0;
+    Object.keys(pw).forEach(function(w){var t=weeks[w];if(t>best)best=t;if(w<thisW){dc++;if(t>=TARGET)okc++;if(t>TARGET)ex+=t-TARGET;else sh+=TARGET-t}});
+    var earn=0;
+    if(st.join){for(var x=monday(ps);x<=thisW&&x<=pe;x=addD(x,7)){var th=addD(x,3);if(th>=ps&&th<=pe&&x>=jw)earn+=Math.min(weeks[x]||0,TARGET)/TARGET*rate}}
+    var lend=pe<iso(new Date())?pe:iso(new Date()),lm=monday(lend),tl=0,tk=0,bk=0;
+    if(st.join){for(var y=jw;y<=lm;y=addD(y,7))tl+=Math.min(weeks[y]||0,TARGET)/TARGET*rate}
+    data.forEach(function(e){if(e.t=="l"&&e.k!="sick"&&e.d<=lend)tk+=e.h});
+    asc.forEach(function(w){if(w<=lm)bk=after[w]});
+    var lvE=st.open*60+tl-tk;
+    var c=function(l,v,k){return '<div><div class="lbl">'+l+'</div><div class="hrs '+(k||"")+'" style="font-size:18px">'+v+'</div></div>'};
+    sc.innerHTML='<div style="font-weight:700;margin-bottom:8px">'+(viewM?MN[+viewM-1]+" ":"")+viewY+' summary</div><div class="two" style="row-gap:12px">'+
+      c("Hours worked",fmt(wo))+c("Days worked",Object.keys(ds).length+(sn?" · avg shift "+fmt(Math.round(wo/sn)):""))+
+      c("Extra hours (weeks over "+WH()+"h)","+"+fmt(ex),"pos")+c("Short hours (weeks under "+WH()+"h)","−"+fmt(sh),"neg")+
+      c("Weeks hitting "+WH()+"h",okc+" of "+dc)+c("Longest week",fmt(best))+
+      c("Annual leave taken",fmt(lt))+c("Sick leave taken",fmt(sl))+c("Annual leave earned",st.join?fmt(earn):"–")+
+      (st.rate?c("Estimated pay (before tax)",money(pp))+c("Hours on penalty rates",fmt(pn)):"")+c("Banked hours at end",sg(bk))+c("Annual leave left at end",st.join?(lvE<0?"−":"")+fmt(Math.abs(lvE)):"–")+
+      '</div><div class="lbl" style="margin-top:10px">Weeks run Monday–Sunday, so a week split across two months counts in full in both. Extra and short hours only count finished weeks.</div>';
+    sc.style.display="";
+  }else sc.style.display="none";
+  $("vl").textContent=viewW?"Showing week "+isoWk(viewW)+" · from "+new Date(viewW+"T00:00:00").toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"}):((viewY||viewM)?"Showing "+(viewM?MN[+viewM-1]+" ":"")+viewY:"Showing all entries");
+  if(!shown.length){$("list").innerHTML='<div class="empty">'+(data.length?"No entries here.":"Nothing saved yet.")+'</div>';return}
+  var html="",cur="";
+  shown.forEach(function(e){
+    var w=monday(e.d);
+    if(w!==cur){cur=w;var d=weeks[w]-TARGET,done=w<thisW;
+      html+='<div class="week"><span>Week '+isoWk(w)+' · '+pretty(w)+' – '+pretty(addD(w,6))+wn(w)+'</span><span>'+fmt(weeks[w])+'</span></div><div class="wsub">'+
+      (done?'<span class="'+(d<0?"neg":"pos")+'">'+sg(d)+' vs '+WH()+'h</span> · banked total '+sg(after[w]):'In progress')+(st.rate?' · est. '+money(wp[w]):'')+(done?payChk(w):'')+'</div>'}
+    if(e.t=="o"){html+='<div class="row"><div>'+pretty(e.d)+' · Day off<small>'+(e.h?"Credited "+fmt(e.h)+" toward your weekly hours":"Not working")+'<input type="text" class="pd" style="width:100%;margin-top:6px" data-no="'+e.id+'" placeholder="Add a note (optional)" value="'+escA(e.n||"")+'"></small>'+logH(e)+'</div><div><span class="hrs" style="color:var(--purple)">Off</span> <button class="del" style="color:var(--accent)" data-ed="'+e.id+'">Edit</button><button class="del" data-id="'+e.id+'">Delete</button></div></div>';return}
+    if(e.open){html+='<div class="row"><div>'+pretty(e.d)+' · <b style="color:var(--warn)">In progress</b><small>In '+e.ci+(e.bi?" · break "+e.bi+(e.bo?"–"+e.bo:" (not finished)"):"")+(e.half?" · Half shift":"")+'</small><div style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="time" class="pd" data-fin="'+e.id+'" style="width:110px" aria-label="Clock-out time"><button class="del" style="color:var(--accent);border:1px solid var(--accent)" data-fb="'+e.id+'">Finish shift</button></div></div><div><span class="hrs" style="color:var(--warn)">Open</span> <button class="del" style="color:var(--accent)" data-ed="'+e.id+'">Edit</button><button class="del" data-id="'+e.id+'">Delete</button></div></div>';return}
+    var l=e.t=="l",br=(!l&&e.bi&&e.bo)?" · break "+e.bi+"–"+e.bo:"";
+    html+='<div class="row"><div>'+pretty(e.d)+(l?(e.k=="sick"?" · Sick leave":" · Annual leave"):"")+'<small>'+(l?(e.k=="sick"?"Deducted from sick leave balance":"Deducted from annual leave balance"):e.ci+"–"+e.co+br+ptL(e)+(e.half?" · Half shift (no break)":"")+hTag(e.d))+(e.n?" · "+(l?"Reason: ":"")+esc(e.n):"")+'</small>'+logH(e)+'</div><div><span class="hrs'+(l?" neg":"")+'">'+(l?"−":"")+fmt(e.h)+'</span> <button class="del" style="color:var(--accent)" data-ed="'+e.id+'">Edit</button><button class="del" data-id="'+e.id+'">Delete</button></div></div>';
+  });
+  $("list").innerHTML=html;
+}
+$("list").addEventListener("click",function(ev){
+  var fb2=ev.target.getAttribute("data-fb");if(fb2){finishShift(fb2);return}var ed=ev.target.getAttribute("data-ed");if(ed){startEdit(ed);return}
+  var id=ev.target.getAttribute("data-id");
+  if(id){if(armed!==id){armed=id;ev.target.textContent="Tap again to delete";setTimeout(function(){if(armed===id){armed=null;render()}},4000);return}armed=null;data=data.filter(function(e){return String(e.id)!==id});save();render()}
+});
+function wn(w){if(!st.join)return "";var j=monday(st.join);if(w<j)return "";return " · job week "+(Math.round((new Date(w+"T00:00:00")-new Date(j+"T00:00:00"))/604800000)+1)}
+$("jdt").value=st.join||"";
+$("jdt").onchange=function(){st.join=this.value;save();render()};
+var viewW="",viewY="",viewM="",MN=["January","February","March","April","May","June","July","August","September","October","November","December"];
+$("mo").innerHTML='<option value="">All months</option>'+MN.map(function(n,i){return '<option value="'+String(i+1).padStart(2,"0")+'">'+n+'</option>'}).join("");
+function fillYears(){var ys={};data.forEach(function(e){ys[e.d.slice(0,4)]=1});ys[iso(new Date()).slice(0,4)]=1;if(viewY)ys[viewY]=1;var k=Object.keys(ys).sort().reverse();var h='<option value="">All years</option>'+k.map(function(y){return '<option value="'+y+'"'+(y===viewY?" selected":"")+'>'+y+'</option>'}).join("");if($("yr").innerHTML!==h)$("yr").innerHTML=h}
+function clr(){viewM="";$("mo").value="";$("yr").value="";$("jd").value=""}
+$("yr").onchange=function(){viewY=this.value;if(!viewY){viewM="";$("mo").value=""}viewW="";$("jd").value="";render()};
+$("mo").onchange=function(){viewM=this.value;viewW="";$("jd").value="";if(viewM&&!viewY)viewY=iso(new Date()).slice(0,4);render()};
+$("jd").onchange=function(){var n=parseInt(this.value,10);if(!(n>=1&&n<=53))return;var y=viewY||iso(new Date()).slice(0,4);viewW=wkMon(y,n);if(isoWk(viewW)!==n){alert("Year "+y+" has no week "+n);viewW="";return}viewY=y;viewM="";$("yr").value=y;$("mo").value="";render()};
+function shiftW(n){var d=new Date((viewW||monday(iso(new Date())))+"T00:00:00");d.setDate(d.getDate()+7*n);viewW=iso(d);viewY=addD(viewW,3).slice(0,4);viewM="";$("yr").value=viewY;$("mo").value="";$("jd").value=isoWk(viewW);render()}
+$("pw").onclick=function(){shiftW(-1)};$("nw").onclick=function(){shiftW(1)};
+$("tw").onclick=function(){viewW=monday(iso(new Date()));viewM="";$("mo").value="";viewY=addD(viewW,3).slice(0,4);$("yr").value=viewY;$("jd").value=isoWk(viewW);render()};
+$("al").onclick=function(){viewW="";viewY="";clr();render()};
+$("rt").value=st.rate||"";$("sn").value=st.sun||"";$("sa").value=st.sat||"";$("hp").value=st.ph||"";
+$("rt").onchange=function(){st.rate=parseFloat(this.value)||0;save();render()};
+$("sn").onchange=function(){st.sun=parseFloat(this.value)||0;save();render()};
+$("sa").onchange=function(){st.sat=parseFloat(this.value)||0;save();render()};
+$("hp").onchange=function(){st.ph=parseFloat(this.value)||0;save();render()};
+var ctx={};
+function showTab(id){["p1","p2","p3"].forEach(function(p){$(p).className="pane"+(p==id?" on":"")});Array.prototype.forEach.call(document.querySelectorAll("#tabs button"),function(b){b.className=b.getAttribute("data-t")==id?"on":""});$("scr").scrollTop=0}
+$("tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)showTab(b.getAttribute("data-t"))});
+function pctOf(e){if(e.t=="l"||e.t=="o")return 0;var p=e.pt;if(p==null)p=new Date(e.d+"T00:00:00").getDay()==0?"sun":"n";return (p=="sun"?st.sun:p=="sat"?st.sat:p=="ph"?st.ph:0)||0}
+function ptL(e){var p=e.pt;if(p==null)p=new Date(e.d+"T00:00:00").getDay()==0?"sun":"n";return p=="sun"?" · Sunday penalty":p=="sat"?" · Saturday penalty":p=="ph"?" · Public holiday penalty":""}
+var payDirty=true,PC={},PB={};
+function nMin(x){var p=(x||"").split(":");return p.length<2||p[0]===""?null:+p[0]*60+ +p[1]}
+function nOver(a,b,ns,ne){var w0=ns,w1=ne>ns?ne:ne+1440,t=0;for(var k=-1;k<=1;k++)t+=Math.max(0,Math.min(b,w1+1440*k)-Math.max(a,w0+1440*k));return t}
+function nightMin(e){var ns=nMin(st.nls),ne=nMin(st.nle);if(!(+st.nlp>0)||ns===null||ne===null||ns===ne)return 0;
+  var a=m(e.ci),z=m(e.co),b=m(e.bi),c=m(e.bo);if(a===null||z===null)return 0;if(z<a)z+=1440;
+  var seg=[];if(b!==null&&c!==null&&!e.half){if(b<a)b+=1440;if(c<b)c+=1440;seg=[[a,b],[c,z]]}else seg=[[a,z]];
+  var t=0;seg.forEach(function(q){t+=nOver(q[0],q[1],ns,ne)});return t}
+function payAll(){PC={};PB={};payDirty=false;var rate=st.rate||0,otd=(+st.otd||0)*60,otw=(+st.otw||0)*60,t1=((st.ot1===""||st.ot1==null)?2:+st.ot1)*60,m1=+st.om1||1.5,m2=+st.om2||2,nlp=+st.nlp||0;
+  var sh=data.filter(function(e){return e.t=="s"&&!e.open&&e.h>0}).sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:((a.ci||"")<(b.ci||"")?-1:1)});
+  var dayCum={},dayOT={},wkOrd={};
+  sh.forEach(function(e){var w=monday(e.d),mins=e.h,dc=dayCum[e.d]||0,ord=otd>0?Math.min(mins,Math.max(0,otd-dc)):mins,ot=mins-ord;dayCum[e.d]=dc+mins;
+    var wc=wkOrd[w]||0;if(otw>0){var room=Math.max(0,otw-wc);if(ord>room){ot+=ord-room;ord=room}}wkOrd[w]=wc+ord;
+    var doc=dayOT[e.d]||0,a1=Math.min(ot,Math.max(0,t1-doc)),a2=ot-a1;dayOT[e.d]=doc+ot;
+    var bm=1+pctOf(e)/100,k1=Math.max(m1,bm),k2=Math.max(m2,bm),nm=nightMin(e),otPay=rate/60*(a1*k1+a2*k2);
+    PB[e.id]={ord:ord,ot:ot,otPay:otPay,night:nm};PC[e.id]=rate/60*(ord*bm)+otPay+rate/60*nm*nlp/100});
+  data.forEach(function(e){if(PC[e.id]===undefined)PC[e.id]=e.h/60*rate*(1+pctOf(e)/100)})}
+function payE(e){if(payDirty)payAll();var v=PC[e.id];return v!==undefined?v:e.h/60*(st.rate||0)*(1+pctOf(e)/100)}
+function otHas(){return +st.otd>0||+st.otw>0}
+function otSum(E){if(payDirty)payAll();var t=0;E.forEach(function(e){if(PB[e.id])t+=PB[e.id].ot});return t}
+function otPaySum(E){if(payDirty)payAll();var t=0;E.forEach(function(e){if(PB[e.id])t+=PB[e.id].otPay});return t}
+
+function autoPT(){var d=$("d").value;if(!d)return;$("pt").value=ptFor(d);hlNote()}
+$("d").addEventListener("change",autoPT);autoPT();
+function money(x){return "$"+x.toFixed(2)}
+function payChk(w){var p=st.paid[w],has=(p!=null&&p!==""),df=has?ctx.weeks[w]-Math.round(p*60):0;
+  return '<br>Paid hours: <input class="pd" type="number" step="0.01" data-pw="'+w+'" value="'+(has?p:"")+'">'+(!has?"":(Math.abs(df)<2?' <span class="pos">✓ matches</span>':' <span class="neg">'+(df>0?"you worked "+fmt(df)+" more than paid":"paid "+fmt(-df)+" more than worked")+'</span>'))+'<br>Pay received ($): <input class="pd" type="number" step="0.01" data-rv="'+w+'" value="'+((st.recv&&st.recv[w]!=null)?st.recv[w]:"")+'">'}
+$("list").addEventListener("change",function(ev){var rv=ev.target.getAttribute("data-rv");if(rv){st.recv=st.recv||{};var u=ev.target.value;if(u==="")delete st.recv[rv];else st.recv[rv]=parseFloat(u);save();render();return}var w=ev.target.getAttribute("data-pw");if(w){var v=ev.target.value;if(v==="")delete st.paid[w];else st.paid[w]=parseFloat(v);save();render()}});
+$("cp").onclick=function(){var e=data.filter(function(x){return x.t=="s"})[0];if(!e){alert("No earlier shift yet.");return}$("ci").value=e.ci;$("bi").value=e.bi||"";$("bo").value=e.bo||"";$("co").value=e.co;prev()};
+function nowT(){var d=new Date();return String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")}
+function ckTime(){return $("ckt").value||nowT()}
+function clockUI(){var k=st.clk,t=$("cks");$("cal").style.display="none";
+  $("b1").disabled=!!k;var hf=$("ckh").checked;$("b2").disabled=!k||!!k.bi||hf;$("b3").disabled=!k||!k.bi||!!k.bo||hf;$("b4").disabled=!k||(!!k.bi&&!k.bo&&!hf);
+  $("ckx").style.display=k?"":"none";$("ckd").disabled=!!k;
+  if(!k&&!$("ckd").value)$("ckd").value=iso(new Date());
+  t.textContent=!k?"Not clocked in":"In "+k.ci+(k.bi?" \u00b7 break "+k.bi+(k.bo?"\u2013"+k.bo:" (on break \u2013 tap Finish break)"):"")+" \u00b7 "+pretty(k.d)}
+function clockOut(){if(!st.clk)return;follow(st.clk.d);var k=st.clk,co=ckTime(),hf=$("ckh").checked;if(clockAlert(chkShift(k.ci,hf?"":k.bi||"",hf?"":k.bo||"",co).E))return;var h=calc(k.ci,hf?"":k.bi||"",hf?"":k.bo||"",co);if(h===null)return;
+  data.push({id:Date.now(),t:"s",d:k.d,ci:k.ci,bi:hf?"":k.bi||"",bo:hf?"":k.bo||"",co:co,n:"",pt:ptFor(k.d),half:hf,h:h});$("ckh").checked=false;st.clk=null;$("ckt").value="";save();clockUI();render();toast("Shift saved: "+k.ci+"\u2013"+co+" ("+fmt(h)+")")}
+$("b1").onclick=function(){if(st.clk)return;st.clk={d:$("ckd").value||iso(new Date()),ci:ckTime()};$("ckt").value="";save();clockUI()};
+$("b2").onclick=function(){var k=st.clk;if(!k||k.bi)return;var t=ckTime();if(clockAlert(chkShift(k.ci,t,"","").E))return;k.bi=t;$("ckt").value="";save();clockUI()};
+$("b3").onclick=function(){var k=st.clk;if(!k||!k.bi||k.bo)return;var t=ckTime();if(clockAlert(chkShift(k.ci,k.bi,t,"").E))return;k.bo=t;$("ckt").value="";save();clockUI()};
+$("b4").onclick=clockOut;$("ckh").onchange=clockUI;
+var cka=false;$("ckx").onclick=function(){var b=this;if(!cka){cka=true;b.textContent="Tap again to discard";setTimeout(function(){cka=false;b.textContent="Discard this shift"},4000);return}cka=false;b.textContent="Discard this shift";st.clk=null;save();clockUI()};
+function cp2(t,cb){try{navigator.clipboard.writeText(t).then(function(){alert("Copied");if(cb)cb()},function(){fb(t,cb)})}catch(e){fb(t,cb)}}
+function fb(t,cb){var a=$("bbx");a.value=t;a.focus();a.select();try{a.setSelectionRange(0,t.length)}catch(e){}try{if(document.execCommand("copy")){alert("Copied");if(cb)cb();return}}catch(e){}alert("Press and hold in the Backup text box, choose Select All, then Copy.")}
+$("bkc").onclick=function(){var j=bkJSON();$("bk").value=j;cp2(j)};
+$("bks").onclick=function(){var j=bkJSON();$("bk").value=j;if(navigator.share){navigator.share({title:"Timesheet backup "+iso(new Date()),text:j}).catch(function(){})}else cp2(j)};
+function parseBackup(raw){var a=raw.indexOf("{"),z=raw.lastIndexOf("}");if(a<0||z<a)return {e:"No backup found. Copy the whole backup text first (it starts with { and ends with })."};var o;try{o=JSON.parse(raw.slice(a,z+1).replace(/[\u201c\u201d]/g,'"'))}catch(e){return {e:"The backup text is damaged or cut off. Copy the whole note again."}}if(!o||!Array.isArray(o.data))return {e:"That text isn\u2019t a timesheet backup."};return {o:o}}
+function jobName(id){var n="";st.jobs.forEach(function(j){if(j.id===id)n=(id===st.cj?st.place:j.name)||j.name||""});return n||"Job"}
+function jobLoad(id){var cfg={};try{cfg=JSON.parse(localStorage.getItem(jcK(id))||"{}")||{}}catch(e){}JF.forEach(function(f){delete st[f]});Object.assign(st,JDEF(),cfg);st.cj=id;data=[];try{data=JSON.parse(localStorage.getItem(jdK(id))||"[]")}catch(e){}setTarget();hcache={}}
+function jobSwitch(id){if(id===st.cj)return;save();jobLoad(id);save();refreshAll();toast("Now showing: "+jobName(id))}
+function jobAdd(name){save();var id="j"+Date.now().toString(36);st.jobs.push({id:id,name:name});JF.forEach(function(f){delete st[f]});Object.assign(st,JDEF(),{place:name});st.cj=id;data=[];setTarget();hcache={};save();refreshAll();toast("Added job: "+name)}
+function jobDel(id){if(st.jobs.length<2)return;["","_bak"].forEach(function(x){try{localStorage.removeItem(jdK(id)+x)}catch(e){}});try{localStorage.removeItem(jcK(id))}catch(e){}
+  var wasCur=id===st.cj;st.jobs=st.jobs.filter(function(j){return j.id!==id});if(wasCur){jobLoad(st.jobs[0].id)}save();refreshAll()}
+function applyBackup(o,label){snapNow(label||"Before restore");var keep={};["pin","salt","hv","rc","rs","fid","lastBackup"].forEach(function(k){if(st[k]!==undefined)keep[k]=st[k]});var on=st.name;
+  if(o.jobs&&o.jobs.length){
+    st.jobs.forEach(function(j){["","_bak"].forEach(function(x){try{localStorage.removeItem(jdK(j.id)+x)}catch(e){}});try{localStorage.removeItem(jcK(j.id))}catch(e){}});
+    o.jobs.forEach(function(j){try{localStorage.setItem(jdK(j.id),JSON.stringify(j.data||[]));localStorage.setItem(jcK(j.id),JSON.stringify(j.cfg||{}))}catch(e){}});
+    st=Object.assign({},gpick(o.st||{}),keep);st.jobs=o.jobs.map(function(j){return {id:j.id,name:j.name||""}});
+    var cj=o.cj,ok=false;st.jobs.forEach(function(j){if(j.id===cj)ok=true});jobLoad(ok?cj:st.jobs[0].id)
+  }else{
+    var g=gpick(o.st||{}),cfg=jpick(o.st||{}),jobs=st.jobs,cj2=st.cj;st=Object.assign({},g,keep);st.jobs=jobs;st.cj=cj2;JF.forEach(function(f){delete st[f]});Object.assign(st,JDEF(),cfg);data=o.data||[];setTarget();hcache={}
+  }
+  if(on&&!st.name)st.name=on;save();refreshAll();snlUI()}
+function refreshAll(){payDirty=true;rulesFill();setTarget();nameUI();$("nm").value=st.name||"";$("pl").value=st.place||"";$("wkh").value=st.weekly||38;$("rt").value=st.rate||"";$("sn").value=st.sun||"";$("sa").value=st.sat||"";$("hp").value=st.ph||"";$("jdt").value=st.join||"";$("ls").value=st.open;$("le").value=st.year;$("ss").value=st.sickOpen||"";$("se").value=st.sickYear!=null?st.sickYear:"";$("loc").value=st.loc||"";hcache={};wUI();pinUI();clockUI();jobsUI();hldUI();render();bkUI();bfUI()}
+$("bkr").onclick=function(){var p=parseBackup($("bk").value);if(p.e){note(p.e);return}var t=JSON.stringify(p.o.data).length;
+  if(pend!==t){pend=t;note("Found "+p.o.data.length+" entries"+(p.o.saved?" (backup from "+fmtD(p.o.saved.slice(0,10))+")":"")+". Tap Restore again to replace everything on this phone.");return}
+  pend=null;applyBackup(p.o);$("bk").value="";note("Restored "+p.o.data.length+" entries. Your previous data was kept as an automatic copy.")};
+$("rp").onclick=function(){var s=ctx.shown;if(!s||!s.length){alert("Nothing to share here.");return}
+  var t="Timesheet"+(st.name?" – "+st.name:"")+(st.place?" – "+st.place:"")+" – "+$("vl").textContent.replace("Showing ","")+"\n",cur="",tot=0,pay=0;
+  s.slice().sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:a.id-b.id}).forEach(function(e){var w=monday(e.d);
+    if(w!==cur){cur=w;var df=ctx.weeks[w]-TARGET;t+="\nWeek "+isoWk(w)+" ("+pretty(w)+" – "+pretty(addD(w,6))+"): "+fmt(ctx.weeks[w])+" ("+(df<0?"−":"+")+fmt(Math.abs(df))+" vs "+WH()+"h)\n"}
+    var l=e.t=="l";t+="• "+pretty(e.d)+": "+(l?(e.k=="sick"?"Sick leave ":"Annual leave "):e.ci+"–"+e.co+((e.bi&&e.bo)?" (break "+e.bi+"–"+e.bo+") ":" "))+fmt(e.h)+(l?"":ptL(e))+(e.n?" – "+(l?"reason: ":"")+e.n:"")+"\n";tot+=e.h;pay+=payE(e)});
+  t+="\nTotal: "+fmt(tot)+(st.rate?" · est. pay "+money(pay):"")+"\nBanked hours: "+sg(ctx.bank)+"\n";
+  if(st.join)t+="Annual leave left: "+(ctx.left<0?"−":"")+fmt(Math.abs(ctx.left))+"\n";
+  if(navigator.share){navigator.share({text:t}).catch(function(){})}else cp2(t)};
+function ltyUI(keep){var o=$("lty").value=="o";$("ld2w").style.display=o?"":"none";$("lhl").textContent=o?"Hours credited toward your weekly hours (0 if unpaid)":"Hours of leave taken";$("ln").placeholder=o?"Reason (e.g. not rostered, rostered day off, family event)":"Why are you taking leave? (e.g. flu, doctor, family event)";if(!keep)$("lh").value=o?"0":String(+(TARGET/300).toFixed(1))}
+$("lty").onchange=function(){ltyUI(false)};
+function hfUI(){var on=$("hf").checked;$("bi").disabled=on;$("bo").disabled=on;if(on){$("bi").value="";$("bo").value="";var a=m($("ci").value);if(a!==null&&!$("co").value){var z=(a+Math.round(TARGET/50)*5)%1440;$("co").value=String(Math.floor(z/60)).padStart(2,"0")+":"+String(z%60).padStart(2,"0")}}prev()}
+$("hf").onchange=hfUI;$("ci").addEventListener("change",function(){if($("hf").checked)hfUI()});
+function escA(t){return esc(t).replace(/"/g,"&quot;")}
+var lastOff=null,offT=null;
+$("dob").onclick=function(){if(st.clk){toast("Finish or discard your clock-in first.");return}var d=$("ckd").value||iso(new Date()),dup=false,sh=false;
+  data.forEach(function(e){if(e.d===d){if(e.t=="o")dup=true;else if(e.t=="s")sh=true}});
+  if(dup){toast("Already marked as a day off: "+pretty(d));return}if(sh){toast("You already have a shift on "+pretty(d)+".");return}
+  var id=Date.now();follow(d);data.push({id:id,t:"o",d:d,n:$("dno").value.trim(),h:0});$("dno").value="";save();render();
+  lastOff=id;$("dou").style.display="";clearTimeout(offT);offT=setTimeout(function(){$("dou").style.display="none"},8000);
+  toast("Day off saved for "+pretty(d)+". Add or change a note in History.")};
+$("dou").onclick=function(){data=data.filter(function(e){return e.id!==lastOff});save();render();$("dou").style.display="none";toast("Day off removed.")};
+$("list").addEventListener("change",function(ev){var id=ev.target.getAttribute("data-no");if(!id)return;data.forEach(function(e){if(String(e.id)===id)e.n=ev.target.value.trim()});save();toast("Note saved.")});
+function finishShift(id){var inp=document.querySelector('input[data-fin="'+id+'"]'),co=inp?inp.value:"";if(!co){toast("Enter the clock-out time first.");return}
+  var done=null;data.forEach(function(e){if(String(e.id)===id&&e.open){var hh=calc(e.ci,e.half?"":(e.bi||""),e.half?"":(e.bo||""),co);if(hh!==null){e.co=co;e.h=hh;e.open=false;done=e}}});
+  if(!done){toast("Could not finish that shift.");return}save();render();toast("Shift finished: "+done.ci+"\u2013"+done.co+" ("+fmt(done.h)+")")}
+function openUI(){var n=data.filter(function(e){return e.open}).length;$("opn").textContent=n?"\u26a0 "+n+" shift"+(n>1?"s":"")+" waiting for a clock-out. Open History to finish "+(n>1?"them":"it")+".":""}
+function showH(id){var el=$(id);if(!el)return;var g=el.getAttribute("data-g")||"h";
+  Array.prototype.forEach.call(document.querySelectorAll('.hsec[data-g="'+g+'"]'),function(x){x.className="hsec"+(x.id===id?" on":"")});
+  Array.prototype.forEach.call(document.querySelectorAll('.hnav[data-g="'+g+'"] button'),function(b){b.className=b.getAttribute("data-h")===id?"on":""});
+  if(g==="s"&&$("sp_box"))$("sp_box").style.display=id==="s3"?"none":"";
+  $("scr").scrollTop=0}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".hnav button");if(b)showH(b.getAttribute("data-h"))});
+function t12(t){var p=t.split(":"),h=+p[0],ap=h>=12?"pm":"am";h=h%12||12;return h+":"+p[1]+" "+ap}
+function chkShift(ci,bi,bo,co){var E=[],W=[],I=[],a=m(ci),z=m(co),x=m(bi),y=m(bo),span=null,bs=null,be=null,brk=0;
+  if(a===null)return {E:E,W:W,I:I,brk:0};
+  if(z!==null){span=(z-a+1440)%1440;
+    if(span===0)E.push("Clock-out ("+t12(co)+") is the same as clock-in ("+t12(ci)+").");
+    else{if(z<a)I.push("Treated as an overnight shift (it finishes after midnight).");if(span>960)E.push((z<a?"Clock-out ("+t12(co)+") is earlier than clock-in ("+t12(ci)+"), which would make the shift "+fmt(span)+" long. ":"This shift would be "+fmt(span)+" long. ")+"Check AM and PM.")}}
+  if(z!==null&&(x!==null)!==(y!==null))E.push(x!==null?"Break start is entered but break finish is missing.":"Break finish is entered but break start is missing.");
+  if(x!==null){bs=(x-a+1440)%1440;if(span!==null?bs>span:bs>960)E.push("Break start ("+t12(bi)+") isn\u2019t between clock-in ("+t12(ci)+") and clock-out"+(co?" ("+t12(co)+")":"")+".")}
+  if(y!==null){be=(y-a+1440)%1440;
+    if(bs!==null&&be<bs)E.push("Break finish ("+t12(bo)+") is before break start ("+t12(bi)+").");
+    else if(span!==null&&be>span)E.push("Break finish ("+t12(bo)+") isn\u2019t between clock-in ("+t12(ci)+") and clock-out ("+t12(co)+").")}
+  if(!E.length&&bs!==null&&be!==null){brk=be-bs;if(brk===0)W.push("The break has no length.");else if(brk>240)W.push("The break is "+fmt(brk)+" long. Check the times.")}
+  return {E:E,W:W,I:I,brk:brk}}
+function nudge(){try{if(navigator.vibrate)navigator.vibrate([80,60,80])}catch(e){}}
+var lastErr="";
+function fAlert(){var b=$("fal");if(mode!=="S"){b.style.display="none";return}
+  var ci=$("ci").value,bi=$("bi").value,bo=$("bo").value,co=$("co").value,r=chkShift(ci,bi,bo,co),all=ci&&bi&&bo&&co&&!$("hf").checked,li=function(a){return a.map(function(t){return "<div>\u2022 "+t+"</div>"}).join("")};
+  if(r.E.length){b.style.cssText="display:block;margin-top:10px;padding:10px 12px;border-radius:12px;font-size:14px;font-weight:600;line-height:1.45;border:2px solid var(--danger);color:var(--danger)";b.innerHTML="\u26a0 These times don\u2019t match"+li(r.E)+"<div style=\"font-weight:500;color:var(--muted)\">Fix them before you save.</div>"}
+  else if(all){var h=calc(ci,bi,bo,co);b.style.cssText="display:block;margin-top:10px;padding:10px 12px;border-radius:12px;font-size:14px;font-weight:600;line-height:1.45;border:2px solid var(--accent);color:var(--accent)";b.innerHTML="\u2713 Times match: "+fmt(h)+" worked (break "+fmt(r.brk)+")"+(r.W.length?'<div style="color:var(--warn)">'+li(r.W)+"</div>":"")+(r.I.length?'<div style="font-weight:500;color:var(--muted)">'+li(r.I)+"</div>":"")}
+  else if(r.W.length||r.I.length){b.style.cssText="display:block;margin-top:10px;padding:10px 12px;border-radius:12px;font-size:14px;font-weight:600;line-height:1.45;border:2px solid var(--warn);color:var(--warn)";b.innerHTML=li(r.W.concat(r.I))}
+  else b.style.display="none";
+  var key=r.E.join("|");if(key&&key!==lastErr){toast("Times don\u2019t match: "+r.E[0]);nudge()}lastErr=key}
+function clockAlert(msgs){var c=$("cal");if(!msgs||!msgs.length){c.style.display="none";return false}c.innerHTML="\u26a0 Times don\u2019t match"+msgs.map(function(t){return "<div>\u2022 "+t+"</div>"}).join("")+"<div style=\"font-weight:500;color:var(--muted)\">Change the Time box and try again.</div>";c.style.display="block";toast("Times don\u2019t match: "+msgs[0]);nudge();return true}
+function fillPrY(){var o={},now=iso(new Date()),cur=addD(monday(now),3).slice(0,4);o[cur]=1;o[now.slice(0,4)]=1;data.forEach(function(e){o[e.d.slice(0,4)]=1});
+  var keep=$("prY").value,h=Object.keys(o).sort().reverse().map(function(y){return '<option value="'+y+'">'+y+'</option>'}).join("");
+  if($("prY").getAttribute("data-h")!==h){$("prY").innerHTML=h;$("prY").setAttribute("data-h",h);$("prY").value=keep&&o[keep]?keep:cur}}
+function prUI(){var p=$("pr1").value;$("prWw").style.display=p=="w"?"":"none";$("prMw").style.display=p=="m"?"":"none";$("prYw").style.display=(p=="w"||p=="m"||p=="y")?"":"none";$("prFw").style.display=$("prTw").style.display=p=="c"?"":"none";$("prPw").style.display=p=="p"?"":"none";if(p=="p")ppFill("pr");
+  var y=$("prY").value,t="";
+  if(p=="w"){var n=+$("prW").value;if(n>=1&&n<=53){var w=wkMon(y,n);t=isoWk(w)===n?"Week "+n+": "+fmtD(w)+" \u2013 "+fmtD(addD(w,6)):"That year has no week "+n+"."}else t="Enter a week number from 1 to 53."}
+  else if(p=="m")t=MN[+$("prM").value-1]+" "+y;
+  else if(p=="y")t="1 Jan \u2013 31 Dec "+y;
+  else if(p=="p")t=ppTxt($("prPS").value);else if(p=="a")t="Every entry in the app.";
+  else if(p=="c")t=($("prf").value&&$("prt").value)?fmtD($("prf").value<$("prt").value?$("prf").value:$("prt").value)+" \u2013 "+fmtD($("prf").value<$("prt").value?$("prt").value:$("prf").value):"Pick the first and last date.";
+  else t="The week, month or year you are looking at in Entries.";
+  $("prl").textContent=t}
+$("prM").innerHTML=MN.map(function(n,i){return '<option value="'+String(i+1).padStart(2,"0")+'">'+n+'</option>'}).join("");
+$("prM").value=iso(new Date()).slice(5,7);
+$("prW").value=isoWk(monday(iso(new Date())));
+["pr1","prW","prM","prY","prf","prt","prPS"].forEach(function(i){$(i).addEventListener("change",prUI);$(i).addEventListener("input",prUI)});
+fillPrY();prUI();
+function perHTML(p,now){return '<label>Period</label><select id="'+p+'k">'+(now?'<option value="n">Now (to date)</option>':'')+'<option value="w">Weekly</option><option value="m">Monthly</option><option value="y">Yearly</option><option value="p">Pay period</option><option value="c">Custom dates</option><option value="a">Everything</option></select>'
+  +'<div class="grid" style="margin-top:8px"><div id="'+p+'Ww"><label>Week number</label><input type="number" id="'+p+'W" min="1" max="53"></div><div id="'+p+'Mw" style="display:none"><label>Month</label><select id="'+p+'M"></select></div><div id="'+p+'Yw"><label>Year</label><select id="'+p+'Y"></select></div><div id="'+p+'Fw" style="display:none"><label>From date</label><input type="date" id="'+p+'F"></div><div id="'+p+'Tw" style="display:none"><label>To date</label><input type="date" id="'+p+'T"></div><div id="'+p+'Pw" class="full" style="display:none"><label>Pay period</label><select id="'+p+'PS"></select></div></div>'
+  +'<div style="display:flex;gap:8px;align-items:center;margin-top:8px"><button id="'+p+'P" class="sec" style="margin:0;width:auto;padding:8px 14px;min-height:0">\u25c0</button><div class="lbl" id="'+p+'L" style="flex:1;text-align:center;font-weight:600"></div><button id="'+p+'N" class="sec" style="margin:0;width:auto;padding:8px 14px;min-height:0">\u25b6</button></div>'}
+function perRange(p){var k=$(p+"k").value,y=$(p+"Y").value,today=iso(new Date()),r={k:k,ok:true,ps:"0000-01-01",pe:"9999-12-31",title:"Everything",msg:""},first=null,last=null;
+  data.forEach(function(e){if(first===null||e.d<first)first=e.d;if(last===null||e.d>last)last=e.d});
+  if(k=="n"){r.ps=first||today;r.pe=today;r.title="To date"}
+  else if(k=="w"){var n=+$(p+"W").value;if(!(n>=1&&n<=53)){r.ok=false;r.msg="Enter a week number from 1 to 53."}else{var w=wkMon(y,n);if(isoWk(w)!==n){r.ok=false;r.msg="That year has no week "+n+"."}else{r.ps=w;r.pe=addD(w,6);r.title="Week "+n}}}
+  else if(k=="m"){var mo=$(p+"M").value;r.ps=y+"-"+mo+"-01";r.pe=iso(new Date(+y,+mo,0));r.title=MN[+mo-1]+" "+y}
+  else if(k=="y"){r.ps=y+"-01-01";r.pe=y+"-12-31";r.title="Year "+y}
+  else if(k=="p"){var pp0=$(p+"PS").value||ppStart(today);r.ps=pp0;r.pe=ppEnd(pp0);r.title="Pay period"}
+  else if(k=="c"){var f=$(p+"F").value,t=$(p+"T").value;if(!f||!t){r.ok=false;r.msg="Pick the first and last date."}else{if(f>t){var x=f;f=t;t=x}r.ps=f;r.pe=t;r.title=fmtD(f)+" \u2013 "+fmtD(t)}}
+  else{r.ps=first||today;r.pe=last&&last>today?last:today;r.title="Everything"}
+  return r}
+function perUI(p){var k=$(p+"k").value,st2=(k=="w"||k=="m"||k=="y"),nv=st2||k=="p";$(p+"Ww").style.display=k=="w"?"":"none";$(p+"Mw").style.display=k=="m"?"":"none";$(p+"Yw").style.display=st2?"":"none";$(p+"Fw").style.display=$(p+"Tw").style.display=k=="c"?"":"none";$(p+"P").style.display=$(p+"N").style.display=nv?"":"none";$(p+"Pw").style.display=k=="p"?"":"none";if(k=="p")ppFill(p);
+  var r=perRange(p),t;if(!r.ok)t=r.msg;else if(k=="n")t="Everything up to today";else if(k=="a")t="All your entries";else if(k=="p")t=ppTxt(r.ps);else if(k=="w")t=r.title+": "+fmtD(r.ps)+" \u2013 "+fmtD(r.pe);else if(k=="y")t="1 Jan \u2013 31 Dec "+$(p+"Y").value;else t=r.title;
+  $(p+"L").textContent=t}
+function perFill(p){var o={},now=iso(new Date()),el=$(p+"Y"),keep=el.value,cur=addD(monday(now),3).slice(0,4);o[now.slice(0,4)]=1;o[cur]=1;if(keep)o[keep]=1;data.forEach(function(e){o[e.d.slice(0,4)]=1});if(typeof PH!="undefined"&&PH)Object.keys(PH).forEach(function(y){o[y]=1});
+  var h=Object.keys(o).sort().reverse().map(function(y){return '<option value="'+y+'">'+y+'</option>'}).join("");if(el.getAttribute("data-h")!==h){el.innerHTML=h;el.setAttribute("data-h",h);el.value=keep&&o[keep]?keep:cur}}
+function perFillAll(){["sp_","cp_","hp_"].forEach(perFill)}
+function perEnsureY(p,y){var el=$(p+"Y"),has=false;Array.prototype.forEach.call(el.options||[],function(o){if(o.value===y)has=true});if(!has){var o=document.createElement("option");o.value=y;o.textContent=y;el.appendChild(o)}}
+function perStep(p,d){var k=$(p+"k").value,y=$(p+"Y").value;
+  if(k=="w"){var n=+$(p+"W").value,w=wkMon(y,n);if(isoWk(w)!==n)w=wkMon(y,1);w=addD(w,7*d);var ny=addD(w,3).slice(0,4);perEnsureY(p,ny);$(p+"Y").value=ny;$(p+"W").value=isoWk(w)}
+  else if(k=="m"){var mo=+$(p+"M").value+d,yy=+y;if(mo<1){mo=12;yy--}if(mo>12){mo=1;yy++}perEnsureY(p,String(yy));$(p+"Y").value=String(yy);$(p+"M").value=String(mo).padStart(2,"0")}
+  else if(k=="y"){var y2=String(+y+d);perEnsureY(p,y2);$(p+"Y").value=y2}
+  else if(k=="p"){var el=$(p+"PS");if(el.options&&el.options.length)el.selectedIndex=Math.max(0,Math.min(el.options.length-1,el.selectedIndex-d))}
+  perUI(p)}
+function perInit(p,now,def,cb){$(p+"box").innerHTML=perHTML(p,now);var t=iso(new Date());
+  $(p+"M").innerHTML=MN.map(function(n,i){return '<option value="'+String(i+1).padStart(2,"0")+'">'+n+'</option>'}).join("");
+  $(p+"M").value=t.slice(5,7);$(p+"W").value=isoWk(monday(t));perFill(p);$(p+"k").value=def;perUI(p);
+  [p+"k",p+"W",p+"M",p+"Y",p+"F",p+"T",p+"PS"].forEach(function(i){$(i).addEventListener("change",function(){perUI(p);cb()});$(i).addEventListener("input",function(){perUI(p);if(i===p+"W")cb()})});
+  $(p+"P").onclick=function(){perStep(p,-1);cb()};$(p+"N").onclick=function(){perStep(p,1);cb()}}
+function repData(r){var today=iso(new Date()),jw=st.join?monday(st.join):"",days=Math.round((new Date(r.pe+"T00:00:00")-new Date(r.ps+"T00:00:00"))/864e5)+1,gran;
+  if(r.k=="w")gran="d";else if(r.k=="m")gran="w";else if(r.k=="y")gran="m";else if(r.k=="c"||r.k=="p")gran=days<=31?"d":days<=150?"w":"m";else gran=days>1100?"y":days>100?"m":"w";
+  var keys=[];
+  if(gran=="d"){for(var d=r.ps,i=0;d<=r.pe&&i<400;d=addD(d,1),i++)keys.push(d)}
+  else if(gran=="w"){for(var w=monday(r.ps);w<=r.pe&&keys.length<400;w=addD(w,7))keys.push(w)}
+  else if(gran=="m"){var y0=+r.ps.slice(0,4),m0=+r.ps.slice(5,7),ye=+r.pe.slice(0,4),me=+r.pe.slice(5,7);while(y0<ye||(y0==ye&&m0<=me)){keys.push(y0+"-"+String(m0).padStart(2,"0"));m0++;if(m0>12){m0=1;y0++}}}
+  else{for(var yy=+r.ps.slice(0,4);yy<=+r.pe.slice(0,4);yy++)keys.push(String(yy))}
+  var multi=r.ps.slice(0,4)!==r.pe.slice(0,4),R={},bk=function(x){return gran=="d"?x:gran=="w"?monday(x):gran=="m"?x.slice(0,7):x.slice(0,4)};
+  keys.forEach(function(k){var b={key:k,wo:0,lv:0,ex:gran=="d"?null:0,sh:gran=="d"?null:0,pay:0,rc:0,hasRc:false};
+    if(gran=="d"){b.lab=keys.length>10?String(+k.slice(8)):new Date(k+"T00:00:00").toLocaleDateString("en-AU",{weekday:"short"})+" "+(+k.slice(8));b.lab2=pretty(k)}
+    else if(gran=="w"){b.lab="W"+isoWk(k);b.lab2="Week "+isoWk(k)+" \u00b7 "+pretty(k)+" \u2013 "+pretty(addD(k,6))}
+    else if(gran=="m"){b.lab=MN[+k.slice(5,7)-1].slice(0,3)+(multi?" "+k.slice(2,4):"");b.lab2=MN[+k.slice(5,7)-1]+" "+k.slice(0,4)}
+    else{b.lab=k;b.lab2=k}
+    R[k]=b});
+  var wk={};
+  data.forEach(function(e){var w=monday(e.d);wk[w]=(wk[w]||0)+e.h;if(e.d<r.ps||e.d>r.pe)return;var b=R[bk(e.d)];if(!b)return;if(e.t=="l"||e.t=="o")b.lv+=e.h;else b.wo+=e.h;b.pay+=payE(e)});
+  if(gran!="d")Object.keys(wk).forEach(function(w){var b=R[gran=="w"?w:bk(w)];if(!b)return;if(gran!="w"&&(w<r.ps||w>r.pe))return;var t=wk[w];
+    if(addD(w,6)<today&&(!jw||w>=jw)){if(t>TARGET)b.ex+=t-TARGET;else b.sh+=TARGET-t}
+    var q=st.recv&&st.recv[w];if(q!=null&&q!==""){b.rc+=+q;b.hasRc=true}});
+  return {rows:keys.map(function(k){return R[k]}),gran:gran}}
+function chartSVG(rows,gran,wh){
+  var hrs=wh=="h",any=rows.some(function(r){return r.hasRc}),W=360,H=210,L=34,B=24,T=12,Rr=6,n=rows.length,cw=(W-L-Rr)/n,ph=H-T-B,mx=0,tg=gran=="d"?TARGET/300:gran=="w"?TARGET/60:0;
+  rows.forEach(function(r){var q=hrs?(r.wo+r.lv)/60:Math.max(r.pay,r.hasRc?r.rc:0);if(q>mx)mx=q});
+  if(hrs&&tg&&mx<tg)mx=tg;
+  if(!mx)return '<div class="empty">'+(hrs?"No hours in this period yet.":"No wages to show yet. Enter your hourly rate in Pay settings, or the pay received for a week.")+'</div>';
+  mx=Math.ceil(mx*1.1/4)*4;
+  var Y=function(v){return T+ph-ph*v/mx},s='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto">',stp=Math.ceil(n/14),vals=n<=16;
+  for(var g=0;g<=4;g++){var gy=Y(mx*g/4);s+='<line x1="'+L+'" x2="'+(W-Rr)+'" y1="'+gy+'" y2="'+gy+'" style="stroke:var(--line)"/><text x="'+(L-4)+'" y="'+(gy+3)+'" text-anchor="end" font-size="9" style="fill:var(--muted)">'+Math.round(mx*g/4)+'</text>'}
+  var rect=function(x,v,w,col){return v>0?'<rect x="'+x+'" y="'+Y(v)+'" width="'+w+'" height="'+(ph*v/mx)+'" style="fill:var(--'+col+')"/>':''},
+  txt=function(x,y,t,sz){return '<text x="'+x+'" y="'+y+'" text-anchor="middle" font-size="'+sz+'" style="fill:var(--text)">'+t+'</text>'};
+  rows.forEach(function(r,i){var x0=L+i*cw,bw=cw*.62,bx=x0+(cw-bw)/2,cx=x0+cw/2;
+    if(hrs){var a=r.wo/60,b=r.lv/60;s+=rect(bx,a,bw,"accent");if(b>0)s+='<rect x="'+bx+'" y="'+Y(a+b)+'" width="'+bw+'" height="'+(ph*b/mx)+'" style="fill:var(--warn)"/>';
+      if(vals&&a+b>0)s+=txt(cx,Y(a+b)-3,Math.round((a+b)*10)/10,8)}
+    else{var bs=any?bw/2:bw;s+=rect(bx,r.pay,bs,"accent");if(vals&&r.pay>0)s+=txt(bx+bs/2,Y(r.pay)-3,Math.round(r.pay),7);
+      if(r.hasRc){s+=rect(bx+bs,r.rc,bs,"warn");if(vals)s+=txt(bx+bs*1.5,Y(r.rc)-3,Math.round(r.rc),7)}}
+    if(i%stp==0)s+='<text x="'+cx+'" y="'+(H-9)+'" text-anchor="middle" font-size="9" style="fill:var(--muted)">'+r.lab+'</text>'});
+  if(hrs&&tg)s+='<line x1="'+L+'" x2="'+(W-Rr)+'" y1="'+Y(tg)+'" y2="'+Y(tg)+'" stroke-dasharray="4 3" style="stroke:var(--danger)"/>';
+  return s+'</svg>'}
+function tableHTML(rows,gran){
+  var th=function(t,l){return '<th style="text-align:'+(l?"left":"right")+';padding:6px 4px;border-bottom:1px solid var(--line);color:var(--muted);font-weight:600">'+t+'</th>'},
+  td=function(t,l,b){return '<td style="text-align:'+(l?"left":"right")+';padding:6px 4px;border-bottom:1px solid var(--line);'+(b?"font-weight:700":"")+'">'+t+'</td>'},
+  tt={wo:0,lv:0,ex:0,sh:0,pay:0,rc:0,any:false},pm=function(v){return st.rate||v?money(v):"\u2013"},nl=function(v){return v===null?"\u2013":fmt(v)};
+  var h='<div style="overflow-x:auto"><table style="border-collapse:collapse;font-size:12px;width:100%;white-space:nowrap"><tr>'+th(gran=="d"?"Day":gran=="w"?"Week":gran=="m"?"Month":"Year",1)+th("Worked")+th("Leave")+th("Extra")+th("Short")+th("Est. pay")+th("Received")+'</tr>';
+  rows.slice().reverse().forEach(function(r){tt.wo+=r.wo;tt.lv+=r.lv;tt.ex+=r.ex||0;tt.sh+=r.sh||0;tt.pay+=r.pay;tt.rc+=r.rc;if(r.hasRc)tt.any=true;
+    h+='<tr>'+td(r.lab2,1)+td(fmt(r.wo))+td(fmt(r.lv))+td(nl(r.ex))+td(nl(r.sh))+td(pm(r.pay))+td(r.hasRc?money(r.rc):"\u2013")+'</tr>'});
+  h+='<tr>'+td("Total",1,1)+td(fmt(tt.wo),0,1)+td(fmt(tt.lv),0,1)+td(gran=="d"?"\u2013":fmt(tt.ex),0,1)+td(gran=="d"?"\u2013":fmt(tt.sh),0,1)+td(pm(tt.pay),0,1)+td(tt.any?money(tt.rc):"\u2013",0,1)+'</tr></table></div>';
+  return h+'<div class="lbl" style="margin-top:6px">Extra and short hours count finished weeks against '+WH()+'h'+(gran=="d"?" and need a whole week, so they aren\u2019t shown for single days":", by week start")+'. Wages are estimates until you enter pay received for a week.</div>'}
+function drawRep(){if(!$("repd").open)return;var r=perRange("cp_"),wh=$("rp2").value;
+  if(!r.ok){$("repo").innerHTML='<div class="empty">'+esc(r.msg)+'</div>';return}
+  var d=repData(r),rows=d.rows,gran=d.gran,dot=function(c,t){return '<span style="display:inline-block;width:10px;height:10px;background:var(--'+c+');border-radius:2px;margin:0 4px 0 10px"></span>'+t},
+  per=gran=="d"?"day":gran=="w"?"week":gran=="m"?"month":"year";
+  $("repo").innerHTML='<div class="lbl" style="margin-bottom:6px;text-align:center">'+esc(r.title)+' \u00b7 one bar per '+per+'</div>'+($("rp3").value=="t"?tableHTML(rows,gran):chartSVG(rows,gran,wh)+'<div class="lbl" style="text-align:center">'+(wh=="h"?dot("accent","Worked")+dot("warn","Leave & days off")+(gran=="d"?" \u00b7 dashed = "+fmt(TARGET/5)+" a day":gran=="w"?" \u00b7 dashed = "+WH()+"h a week":""):dot("accent","Estimated")+dot("warn","Received"))+'</div>')}
+function csvText(rows,gran){var f=function(x){return x===null?"":(x/60).toFixed(2)},t="Period,Worked hours,Leave hours,Extra hours,Short hours,Estimated pay,Pay received\n";
+  rows.forEach(function(r){t+='"'+r.lab2+'",'+[f(r.wo),f(r.lv),f(r.ex),f(r.sh),r.pay.toFixed(2),r.hasRc?r.rc.toFixed(2):""].join(",")+"\n"});return t}
+["rp2","rp3"].forEach(function(i){$(i).onchange=drawRep});$("repd").addEventListener("toggle",drawRep);
+$("rcsv").onclick=function(){var r=perRange("cp_");if(!r.ok){toast(r.msg);return}var d=repData(r),t=csvText(d.rows,d.gran);
+  try{var f=new File(["\ufeff"+t],"timesheet-"+r.k+".csv",{type:"text/csv"});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:"Timesheet"}).catch(function(){});return}}catch(e){}
+  if(navigator.share){navigator.share({title:"Timesheet",text:t}).catch(function(){})}else cp2(t)};
+function sumPeriod(){var r=perRange("sp_"),set=function(id,h){$(id).innerHTML=h};
+  if(r.k=="n"){set("bkt","Banked hours");set("bkl",'completed weeks vs <span class="wh">'+WH()+'</span>h');set("lvt","Annual leave left");set("wkt","This week");set("wkof",'of <span class="wh">'+WH()+'</span>h');set("skt","Sick leave left");return}
+  if(!r.ok)return;
+  var today=iso(new Date()),asAt=r.pe<today?r.pe:today,jw=st.join?monday(st.join):"",tw=monday(today),wk={},sg3=function(v){return (v<0?"\u2212":"")+fmt(Math.abs(v))};
+  data.forEach(function(e){var w=monday(e.d);wk[w]=(wk[w]||0)+e.h});
+  var ended=function(w){var z=addD(w,6);return z<today&&z<=asAt&&(!jw||w>=jw)},bank=0;
+  Object.keys(wk).forEach(function(w){if(ended(w))bank+=wk[w]-TARGET});
+  var pw={},ex=0,sh=0,tot=0;
+  data.forEach(function(e){if(e.d>=r.ps&&e.d<=r.pe){pw[monday(e.d)]=1;tot+=e.h}});
+  Object.keys(pw).forEach(function(w){if(ended(w)){var t=wk[w];if(t>TARGET)ex+=t-TARGET;else sh+=TARGET-t}});
+  var de=r.ps>asAt?0:Math.round((new Date(asAt+"T00:00:00")-new Date(r.ps+"T00:00:00"))/864e5)+1,pt=TARGET*de/7;
+  var acc=function(rate,endD){var t=0;if(st.join){for(var x=jw;x<=monday(endD)&&x<=tw;x=addD(x,7))t+=Math.min(wk[x]||0,TARGET)/TARGET*rate}return t},
+  tk=function(sick,endD){var q=0;data.forEach(function(e){if(e.t=="l"&&((e.k=="sick")===sick)&&e.d<=endD)q+=e.h});return q},
+  b4=addD(r.ps,-1),rA=st.year*60/52,rS=((st.sickYear!=null?st.sickYear:2*TARGET/60)*60)/52,oA=st.open*60,oS=(st.sickOpen||0)*60,
+  aS=oA+acc(rA,b4)-tk(false,b4),aE=oA+acc(rA,asAt)-tk(false,asAt),sS=oS+acc(rS,b4)-tk(true,b4),sE=oS+acc(rS,asAt)-tk(true,asAt),
+  eA=acc(rA,asAt)-acc(rA,b4),tA=tk(false,asAt)-tk(false,b4),eS=acc(rS,asAt)-acc(rS,b4),tS=tk(true,asAt)-tk(true,b4),
+  rw=function(a,b,c){return '<div class="row"><span>'+a+'</span><span class="hrs'+(c?" "+c:"")+'">'+b+'</span></div>'},dy=TARGET/300;
+  set("bkt","Banked hours at end of period");$("bank").textContent=sg(bank);$("bank").className="big"+(bank<0?" neg":"");
+  set("bkl","In "+esc(r.title)+": +"+fmt(ex)+" extra, \u2212"+fmt(sh)+" short");
+  set("lvt","Annual leave left at end");$("lv").textContent=sg3(aE);$("lv").className="big"+(aE<=0?" neg":aE<TARGET?" low":"");
+  $("lvsub").textContent=(aE/60/dy).toFixed(1)+" days";
+  $("lvy").textContent=r.title+": earned "+fmt(eA)+" \u00b7 taken "+fmt(tA)+" (leave is counted by whole weeks)";
+  $("lvb").innerHTML=rw("Left at start of period",sg3(aS))+rw("+ Earned in period",fmt(eA),"pos")+rw("\u2212 Taken in period",fmt(tA),"neg")+rw("<b>= Left at end</b>","<b>"+sg3(aE)+"</b>");
+  set("wkt","Hours in "+esc(r.title));$("wk").textContent=fmt(tot);set("wkof","of "+fmt(Math.round(pt))+" (pro rata for the days so far)");
+  $("bar").style.width=(pt>0?Math.min(100,tot/pt*100):0)+"%";
+  $("wkn").textContent=pt>0?(tot>=pt?"Over the pro-rata target by "+fmt(tot-pt):fmt(pt-tot)+" under the pro-rata target"):"No days in this period yet.";
+  set("skt","Sick leave left at end");$("sk").textContent=sg3(sE);$("sk").className="big"+(sE<=0?" neg":"");
+  $("sksub").textContent=(sE/60/dy).toFixed(1)+" days";
+  $("skb").innerHTML=rw("Left at start of period",sg3(sS))+rw("+ Earned in period",fmt(eS),"pos")+rw("\u2212 Taken in period",fmt(tS),"neg")+rw("<b>= Left at end</b>","<b>"+sg3(sE)+"</b>")}
+perInit("sp_",true,"n",function(){render()});perInit("cp_",false,"m",drawRep);perInit("hp_",false,"y",drawHol);
+function jobsUI(){var s=$("jobsel"),multi=st.jobs.length>1;s.style.display=multi?"":"none";$("emp").style.display=multi?"none":"";
+  s.innerHTML=st.jobs.map(function(j){return '<option value="'+escA(j.id)+'">'+esc(j.id===st.cj?(st.place||j.name||"Job"):(j.name||"Job"))+'</option>'}).join("");s.value=st.cj;
+  var h="";st.jobs.forEach(function(j){var cur=j.id===st.cj;h+='<div class="row"><div><b>'+esc(cur?(st.place||j.name||"Job"):(j.name||"Job"))+'</b><small>'+(cur?"Showing now":"Tap Switch to show it")+'</small></div><div>'+(cur?"":'<button class="del" style="color:var(--accent)" data-jsw="'+escA(j.id)+'">Switch</button>')+(st.jobs.length>1?'<button class="del" data-jdel="'+escA(j.id)+'">Delete</button>':"")+'</div></div>'});
+  $("jbl").innerHTML=h}
+var jdA=null;
+$("jobsel").onchange=function(){jobSwitch(this.value)};
+$("jbl").addEventListener("click",function(e){var sw=e.target.getAttribute("data-jsw"),dl=e.target.getAttribute("data-jdel");
+  if(sw){jobSwitch(sw);return}
+  if(dl){if(jdA!==dl){jdA=dl;e.target.textContent="Tap again to delete this job and its shifts";setTimeout(function(){if(jdA===dl){jdA=null;jobsUI()}},4000);return}jdA=null;jobDel(dl);toast("Job deleted.")}});
+$("jba").onclick=function(){var n=$("jbn").value.trim();if(!n){toast("Type the job or employer name first.");return}$("jbn").value="";jobAdd(n)};
+function dayN(x){return Math.floor(Date.UTC(+x.slice(0,4),+x.slice(5,7)-1,+x.slice(8,10))/864e5)}
+function ppLen(){return st.pf=="f"?14:7}
+function ppAnchor(){if(st.pa)return st.pa;var f=null;data.forEach(function(e){if(f===null||e.d<f)f=e.d});return monday(st.join||f||iso(new Date()))}
+function ppStart(d){var a=ppAnchor(),L=ppLen(),k=Math.floor((dayN(d)-dayN(a))/L);return addD(a,k*L)}
+function ppEnd(ps){return addD(ps,ppLen()-1)}
+function ppTxt(ps){return fmtD(ps)+" \u2013 "+fmtD(ppEnd(ps))+" ("+(st.pf=="f"?"fortnightly":"weekly")+")"}
+function ppList(){var cur=ppStart(iso(new Date())),f=null;data.forEach(function(e){if(f===null||e.d<f)f=e.d});var first=ppStart(f||cur),out=[],x=addD(cur,ppLen());for(var i=0;i<80&&x>=first;i++){out.push(x);x=addD(x,-ppLen())}return out}
+function ppFill(p){var el=$(p+"PS"),cur=ppStart(iso(new Date())),keep=el.value,L=ppList(),h=L.map(function(x){return '<option value="'+x+'">'+(x===cur?"This pay period \u00b7 ":"")+ppTxt(x)+'</option>'}).join("");
+  if(el.getAttribute("data-h")!==h){el.innerHTML=h;el.setAttribute("data-h",h);el.value=keep&&L.indexOf(keep)>=0?keep:cur}}
+function ppChanged(){["sp_","cp_","hp_"].forEach(function(p){var el=$(p+"PS");if(el){el.removeAttribute("data-h");el.value=""}if($(p+"k").value=="p")perUI(p)});var e=$("prPS");if(e){e.removeAttribute("data-h");e.value=""}prUI();rulesLbl();render()}
+function rulesLbl(){$("pfl").textContent="Current pay period: "+ppTxt(ppStart(iso(new Date())))}
+function rulesFill(){var g=function(v){return v===undefined||v===null?"":v};
+  $("pfq").value=st.pf||"w";$("paq").value=g(st.pa);$("otdq").value=g(st.otd);$("otwq").value=g(st.otw);$("ot1q").value=g(st.ot1);$("om1q").value=g(st.om1);$("om2q").value=g(st.om2);
+  $("nlpq").value=g(st.nlp);$("nlsq").value=g(st.nls);$("nleq").value=g(st.nle);$("txmq").value=st.txm||"r";$("txpq").value=g(st.txp);$("mclq").value=st.mcl||"y";$("suprq").value=g(st.supr);rulesLbl()}
+function cfgBind(id,key,num){var el=$(id);el.addEventListener("change",function(){var v=el.value;if(num){v=v===""?"":parseFloat(v);if(v!==""&&isNaN(v))v=""}st[key]=v;save();ppChanged()})}
+[["pfq","pf"],["paq","pa"],["nlsq","nls"],["nleq","nle"],["txmq","txm"],["mclq","mcl"]].forEach(function(a){cfgBind(a[0],a[1],false)});
+[["otdq","otd"],["otwq","otw"],["ot1q","ot1"],["om1q","om1"],["om2q","om2"],["nlpq","nlp"],["txpq","txp"],["suprq","supr"]].forEach(function(a){cfgBind(a[0],a[1],true)});
+function fyOf(d){var y=+d.slice(0,4);return +d.slice(5,7)>=7?y:y-1}
+function taxOn(fy,inc,m){var r1=fy>=2027?.14:(fy>=2026?.15:.16),t=m=="w"?Math.min(inc,45000)*.15:Math.max(0,Math.min(inc,45000)-18200)*r1;
+  return t+Math.max(0,Math.min(inc,135000)-45000)*.3+Math.max(0,Math.min(inc,190000)-135000)*.37+Math.max(0,inc-190000)*.45}
+function taxAnn(fy,inc){var m=st.txm||"r";if(m=="o"||inc<=0)return 0;if(m=="f")return inc*(+st.txp||0)/100;
+  var t=m=="n"?taxOn(fy,inc+18200,"r"):taxOn(fy,inc,m=="w"?"w":"r");if((m=="r"||m=="n")&&st.mcl!="n")t+=inc*.02;return t}
+function ytdDraw(){var el=$("ytY");if(!el)return;var now=iso(new Date()),cur=fyOf(now),o={};o[cur]=1;data.forEach(function(e){o[fyOf(e.d)]=1});
+  var h=Object.keys(o).sort().reverse().map(function(y){return '<option value="'+y+'">'+y+"\u2013"+String(+y+1).slice(2)+'</option>'}).join("");
+  if(el.getAttribute("data-h")!==h){var keep=el.value;el.innerHTML=h;el.setAttribute("data-h",h);el.value=keep&&o[keep]?keep:cur}
+  var fy=+el.value||cur,ps=fy+"-07-01",pe=(fy+1)+"-06-30",E=data.filter(function(e){return e.d>=ps&&e.d<=pe}),supR=(st.supr===""||st.supr==null)?12:+st.supr;
+  if(payDirty)payAll();
+  var gross=0,otp=0,mon={},first=null;
+  E.forEach(function(e){var g=payE(e),op=(PB[e.id]&&PB[e.id].otPay)||0;gross+=g;otp+=op;var k=e.d.slice(0,7);mon[k]=mon[k]||{g:0,o:0};mon[k].g+=g;mon[k].o+=op;if(first===null||e.d<first)first=e.d});
+  if(!(st.rate>0)){$("yto").innerHTML='<div class="lbl">Enter your hourly rate in Pay settings to see your earnings, tax and super.</div>';return}
+  var from=first&&first>ps?first:ps,to=pe<now?pe:now,days=Math.max(1,dayN(to)-dayN(from)+1),ongoing=pe>=now,proj=ongoing?gross/days*365:gross,
+  tA=taxAnn(fy,proj),eff=proj>0?tA/proj:0,tax=gross*eff,sup=(gross-otp)*supR/100,
+  c=function(l,v,k){return '<div><div class="lbl">'+l+'</div><div class="hrs '+(k||"")+'" style="font-size:18px">'+v+'</div></div>'},
+  txName={r:"resident, tax-free threshold",n:"resident, no tax-free threshold",w:"working holiday maker",f:"flat "+(+st.txp||0)+"%",o:"not estimated"}[st.txm||"r"];
+  var out='<div class="two" style="row-gap:12px">'+c("Gross pay so far",money(gross))+c("Estimated tax",st.txm=="o"?"\u2013":money(tax),"neg")+c("Take-home (estimate)",money(gross-tax),"pos")+c("Super (employer pays on top)",money(sup))
+    +(otHas()?c("Overtime hours",fmt(otSum(E)))+c("Overtime pay",money(otp)):"")+(ongoing&&gross>0?c("Projected full year",money(proj))+c("Average tax rate",(eff*100).toFixed(1)+"%"):"")+'</div>';
+  var mk=[];for(var i=0;i<12;i++){var mm=((6+i)%12)+1,yy=mm>=7?fy:fy+1;mk.push(yy+"-"+String(mm).padStart(2,"0"))}
+  var th=function(t,l){return '<th style="text-align:'+(l?"left":"right")+';padding:6px 4px;border-bottom:1px solid var(--line);color:var(--muted);font-weight:600">'+t+'</th>'},td=function(t,l,col){return '<td style="text-align:'+(l?"left":"right")+';padding:6px 4px;border-bottom:1px solid var(--line)'+(col?";color:var(--"+col+")":"")+'">'+t+'</td>'},rows="";
+  mk.forEach(function(k){var v=mon[k];if(!v)return;rows+='<tr>'+td(MN[+k.slice(5,7)-1].slice(0,3)+" "+k.slice(0,4),1)+td(money(v.g))+td(st.txm=="o"?"\u2013":money(v.g*eff),0,"danger")+td(money(v.g-v.g*eff),0,"accent")+td(money((v.g-v.o)*supR/100))+'</tr>'});
+  out+=(rows?'<div style="overflow-x:auto;margin-top:12px"><table style="border-collapse:collapse;font-size:13px;width:100%"><tr>'+th("Month",1)+th("Gross")+th("Tax")+th("Take-home")+th("Super")+'</tr>'+rows+'</table></div>':'')
+    +'<div class="lbl" style="margin-top:8px">Estimate only. Tax method: '+txName+(st.txm=="r"||st.txm=="n"?(st.mcl=="n"?"":", with Medicare levy 2%"):"")+'. Super at '+supR+'% of pay excluding overtime. Tax is worked out from your pay so far, projected to a full year, using the '+fy+"\u2013"+String(fy+1).slice(2)+' rates. Offsets such as LITO, HELP debts and other jobs are not included. For several jobs, tax depends on your total income. Check with the ATO or your payslip.</div>';
+  $("yto").innerHTML=out}
+$("ytY").addEventListener("change",ytdDraw);
+function bkFileName(){return "timesheet-backup-"+iso(new Date())+".json"}
+function dlFile(j){try{var b=new Blob([j],{type:"application/json"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=bkFileName();document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove()},1500);markBackup();bmsg("Backup file saved. Look in your Downloads or Files app.")}catch(e){bmsg("This view blocked saving a file. Use Back up now (text) instead.")}}
+$("bsf").onclick=function(){var j=JSON.stringify(bkObj()),f=null;$("bbx").value=j;try{f=new File([j],bkFileName(),{type:"application/json"})}catch(e){}
+  if(f&&navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:"Timesheet backup"}).then(function(){markBackup();bmsg("Backup file shared. Save it in Files or iCloud Drive.")}).catch(function(e){if(e&&e.name==="AbortError"){bmsg("Backup cancelled.");return}dlFile(j)});return}
+  dlFile(j)};
+$("bof").onclick=function(){$("bfi").click()};
+$("bfi").onchange=function(){var f=this.files&&this.files[0];this.value="";if(!f)return;var r=new FileReader();r.onload=function(){bpStage(String(r.result))};r.onerror=function(){bmsg("Could not read that file.")};r.readAsText(f)};
+function offUI(t){var e=$("ofs");if(e)e.textContent=t}
+(function(){if(!("serviceWorker" in navigator)||location.protocol!=="https:"){offUI("Offline mode: not available in this view. Open the Home Screen app.");return}
+  navigator.serviceWorker.register("sw.js").then(function(reg){offUI("Offline mode: turning on\u2026");
+    navigator.serviceWorker.ready.then(function(){setTimeout(function(){caches.keys().then(function(k){offUI(k.length?"Offline mode: ON. The app opens without internet.":"Offline mode: almost ready. Open the app once more with internet.")}).catch(function(){offUI("Offline mode: ON.")})},1500)});
+    reg.addEventListener("updatefound",function(){var w=reg.installing;if(w)w.addEventListener("statechange",function(){if(w.state==="installed"&&navigator.serviceWorker.controller)toast("A new version is ready. Close and reopen the app to use it.")})})
+  }).catch(function(){offUI("Offline mode: OFF. Upload the file sw.js to GitHub (next to index.html) to turn it on.")})})();
+rulesFill();
+function b64u(buf){var t="",b=new Uint8Array(buf);for(var i=0;i<b.length;i++)t+=String.fromCharCode(b[i]);return btoa(t).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")}
+function unb64u(t){t=t.replace(/-/g,"+").replace(/_/g,"/");while(t.length%4)t+="=";var r=atob(t),a=new Uint8Array(r.length);for(var i=0;i<r.length;i++)a[i]=r.charCodeAt(i);return a}
+function fidSupported(){return !!(window.PublicKeyCredential&&navigator.credentials&&navigator.credentials.create&&navigator.credentials.get&&location.protocol==="https:")}
+function fidEnable(){if(!fidSupported()){$("fidc").checked=false;toast("Face ID isn\u2019t available here. Open the Home Screen app.");return}
+  var rnd=function(n){var a=new Uint8Array(n);crypto.getRandomValues(a);return a};
+  Promise.resolve(PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable?PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable():true).then(function(av){
+    if(!av)throw {name:"NoBio"};
+    return navigator.credentials.create({publicKey:{challenge:rnd(32),rp:{name:"Timesheet",id:location.hostname},user:{id:rnd(16),name:"timesheet",displayName:"Timesheet"},pubKeyCredParams:[{type:"public-key",alg:-7},{type:"public-key",alg:-257}],authenticatorSelection:{authenticatorAttachment:"platform",userVerification:"required",residentKey:"discouraged"},timeout:60000,attestation:"none"}})
+  }).then(function(c){if(!c)throw {name:"None"};st.fid=b64u(c.rawId);save();pinUI();toast("Face ID is on. Your password still works too.")})
+  .catch(function(e){$("fidc").checked=false;toast(e&&e.name==="NoBio"?"This phone has no Face ID or Touch ID set up.":"Face ID wasn\u2019t turned on"+(e&&e.name==="NotAllowedError"?" (cancelled or not allowed).":"."))})}
+function fidUnlock(auto){if(!st.fid||!fidSupported())return;
+  var ch=new Uint8Array(32);crypto.getRandomValues(ch);
+  navigator.credentials.get({publicKey:{challenge:ch,rpId:location.hostname,allowCredentials:[{type:"public-key",id:unb64u(st.fid),transports:["internal"]}],userVerification:"required",timeout:60000}})
+  .then(function(a){if(a){lkFail=0;lkClose()}}).catch(function(){if(!auto)$("lkm").textContent="Face ID didn\u2019t unlock. Enter your password instead."})}
+$("lkfid").onclick=function(){fidUnlock(false)};
+$("fidc").onchange=function(){if(this.checked){if(!st.pin){this.checked=false;toast("Set a password first. Face ID works together with it.");return}fidEnable()}else{delete st.fid;save();pinUI();toast("Face ID turned off.")}};
+document.addEventListener("visibilitychange",function(){if(!document.hidden&&st.fid&&$("lk").style.display==="block")setTimeout(function(){fidUnlock(true)},400)});
+function dayUI(){var d=new Date(),w=d.toLocaleDateString("en-AU",{weekday:"long"}),dt=d.toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"}),t=iso(d);
+  $("tdy").innerHTML='<div style="font-size:12px;color:var(--muted)">Today is</div><div style="font-size:30px;font-weight:800;color:var(--day)">'+w+'</div><div style="font-size:12px;color:var(--muted)">'+dt+'</div>';
+  if(t!==lastD){lastD=t;if(!st.clk)$("ckd").value=t}}
+var lastD="";
+function fmtD(s){return new Date(s+"T00:00:00").toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"})}
+function buildReport(kind){
+  var now=iso(new Date()),ps="0000-01-01",pe="9999-12-31",title="All entries",y=now.slice(0,4),mo=now.slice(5,7),tw=monday(now),jw=st.join?monday(st.join):"";
+  var mr=function(yy,mm){ps=yy+"-"+mm+"-01";pe=iso(new Date(+yy,+mm,0));title=MN[+mm-1]+" "+yy};
+  if(kind=="w"){var wv=+$("prW").value,wm=wkMon($("prY").value,wv);ps=wm;pe=addD(wm,6);title="Week "+wv+" ("+fmtD(ps)+" \u2013 "+fmtD(pe)+")"}
+  else if(kind=="m")mr($("prY").value,$("prM").value);
+  else if(kind=="y"){var y2=$("prY").value;ps=y2+"-01-01";pe=y2+"-12-31";title="Year "+y2}
+  else if(kind=="p"){ps=$("prPS").value||ppStart(now);pe=ppEnd(ps);title="Pay period "+fmtD(ps)+" \u2013 "+fmtD(pe)}
+  else if(kind=="v"){if(viewW){ps=viewW;pe=addD(viewW,6);title="Week "+isoWk(viewW)+" ("+fmtD(ps)+" \u2013 "+fmtD(pe)+")"}else if(viewY){ps=viewY+"-"+(viewM||"01")+"-01";pe=viewM?iso(new Date(+viewY,+viewM,0)):viewY+"-12-31";title=(viewM?MN[+viewM-1]+" ":"")+viewY}}
+  if(kind=="c"&&$("prf").value&&$("prt").value){ps=$("prf").value;pe=$("prt").value;if(ps>pe){var tmp=ps;ps=pe;pe=tmp}title=fmtD(ps)+" \u2013 "+fmtD(pe)}
+  lastRange={ps:ps,pe:pe,title:title};
+  var E=data.filter(function(e){return e.d>=ps&&e.d<=pe}).sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:a.id-b.id});
+  var fw={},keys=[],seen={};
+  data.forEach(function(e){var w=monday(e.d);fw[w]=fw[w]||{s:0,l:0};if(e.t=="l"||e.t=="o")fw[w].l+=e.h;else fw[w].s+=e.h});
+  E.forEach(function(e){var w=monday(e.d);if(!seen[w]){seen[w]=1;keys.push(w)}});keys.sort();
+  var wo=0,la=0,ls=0,days={},sn=0,pay=0,pn=0;
+  E.forEach(function(e){pay+=payE(e);if(e.t=="l"){if(e.k=="sick")ls+=e.h;else la+=e.h}else if(e.t!="o"){wo+=e.h;days[e.d]=1;sn++;if(pctOf(e)>0)pn+=e.h}});
+  var ex=0,sh=0,ok=0,dc=0,rc=0,anyRc=false,anyPd=false;
+  keys.forEach(function(w){var t=ctx.weeks[w];if(w<tw&&(!jw||w>=jw)){dc++;if(t>=TARGET)ok++;if(t>TARGET)ex+=t-TARGET;else sh+=TARGET-t}
+    var r=st.recv&&st.recv[w];if(r!=null&&r!==""){rc+=+r;anyRc=true}if(st.paid&&st.paid[w]!=null)anyPd=true});
+  var sg=function(v){return (v<0?"\u2212":"+")+fmt(Math.abs(v))},sg3=function(v){return (v<0?"\u2212":"")+fmt(Math.abs(v))},kv=function(a,b){return '<div><span>'+a+'</span><b>'+b+'</b></div>'},
+  hasR=!!st.rate,nm=st.name?esc(st.name):"",em=st.place?esc(st.place):"";
+  var h='<div class="top"><div><h1>Timesheet</h1><div class="who">'+(nm?'<b>'+nm+'</b>':"")+(nm&&em?" \u00b7 ":"")+em+'</div></div><div class="meta"><b>'+esc(title)+'</b><br>Printed '+fmtD(now)+'<br>Weekly target '+WH()+' hours'+(st.join?'<br>Joined '+fmtD(st.join):"")+'</div></div>';
+  h+='<h2>Summary</h2><div class="kv">'+kv("Hours worked",fmt(wo))+kv("Days worked",Object.keys(days).length+(sn?" (avg shift "+fmt(Math.round(wo/sn))+")":""))
+    +kv("Annual leave taken",fmt(la))+kv("Sick leave taken",fmt(ls))
+    +kv("Extra hours (finished weeks)","+"+fmt(ex))+kv("Short hours (finished weeks)","\u2212"+fmt(sh))
+    +kv("Weeks at or over target",ok+" of "+dc)+(hasR?kv("Hours on penalty rates",fmt(pn)):kv("Entries",E.length))+(otHas()?kv("Overtime hours",fmt(otSum(E))):"")
+    +(hasR?kv("Estimated pay (before tax)",money(pay)):"")+(anyRc?kv("Pay received",money(rc)):"")+'</div>';
+  h+='<h2>Balances as at '+fmtD(now)+'</h2><div class="kv">'+kv("Banked hours",sg(ctx.bank))+kv("Annual leave left",sg3(ctx.left))+kv("Sick leave left",sg3(ctx.leftS))+kv("Weekly target",WH()+" h")+'</div>';
+  // weekly table
+  h+='<h2>Weekly totals</h2>';
+  if(!keys.length)h+='<p>No entries in this period.</p>';
+  else{h+='<table><thead><tr><th>Week</th><th>Dates</th><th class="n">Worked</th><th class="n">Leave</th><th class="n">Total</th><th class="n">vs '+WH()+'h</th><th class="n">Banked</th>'+(hasR?'<th class="n">Est. pay</th>':"")+(anyPd?'<th class="n">Paid h</th>':"")+(anyRc?'<th class="n">Received</th>':"")+'</tr></thead><tbody>';
+    keys.forEach(function(w){var f=fw[w],t=f.s+f.l,done=w<tw&&(!jw||w>=jw),p=st.paid&&st.paid[w],r=st.recv&&st.recv[w];
+      h+='<tr><td>'+isoWk(w)+'</td><td>'+pretty(w)+' \u2013 '+pretty(addD(w,6))+'</td><td class="n">'+fmt(f.s)+'</td><td class="n">'+fmt(f.l)+'</td><td class="n"><b>'+fmt(t)+'</b></td><td class="n">'+(done?sg(t-TARGET):"in progress")+'</td><td class="n">'+(done?sg(ctx.after[w]):"\u2013")+'</td>'
+        +(hasR?'<td class="n">'+money(ctx.wp[w]||0)+'</td>':"")+(anyPd?'<td class="n">'+(p!=null?p:"")+'</td>':"")+(anyRc?'<td class="n">'+(r!=null&&r!==""?money(+r):"")+'</td>':"")+'</tr>'});
+    h+='</tbody></table><p>Weeks run Monday to Sunday. A week that is split across the selected period is shown with its full totals. Leave counts as paid hours towards the weekly target.</p>'}
+  // daily table
+  h+='<h2>Daily entries</h2>';
+  if(!E.length)h+='<p>No entries in this period.</p>';
+  else{h+='<table><thead><tr><th>Date</th><th>Type</th><th class="n">In</th><th class="n">Break</th><th class="n">Out</th><th class="n">Hours</th><th>Pay type</th><th>Notes / reason</th></tr></thead><tbody>';
+    E.forEach(function(e){var l=e.t=="l",lg=(e.log||[]).map(function(x){return "Changed "+fmtD(x.at)+": "+esc(x.why)+" (was "+esc(x.was)+")"}).join("; ");
+      h+='<tr><td>'+pretty(e.d)+'</td><td>'+(l?(e.k=="sick"?"Sick leave":"Annual leave"):(e.t=="o"?"Day off":(e.half?"Shift (half, no break)":"Shift")))+'</td><td class="n">'+(l?"":e.ci)+'</td><td class="n">'+(!l&&e.bi&&e.bo?e.bi+"\u2013"+e.bo:"")+'</td><td class="n">'+(l?"":e.co)+'</td><td class="n"><b>'+fmt(e.h)+'</b></td><td>'+(l?"":(ptL(e).replace(" \u00b7 ","")||"Normal"))+'</td><td>'+(e.n?esc(e.n):"")+(lg?'<br><i>'+lg+'</i>':"")+'</td></tr>'});
+    h+='</tbody></table>'}
+  var lv=E.filter(function(e){return e.t=="l"});
+  if(lv.length){h+='<h2>Leave taken</h2><table><thead><tr><th>Date</th><th>Leave type</th><th class="n">Hours</th><th>Reason</th></tr></thead><tbody>';
+    lv.forEach(function(e){h+='<tr><td>'+pretty(e.d)+' \u00b7 Week '+isoWk(monday(e.d))+'</td><td>'+(e.k=="sick"?"Sick leave":"Annual leave")+'</td><td class="n">'+fmt(e.h)+'</td><td>'+(e.n?esc(e.n):"")+'</td></tr>'});h+='</tbody></table>'}
+  h+='<p>This report was prepared from the employee\u2019s own timesheet records. Hours and any pay figures are estimates before tax and may differ from the payslip; please check them against your pay and award conditions.</p>';
+  h+='<div class="sig"><div>Employee signature</div><div>Employer signature</div><div>Date</div></div>';
+  h+='<p style="text-align:center;font-size:8pt;color:#777;margin-top:14px">Made by Bijay Rai</p>';
+  return h}
+var SHARE_URL=/github\.io$/.test(location.hostname)?location.origin+location.pathname.replace(/index\.html$/,""):"https://bijayraibijay-hash.github.io/Timesheet/";
+$("shb").onclick=function(){var d={title:"Timesheet app",text:"Free timesheet app made by Bijay Rai. Works on iPhone and Android. iPhone: open the link in Safari, tap Share, then Add to Home Screen. Android: open it in Chrome, tap the menu (three dots), then Install app or Add to Home screen.",url:SHARE_URL};
+  if(navigator.share){navigator.share(d).catch(function(){})}else cp2(d.text+" "+SHARE_URL)};
+$("shc").onclick=function(){cp2(SHARE_URL)};
+$("prb").onclick=function(){var pk=$("pr1").value;
+  if(pk=="c"&&!($("prf").value&&$("prt").value)){toast("Choose both a From date and a To date.");return}
+  if(pk=="w"){var wn=+$("prW").value;if(!(wn>=1&&wn<=53)||isoWk(wkMon($("prY").value,wn))!==wn){toast("That year has no week "+($("prW").value||"?")+". Check the week number.");return}}
+  var h0=buildReport(pk);if($("pr2").value=="d"&&lastRange)h0=buildDispute(lastRange);$("pvb").innerHTML=h0;$("pvw").style.display="block";$("pvw").scrollTop=0};
+$("pvc").onclick=function(){$("pvw").style.display="none"};
+$("pvp").onclick=function(){var t=document.title;document.title="Timesheet"+(st.name?" - "+st.name:"");window.print();document.title=t};
+function locName(){var r="";LOCS.forEach(function(l){if(l[0]==st.loc)r=l[1]});return r}
+function holList(y){y=String(y);if(!st.loc||!PH[y])return [];var ck=y+st.loc;if(hcache[ck])return hcache[ck];
+  var key=st.loc.slice(0,3)=="TAS"?"TAS":st.loc,reg=st.loc=="TAS-S"?"S":st.loc=="TAS-N"?"N":"",o=[];
+  (PH[y][key]||"").split(";").forEach(function(it){if(!it)return;var p=it.split("|"),f=p[2]||"";if(f=="S"&&reg!="S")return;if(f=="N"&&reg!="N")return;o.push({d:y+"-"+p[0],n:p[1],t:f=="P"?"r":(f=="H"?"h":"p")})});
+  o.sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:0});hcache[ck]=o;return o}
+function holidayOn(d){var l=holList(d.slice(0,4));for(var i=0;i<l.length;i++)if(l[i].d==d)return l[i];return null}
+function nthDow(y,m,dow,n){var d=new Date(y,m,1),c=0;while(true){if(d.getDay()==dow){c++;if(c==n)return iso(d)}d.setDate(d.getDate()+1)}}
+function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return y+"-"+String(mo).padStart(2,"0")+"-"+String(da).padStart(2,"0")}
+function specials(y){y=+y;return [{d:y+"-02-14",n:"Valentine\u2019s Day"},{d:nthDow(y,4,0,2),n:"Mother\u2019s Day"},{d:nthDow(y,8,0,1),n:"Father\u2019s Day"},{d:nthDow(y,10,2,1),n:"Melbourne Cup day (busy day)"},{d:easter(y),n:"Easter Sunday"},{d:y+"-12-24",n:"Christmas Eve"},{d:y+"-12-31",n:"New Year\u2019s Eve"}]}
+function ptFor(d){var h=holidayOn(d);if(h&&h.t=="p")return "ph";var g=new Date(d+"T00:00:00").getDay();return g==0?"sun":g==6?"sat":"n"}
+function hTag(d){var h=holidayOn(d);return h&&h.t!="h"?" \u00b7 "+(h.t=="r"?"Local holiday":"Public holiday")+": "+esc(h.n):""}
+function hlNote(){var h=$("d").value?holidayOn($("d").value):null;$("hln").textContent=h?((h.t=="r"?"Local holiday: ":h.t=="h"?"Part-day holiday: ":"Public holiday: ")+h.n+(h.t=="p"?" \u2013 pay type set to Public holiday penalty (change it if it wasn\u2019t paid that way)":"")):""}
+function hldUI(){var t=iso(new Date()),el=$("hld"),y=t.slice(0,4);
+  if(!st.loc){el.innerHTML='<span class="lbl">Choose your location in Pay settings to see public holidays.</span>';return}
+  if(!PH[y]){el.innerHTML='<span class="lbl">Public holiday dates for '+y+' aren\u2019t loaded yet.</span>';return}
+  var h=holidayOn(t),sp=specials(y).filter(function(x){return x.d==t})[0],m="";
+  if(h)m+='<div style="font-weight:700;color:var(--day)">'+(h.t=="h"?"Part-day holiday today: ":h.t=="r"?"Local holiday today: ":"Public holiday today: ")+esc(h.n)+'</div>';
+  if(sp&&!h)m+='<div class="lbl">Special day today: '+sp.n+'</div>';
+  var nx=null;[y,String(+y+1)].forEach(function(yy){holList(yy).forEach(function(x){if(!nx&&x.d>t&&x.t!="r")nx=x})});
+  if(nx){var dd=Math.round((new Date(nx.d+"T00:00:00")-new Date(t+"T00:00:00"))/864e5);m+='<div class="lbl">Next: '+esc(nx.n)+' \u00b7 '+pretty(nx.d)+' ('+(dd==1?"tomorrow":"in "+dd+" days")+')</div>'}
+  el.innerHTML=m}
+function drawHol(){var r=perRange("hp_");
+  if(!st.loc){$("hlc").textContent="Choose your location in Pay settings (under Your name) to see the public holidays that apply to you.";$("hlo").innerHTML="";return}
+  $("hlc").textContent="Location: "+locName()+". Dates from the Fair Work Ombudsman\u2019s state lists for 2026 and 2027. Local show days for other areas aren\u2019t included.";
+  if(!r.ok){$("hlo").innerHTML='<div class="empty">'+esc(r.msg)+'</div>';return}
+  if(r.k=="a"){var pk=Object.keys(PH).sort();r.ps=pk[0]+"-01-01";r.pe=pk[pk.length-1]+"-12-31";r.title="All years loaded ("+pk[0]+"\u2013"+pk[pk.length-1]+")"}
+  var y0=+r.ps.slice(0,4),y1=Math.min(+r.pe.slice(0,4),y0+10),L=[],have={},miss=[];
+  for(var y=y0;y<=y1;y++){if(!PH[String(y)]){miss.push(y);continue}holList(y).forEach(function(x){L.push({d:x.d,n:x.n,t:x.t});have[x.d]=1})}
+  if($("hs").value=="a")for(var y2=y0;y2<=y1;y2++)specials(y2).forEach(function(x){if(!have[x.d]){L.push({d:x.d,n:x.n,t:"s"});have[x.d]=1}});
+  L=L.filter(function(x){return x.d>=r.ps&&x.d<=r.pe}).sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:0});
+  var wk={};data.forEach(function(e){if(e.t=="s")wk[e.d]=(wk[e.d]||0)+e.h});
+  var np=0,nw=0,hw=0,h="";
+  L.forEach(function(x){var w=wk[x.d]||0;if(x.t=="p"){np++;if(w){nw++;hw+=w}}
+    var lab=x.t=="s"?"Special day (not a public holiday)":x.t=="h"?"Part-day holiday":x.t=="r"?"Local or limited holiday":"Public holiday";
+    h+='<div class="row"><div><b>'+esc(x.n)+'</b><small>'+pretty(x.d)+' \u00b7 '+lab+'</small></div><div class="hrs">'+(w?'<span class="pos">Worked '+fmt(w)+'</span>':(x.d<iso(new Date())?'<span class="lbl">past</span>':''))+'</div></div>'});
+  $("hlo").innerHTML='<div class="lbl" style="margin-bottom:6px">'+np+' public holiday'+(np==1?"":"s")+' in '+esc(r.title)+' \u00b7 you worked '+nw+' of them ('+fmt(hw)+')</div>'+(miss.length?'<div class="lbl" style="color:var(--warn);margin-bottom:6px">Dates for '+miss.join(", ")+' aren\u2019t loaded yet.</div>':"")+(h||'<div class="empty">No holidays or special days in this period.</div>')}
+$("loc").innerHTML='<option value="">Choose location\u2026</option>'+LOCS.map(function(l){return '<option value="'+l[0]+'">'+l[1]+'</option>'}).join("");
+$("loc").value=st.loc||"";
+$("loc").onchange=function(){st.loc=this.value;hcache={};save();hldUI();drawHol();autoPT();render()};
+$("hs").onchange=drawHol;
+var SNK="timesheet_snaps",snT=null,snA=null,pendO=null;
+function snapsGet(){try{return JSON.parse(localStorage.getItem(SNK)||"[]")}catch(e){return []}}
+function snapNow(label){try{if(!label&&!data.length)return;var j=JSON.stringify(bkObj()),Ls=snapsGet(),t=new Date(),k=iso(t);
+  if(label){Ls.push({t:t.toISOString(),k:k,l:label,n:data.length,j:j})}else{var f=false;Ls.forEach(function(x){if(!x.l&&x.k==k){x.t=t.toISOString();x.n=data.length;x.j=j;f=true}});if(!f)Ls.push({t:t.toISOString(),k:k,n:data.length,j:j})}
+  var dl=Ls.filter(function(x){return !x.l}).slice(-7),lb=Ls.filter(function(x){return x.l}).slice(-3);Ls=dl.concat(lb).sort(function(a,b){return a.t<b.t?-1:1});
+  try{localStorage.setItem(SNK,JSON.stringify(Ls))}catch(e2){Ls=Ls.slice(-3);try{localStorage.setItem(SNK,JSON.stringify(Ls))}catch(e3){}}}catch(e){}}
+function snapSoon(){clearTimeout(snT);snT=setTimeout(function(){snapNow();snlUI()},4000)}
+function snlUI(){var Ls=snapsGet().slice().reverse(),h="";Ls.forEach(function(x){h+='<div class="row"><div>'+new Date(x.t).toLocaleString("en-AU",{weekday:"short",day:"numeric",month:"short",hour:"numeric",minute:"2-digit"})+'<small>'+(x.l?x.l:"Automatic copy")+' \u00b7 '+x.n+' entries</small></div><div><button class="del" style="color:var(--accent)" data-sn="'+x.t+'">Restore</button></div></div>'});
+  $("snl").innerHTML=h||'<div class="lbl">No automatic copies yet. One is made after you add your first entry.</div>'}
+$("snl").addEventListener("click",function(e){var t=e.target.getAttribute("data-sn");if(!t)return;
+  if(snA!==t){snA=t;e.target.textContent="Tap again to restore";setTimeout(function(){if(snA===t){snA=null;snlUI()}},4000);return}
+  snA=null;var x=snapsGet().filter(function(q){return q.t===t})[0],o;if(!x)return;try{o=JSON.parse(x.j)}catch(er){bmsg("That copy is damaged.");return}
+  applyBackup(o);bmsg("Restored the copy from "+new Date(x.t).toLocaleString("en-AU",{day:"numeric",month:"short",hour:"numeric",minute:"2-digit"})+". Your previous data was kept as an automatic copy.")});
+function bmsg(t){$("bpm").textContent=t;toast(t)}
+function markBackup(){st.lastBackup=new Date().toISOString();save();bkUI()}
+function doBackup(){var j=bkJSON();$("bk").value=j;$("bbx").value=j;
+  var fallback=function(){cp2(j,markBackup);bmsg("Sharing isn\u2019t available here, so the backup text was copied. If it didn\u2019t copy, tap Copy backup text below and paste it into Notes or Keep.")};
+  if(navigator.share){navigator.share({title:"Timesheet backup "+iso(new Date()),text:j}).then(function(){markBackup();bmsg("Backup shared. Make sure you saved it in Keep, Notes or Files.")}).catch(function(e){if(e&&e.name==="AbortError"){bmsg("Backup cancelled.");return}fallback()})}else fallback()}
+$("bks").onclick=doBackup;$("bnow").onclick=doBackup;
+$("bkc").onclick=function(){var j=bkJSON();$("bk").value=j;cp2(j,markBackup)};
+$("bkw").addEventListener("click",function(e){if(e.target.id=="bkn")doBackup()});
+$("bpr").onclick=function(){if(!navigator.clipboard||!navigator.clipboard.readText){bmsg("This browser can\u2019t read the clipboard. Paste it into the \u201cRestore from text\u201d box below instead.");return}
+  navigator.clipboard.readText().then(function(t){var p=parseBackup(t||"");if(p.e){bmsg(p.e);return}pendO=p.o;$("bptx").textContent="Found "+p.o.data.length+" entries"+(p.o.saved?" (backup from "+fmtD(p.o.saved.slice(0,10))+")":"")+". Restoring replaces everything on this phone. Your current data is kept as an automatic copy first.";$("bpend").style.display=""},function(){bmsg("Clipboard access was blocked. Paste it into the \u201cRestore from text\u201d box below instead.")})};
+$("bpy").onclick=function(){if(!pendO)return;var o=pendO;pendO=null;$("bpend").style.display="none";applyBackup(o);bmsg("Restored "+o.data.length+" entries.")};
+$("bpn").onclick=function(){pendO=null;$("bpend").style.display="none"};
+function bpStage(t){var p=parseBackup(t||"");if(p.e){bmsg(p.e);return}pendO=p.o;$("bptx").textContent="Found "+p.o.data.length+" entries"+(p.o.saved?" (backup from "+fmtD(p.o.saved.slice(0,10))+")":"")+". Restoring replaces everything on this phone. Your current data is kept as an automatic copy first.";$("bpend").style.display=""}
+$("bcp").onclick=function(){var t=$("bbx").value||bkJSON();$("bbx").value=t;cp2(t,markBackup)};
+$("brt2").onclick=function(){bpStage($("brx").value)};
+function bfUI(){$("bf").value=String(st.bkFreq!=null?st.bkFreq:7)}
+$("bf").onchange=function(){st.bkFreq=+this.value;save();bkUI()};
+$("bics").onclick=function(){var f=+$("bf").value||7,dow=+$("brd").value,tm=($("brt").value||"21:05").split(":"),d=new Date(),p2=function(n){return String(n).padStart(2,"0")},
+  days=["SU","MO","TU","WE","TH","FR","SA"];d.setHours(+tm[0],+tm[1],0,0);var add=(dow-d.getDay()+7)%7;if(add==0&&d<new Date())add=7;d.setDate(d.getDate()+add);
+  var fm=function(x){return x.getFullYear()+p2(x.getMonth()+1)+p2(x.getDate())+"T"+p2(x.getHours())+p2(x.getMinutes())+"00"},e=new Date(d.getTime()+15*60000),
+  rule=f==14?"FREQ=WEEKLY;INTERVAL=2;BYDAY="+days[dow]:f==30?"FREQ=MONTHLY;BYDAY=1"+days[dow]:"FREQ=WEEKLY;BYDAY="+days[dow];
+  var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Timesheet//EN","BEGIN:VEVENT","UID:ts-backup-"+Date.now()+"@timesheet","DTSTAMP:"+new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z","DTSTART:"+fm(d),"DTEND:"+fm(e),"RRULE:"+rule,"SUMMARY:Back up my timesheet","DESCRIPTION:Open the Timesheet app and tap Back up now (History screen).","BEGIN:VALARM","TRIGGER:PT0M","ACTION:DISPLAY","DESCRIPTION:Back up my timesheet","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  try{var fl=new File([ics],"timesheet-backup-reminder.ics",{type:"text/calendar"});if(navigator.canShare&&navigator.canShare({files:[fl]})){navigator.share({files:[fl],title:"Backup reminder"}).catch(function(){});return}}catch(er){}
+  bmsg("This browser can\u2019t share a calendar file. Please set a repeating reminder in your Reminders or Calendar app instead.")};
+var lastRange=null;
+function buildDispute(R){
+  var ps=R.ps,pe=R.pe,now=new Date(),nd=iso(now),tw=monday(nd),jw=st.join?monday(st.join):"",nm=st.name?esc(st.name):"(name not set)",em=st.place?esc(st.place):"(employer not set)";
+  var E=data.filter(function(e){return e.d>=ps&&e.d<=pe}).sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:a.id-b.id}),S=E.filter(function(e){return e.t=="s"});
+  var fw={};data.forEach(function(e){var w=monday(e.d);fw[w]=(fw[w]||0)+e.h});
+  var wk=[],seen={};E.forEach(function(e){var w=monday(e.d);if(!seen[w]){seen[w]=1;wk.push(w)}});wk.sort();
+  var tot=0,lv=0,edited=0,late=0,phn=0,phh=0,iss=[],days={};
+  var recT=function(e){return (e.id>1e12&&e.id<4e12)?new Date(e.id):null},
+  span=function(e){var a=m(e.ci),z=m(e.co);if(a===null||z===null)return 0;if(z<a)z+=1440;return z-a},
+  brk=function(e){var b=m(e.bi),c=m(e.bo);if(b===null||c===null)return 0;if(c<b)c+=1440;return c-b},
+  sg=function(v){return (v<0?"\u2212":"+")+fmt(Math.abs(v))};
+  var drow="",chg="";
+  E.forEach(function(e){var l=e.t=="l",r=recT(e),fl=[],ho=holidayOn(e.d);
+    if(l)lv+=e.h;else{tot+=e.h;days[e.d]=1}
+    if(e.log&&e.log.length)edited++;
+    if(r){var ld=Math.floor((r-new Date(e.d+"T23:59:59"))/864e5);if(ld>=2){late++;fl.push("entered "+ld+" days after the shift")}}
+    if(!l){var sp=span(e),br=brk(e);if(sp>720)fl.push("shift over 12 hours");if(sp>300&&br<30)fl.push("break under 30 minutes on a shift over 5 hours");
+      if(ho&&ho.t=="p"){phn++;phh+=e.h;if(e.pt!="ph")fl.push("public holiday not marked as a penalty day")}}
+    if(fl.length)iss.push(pretty(e.d)+": "+fl.join("; ")+".");
+    drow+='<tr><td>'+pretty(e.d)+'</td><td>'+(l?(e.k=="sick"?"Sick leave":"Annual leave"):(e.t=="o"?"Day off":(e.half?"Shift (half, no break)":"Shift")))+'</td><td class="n">'+(l?"":e.ci)+'</td><td class="n">'+(!l&&e.bi&&e.bo?e.bi+"\u2013"+e.bo:"")+'</td><td class="n">'+(l?"":e.co)+'</td><td class="n"><b>'+fmt(e.h)+'</b></td><td>'+(l?"":(ptL(e).replace(" \u00b7 ","")||"Normal"))+'</td><td>'+(r?r.toLocaleString("en-AU",{day:"numeric",month:"short",hour:"numeric",minute:"2-digit"}):"")+'</td><td>'+(e.n?esc(e.n):"")+(ho&&!l&&ho.t!="h"?(e.n?"<br>":"")+'<i>'+esc(ho.n)+'</i>':"")+(fl.length?'<br><span class="flag">'+fl.join("; ")+'</span>':"")+'</td></tr>';
+    (e.log||[]).forEach(function(x){chg+='<tr><td>'+pretty(e.d)+'</td><td>'+fmtD(x.at)+'</td><td>'+esc(x.why)+'</td><td>'+esc(x.was)+'</td></tr>'})});
+  // gaps between shifts
+  var prevEnd=null;S.slice().sort(function(a,b){var x=new Date(a.d+"T00:00:00").getTime()/60000+m(a.ci),y=new Date(b.d+"T00:00:00").getTime()/60000+m(b.ci);return x-y}).forEach(function(e){var a=new Date(e.d+"T00:00:00").getTime()/60000+m(e.ci),z=a+span(e);if(prevEnd!==null&&a-prevEnd<600&&a-prevEnd>=0)iss.push(pretty(e.d)+": only "+fmt(a-prevEnd)+" between the previous shift ending and this one starting.");prevEnd=z});
+  // weekly reconciliation
+  var wrows="",anyPd=false,anyRc=false;
+  wk.forEach(function(w){var t=fw[w],done=w<tw&&(!jw||w>=jw),pdv=st.paid&&st.paid[w],has=pdv!=null&&pdv!=="",df=has?t-Math.round(pdv*60):null,est=ctx.wp[w]||0,rcv=st.recv&&st.recv[w],hasR=rcv!=null&&rcv!=="",dm=hasR&&st.rate?est-rcv:null,fl="";
+    if(has)anyPd=true;if(hasR)anyRc=true;
+    if(df!==null&&df>=2){fl="check";iss.push("Week "+isoWk(w)+": you recorded "+fmt(df)+" more than the hours paid.")}
+    if(df!==null&&df<=-2){iss.push("Week "+isoWk(w)+": you were paid "+fmt(-df)+" more than the hours recorded.")}
+    if(dm!==null&&dm>=1){fl="check";iss.push("Week "+isoWk(w)+": estimated pay is $"+dm.toFixed(2)+" more than the pay received.")}
+    wrows+='<tr><td>'+isoWk(w)+'</td><td>'+pretty(w)+' \u2013 '+pretty(addD(w,6))+'</td><td class="n"><b>'+fmt(t)+'</b></td><td class="n">'+(has?pdv:"\u2013")+'</td><td class="n'+(fl?' flag':'')+'">'+(df===null?"\u2013":(Math.abs(df)<2?"matches":sg(df)))+'</td><td class="n">'+(st.rate?money(est):"\u2013")+'</td><td class="n">'+(hasR?money(+rcv):"\u2013")+'</td><td class="n'+(dm!==null&&dm>=1?' flag':'')+'">'+(dm===null?"\u2013":(Math.abs(dm)<1?"matches":(dm>0?"+":"\u2212")+money(Math.abs(dm))))+'</td></tr>'+(done?"":"")});
+  var h='<div class="top"><div><h1>Hours &amp; Pay Record</h1><div class="who">For review of hours worked and pay received</div></div><div class="meta"><b>'+esc(R.title)+'</b><br>Prepared '+now.toLocaleString("en-AU",{day:"numeric",month:"short",year:"numeric",hour:"numeric",minute:"2-digit"})+'<br>Weekly target '+WH()+' hours'+(st.loc?'<br>Location: '+esc(locName()):"")+'</div></div>';
+  h+='<div class="kv">'+'<div><span>Employee</span><b>'+nm+'</b></div><div><span>Employer</span><b>'+em+'</b></div>'+(st.join?'<div><span>Start date</span><b>'+fmtD(st.join)+'</b></div>':"")+'<div><span>Period covered</span><b>'+esc(R.title)+'</b></div></div>';
+  h+='<h2>1. Summary of the record</h2><p>This record was prepared by the employee from their own timesheet to support a review of hours worked and pay received for the period shown. It lists '+S.length+' shift'+(S.length==1?"":"s")+' totalling <b>'+fmt(tot)+'</b> over '+Object.keys(days).length+' day'+(Object.keys(days).length==1?"":"s")+(lv?', plus '+fmt(lv)+' of leave':"")+'. Each entry shows the time it was entered in the app'+(late?'; '+late+' entr'+(late==1?"y was":"ies were")+' entered two or more days after the shift':'')+'. '+(edited?edited+' entr'+(edited==1?"y was":"ies were")+' changed after first being saved, and the reason for each change is listed in section 5.':'No entries were changed after being saved.')+'</p>';
+  h+='<div class="kv"><div><span>Hours worked</span><b>'+fmt(tot)+'</b></div><div><span>Leave hours</span><b>'+fmt(lv)+'</b></div><div><span>Weeks covered</span><b>'+wk.length+'</b></div><div><span>Public holiday shifts</span><b>'+phn+(phn?' ('+fmt(phh)+')':'')+'</b></div></div>';
+  h+='<h2>2. Weekly hours and pay check</h2>';
+  h+=wk.length?'<table><thead><tr><th>Week</th><th>Dates</th><th class="n">Recorded</th><th class="n">Paid hours</th><th class="n">Difference</th><th class="n">Est. pay</th><th class="n">Received</th><th class="n">Difference</th></tr></thead><tbody>'+wrows+'</tbody></table><p>\u201cPaid hours\u201d and \u201cReceived\u201d come from the payslip figures entered in the app for each week. A dash means no figure was entered. Estimated pay uses the hourly rate and penalty percentages set in the app.</p>':'<p>No entries in this period.</p>';
+  h+='<h2>3. Items to check</h2>'+(iss.length?'<ul style="margin:4px 0 0 18px;padding:0;font-size:9pt">'+iss.map(function(x){return '<li class="flag" style="margin-bottom:2px">'+esc(x)+'</li>'}).join("")+'</ul><p>These points were flagged automatically from the recorded times and the figures entered. They are prompts to check, not findings.</p>':'<p class="ok">No issues were found by the automatic checks.</p>');
+  h+='<h2>4. Daily record</h2>';
+  h+=E.length?'<table><thead><tr><th>Date</th><th>Type</th><th class="n">In</th><th class="n">Break</th><th class="n">Out</th><th class="n">Hours</th><th>Pay type</th><th>Entered</th><th>Notes</th></tr></thead><tbody>'+drow+'</tbody></table>':'<p>No entries in this period.</p>';
+  h+='<h2>5. Changes made after first entry</h2>'+(chg?'<table><thead><tr><th>Entry date</th><th>Changed on</th><th>Reason</th><th>Previous details</th></tr></thead><tbody>'+chg+'</tbody></table>':'<p>No entries in this period were changed after being saved.</p>');
+  h+='<h2>6. Declaration</h2><p>I confirm that the times and notes in this record are my own entries and are accurate to the best of my knowledge. Pay figures are estimates before tax and may not include allowances, super or award rules that apply to my job. This record is not legal advice. If hours or pay look wrong, I can ask my employer to review them and, if needed, contact the Fair Work Ombudsman (fairwork.gov.au, 13 13 94).</p>';
+  h+='<div class="sig"><div>Employee signature</div><div>Date</div><div>Received by (employer)</div></div><p style="text-align:center;font-size:8pt;color:#777;margin-top:14px">Made by Bijay Rai</p>';
+  return h}
+function drawDtl(){if(!$("dtd").open)return;
+  var ty=$("dt1").value,gr=$("dt3").value,tw=monday(iso(new Date())),jw=st.join?monday(st.join):"",wk={};
+  data.forEach(function(e){var w=monday(e.d);wk[w]=(wk[w]||0)+e.h});
+  var RG=perRange("sp_");if(!RG.ok){$("dto").innerHTML='<div class="empty">'+esc(RG.msg)+'</div>';return}
+  var inR=function(d){return RG.k=="n"||(d>=RG.ps&&d<=RG.pe)},inW=function(w){return RG.k=="n"||(addD(w,6)>=RG.ps&&w<=RG.pe)};
+  var th=function(t,l){return '<th style="text-align:'+(l?"left":"right")+';padding:6px 4px;border-bottom:1px solid var(--line);color:var(--muted);font-weight:600">'+t+'</th>'},
+  td=function(t,l,c){return '<td style="text-align:'+(l?"left":"right")+';padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top'+(c?";color:var(--"+c+")":"")+'">'+t+'</td>'},
+  mlab=function(k){return MN[+k.slice(5,7)-1]+" "+k.slice(0,4)},
+  sgn=function(v){return (v<0?"\u2212":"+")+fmt(Math.abs(v))},
+  sg3=function(v){return (v<0?"\u2212":"")+fmt(Math.abs(v))},
+  tb=function(head,rows){return '<div style="overflow-x:auto"><table style="border-collapse:collapse;font-size:13px;width:100%"><tr>'+head+'</tr>'+rows+'</table></div>'},
+  out="",rows="",head="";
+  if(ty=="x"){
+    var cum=0,R=[];
+    Object.keys(wk).sort().forEach(function(w){var t=wk[w],done=w<tw&&(!jw||w>=jw),d=t-TARGET;if(done)cum+=d;R.push({w:w,t:t,d:d,done:done,cum:cum,y:addD(w,3).slice(0,4),m:addD(w,3).slice(0,7)})});
+    var bankNow=cum,ex=0,sh=0;
+    R=R.filter(function(r){return inW(r.w)});
+    R.forEach(function(r){if(r.done){if(r.d>0)ex+=r.d;else sh-=r.d}});
+    out+='<div class="lbl" style="margin-bottom:8px">Extra hours earned: <b class="pos">+'+fmt(ex)+'</b> \u00b7 short: <b class="neg">\u2212'+fmt(sh)+'</b> \u00b7 banked now: <b>'+sgn(bankNow)+'</b></div>';
+    if(gr=="m"){var M={},mk=[];
+      R.forEach(function(r){if(!M[r.m]){M[r.m]={e:0,s:0,c:0};mk.push(r.m)}if(r.done){if(r.d>0)M[r.m].e+=r.d;else M[r.m].s-=r.d;M[r.m].c=r.cum}});
+      head=th("Month",1)+th("Extra")+th("Short")+th("Banked");
+      mk.slice().reverse().forEach(function(k){var o=M[k];rows+='<tr>'+td(mlab(k),1)+td("+"+fmt(o.e),0,"accent")+td("\u2212"+fmt(o.s),0,"danger")+td(sgn(o.c))+'</tr>'})}
+    else{head=th("Week",1)+th("Worked")+th("vs "+WH()+"h")+th("Banked");
+      R.slice().reverse().forEach(function(r){rows+='<tr>'+td("Week "+isoWk(r.w)+'<br><span class="lbl">'+pretty(r.w)+" \u2013 "+pretty(addD(r.w,6))+'</span>',1)+td(fmt(r.t))+td(r.done?sgn(r.d):"in progress",0,r.done?(r.d<0?"danger":"accent"):"")+td(r.done?sgn(r.cum):"\u2013")+'</tr>'})}
+  }else{
+    var sick=ty=="k",rate=(sick?((st.sickYear!=null?st.sickYear:2*TARGET/60)*60)/52:st.year*60/52),open=(sick?(st.sickOpen||0):st.open)*60,tk=0;
+    var accTo=function(ew){var t=0;if(st.join){for(var x=jw;x<=ew&&x<=tw;x=addD(x,7))t+=Math.min(wk[x]||0,TARGET)/TARGET*rate}return t};
+    var Q=data.filter(function(e){return e.t=="l"&&((e.k=="sick")===sick)}).sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:a.id-b.id}).map(function(e){tk+=e.h;return {e:e,b:open+accTo(monday(e.d))-tk}});
+    var leftNow=open+accTo(tw)-tk;
+    Q=Q.filter(function(q){return inR(q.e.d)});
+    var sum=0;Q.forEach(function(q){sum+=q.e.h});
+    out+='<div class="lbl" style="margin-bottom:8px">'+(sick?"Sick":"Annual")+' leave taken'+(RG.k=="n"?"":" in "+esc(RG.title))+': <b class="neg">'+fmt(sum)+'</b> \u00b7 entries: '+Q.length+' \u00b7 left now: <b>'+sg3(leftNow)+'</b></div>';
+    if(gr=="m"){var M2={},mk2=[];
+      Q.forEach(function(q){var k=q.e.d.slice(0,7);if(!M2[k]){M2[k]={h:0,n:0,b:0};mk2.push(k)}M2[k].h+=q.e.h;M2[k].n++;M2[k].b=q.b});
+      head=th("Month",1)+th("Taken")+th("Entries")+th("Left after");
+      mk2.slice().reverse().forEach(function(k){var o=M2[k];rows+='<tr>'+td(mlab(k),1)+td("\u2212"+fmt(o.h),0,"danger")+td(o.n)+td(sg3(o.b))+'</tr>'})}
+    else{head=th("Date",1)+th("Reason",1)+th("Taken")+th("Left after");
+      Q.slice().reverse().forEach(function(q){var e=q.e;rows+='<tr>'+td(pretty(e.d)+'<br><span class="lbl">Week '+isoWk(monday(e.d))+" \u00b7 "+MN[+e.d.slice(5,7)-1]+'</span>',1)+td(e.n?esc(e.n):"\u2013",1)+td("\u2212"+fmt(e.h),0,"danger")+td(sg3(q.b))+'</tr>'})}
+  }
+  $("dto").innerHTML=out+(rows?tb(head,rows):'<div class="empty">No entries yet.</div>')}
+
+function gpick(o){var g=Object.assign({},o);JF.forEach(function(f){delete g[f]});["jobs","cj","pin","salt","hv","rc","rs","fid","lastBackup"].forEach(function(f){delete g[f]});return g}
+function allJobs(){return st.jobs.map(function(j){if(j.id===st.cj)return {id:j.id,name:st.place||j.name||"",cfg:jpick(st),data:data};var c={},d=[];try{c=JSON.parse(localStorage.getItem(jcK(j.id))||"{}")}catch(e){}try{d=JSON.parse(localStorage.getItem(jdK(j.id))||"[]")}catch(e){}return {id:j.id,name:c.place||j.name||"",cfg:c,data:d}})}
+function bkObj(){return {v:3,saved:new Date().toISOString(),cj:st.cj,jobs:allJobs(),data:data,st:Object.assign(gpick(st),jpick(st))}}
+function bkJSON(){var d=new Date(),when=d.toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"})+", "+d.toLocaleTimeString("en-AU",{hour:"numeric",minute:"2-digit"}),o=bkObj(),n=0;o.jobs.forEach(function(j){n+=j.data.length});
+  return "Timesheet backup \u2013 "+when+" \u2013 "+n+" entries"+(o.jobs.length>1?" \u2013 "+o.jobs.length+" jobs":"")+(st.name?" \u2013 "+st.name.replace(/[{}]/g,""):"")+"\n"+JSON.stringify(o)}
+function bkUI(){var l=st.lastBackup,fq=st.bkFreq!=null?+st.bkFreq:7,d=l?Math.floor((Date.now()-new Date(l))/864e5):null,t=!l?"No backup made yet":"Last backup: "+fmtD(iso(new Date(l)))+(d===0?" (today)":" ("+d+" day"+(d==1?"":"s")+" ago)");
+  $("lbk").textContent=t;$("bst").textContent=t;var due=fq>0&&((!l&&data.length>0)||(l&&d>=fq));
+  $("bkw").innerHTML=due?'\u26a0 '+(l?"Your last backup was "+d+" days ago.":"You haven\u2019t made a backup yet.")+' <button id="bkn" style="width:auto;margin:6px 0 0;padding:6px 14px;min-height:0">Back up now</button>':""}
+function hash(p,salt){var s=salt+":"+p;if(window.crypto&&crypto.subtle&&window.TextEncoder)return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return x.toString(16).padStart(2,"0")}).join("")});var h=5381;for(var i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return Promise.resolve("x"+h)}
+function nameUI(){var n=st.name||"";$("ttl").textContent=n?n+"\u2019s Timesheet":"My Timesheet";document.title=$("ttl").textContent}
+function hash2(p,salt){if(window.crypto&&crypto.subtle&&window.TextEncoder){var e=new TextEncoder();return crypto.subtle.importKey("raw",e.encode(p),"PBKDF2",false,["deriveBits"]).then(function(k){return crypto.subtle.deriveBits({name:"PBKDF2",salt:e.encode(salt),iterations:150000,hash:"SHA-256"},k,256)}).then(function(b){return "p"+Array.prototype.map.call(new Uint8Array(b),function(x){return x.toString(16).padStart(2,"0")}).join("")})}return hash(p,salt)}
+function chk(p){return (st.hv==2?hash2(p,st.salt):hash(p,st.salt)).then(function(h){return h===st.pin})}
+function pinUI(){var on=!!st.pin;if($("fidc")){$("fidc").checked=!!st.fid;$("fidl").textContent=!fidSupported()?"Works in the Home Screen app on an iPhone with Face ID.":(st.fid?"On. The lock screen offers Face ID, and your password still works.":(on?"Off. Turn on to open the app with a look.":"Set a password first, then you can turn this on."))}$("pws").textContent=on?"Password lock is ON. The app asks for it when you open it.":"Password lock is OFF. Anyone who picks up your phone can open this app.";$("pws").style.color=on?"var(--accent)":"var(--danger)";
+  $("pwcur").style.display=on?"":"none";$("pwoff").style.display=on?"":"none";$("pwnow").style.display=on?"":"none";$("rcnew").style.display=on?"":"none";$("pwset").textContent=on?"Change password":"Set password";$("lknow").style.display=on?"":"none";$("lkb").style.display=(!on&&!st.lkNudge)?"":"none";$("pwauto").value=String(st.lockMs||0)}
+function stgUI(){try{var n=0;for(var i=0;i<localStorage.length;i++){var kk=localStorage.key(i);if(kk&&kk.indexOf("timesheet_")===0)n+=((localStorage.getItem(kk)||"").length+kk.length)*2}$("stg").textContent="Storage used: "+(n/1024).toFixed(1)+" KB of about 5,000 KB \u00b7 "+data.length+" entries"}catch(e){}}
+function lock(){if(!st.pin){document.documentElement.className="";return}document.documentElement.className="lk";$("lkfid").style.display=st.fid&&fidSupported()?"block":"none";$("lkn").textContent=st.name?st.name+"\u2019s Timesheet":"My Timesheet";$("lk").style.display="block";$("lkp").value="";$("lkm").textContent="";lfa=false}
+var lfa=false,lkFail=0,lkWait=0,hiddenAt=0;
+function unlock(){var now=Date.now();if(now<lkWait){$("lkm").textContent="Too many tries. Wait "+Math.ceil((lkWait-now)/1000)+" seconds.";return}
+  chk($("lkp").value).then(function(ok){if(ok){lkFail=0;document.documentElement.className="";$("lk").style.display="none";$("lkp").value="";$("lkm").textContent=""}else{lkFail++;$("lkp").value="";if(lkFail>=5){lkFail=0;lkWait=Date.now()+30000;$("lkm").textContent="Wrong password. Wait 30 seconds."}else $("lkm").textContent="Wrong password ("+(5-lkFail)+" tries left)."}})}
+$("lku").onclick=unlock;$("lkp").addEventListener("keydown",function(e){if(e.key==="Enter")unlock()});
+$("lkf").onclick=function(){var r=$("lkr");r.style.display=r.style.display=="none"?"block":"none"};
+$("rcer").onclick=function(){if(!lfa){lfa=true;$("lkm").textContent="This erases everything on this phone. You can restore from your backup afterwards. Tap again to erase.";return}
+  try{var ks=[];for(var i=0;i<localStorage.length;i++)ks.push(localStorage.key(i));ks.forEach(function(k){if(k&&k.indexOf("timesheet_")===0)localStorage.removeItem(k)})}catch(e){}location.reload()};
+function newRC(){var al="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",a=new Uint8Array(16),c="";crypto.getRandomValues(a);for(var i=0;i<16;i++)c+=al[a[i]%al.length];return c}
+function fmtRC(c){return c.match(/.{4}/g).join("-")}
+function normRC(t){return String(t||"").toUpperCase().replace(/[^A-Z0-9]/g,"")}
+function setRC(){var c=newRC();return hash2(c,st.salt+"rc").then(function(h){st.rc=h;save();$("rcv").textContent=fmtRC(c);$("rcbox").style.display=""})}
+function rcOk(){var code=normRC($("rcin").value);if(!st.rc){$("lkm").textContent="This phone has no recovery code. Use No code? Erase app data, then restore your backup.";return Promise.resolve(false)}
+  return hash2(code,st.salt+"rc").then(function(h){if(h!==st.rc){$("lkm").textContent="That recovery code isn\u2019t right.";return false}return true})}
+function lkClose(){document.documentElement.className="";$("lk").style.display="none";$("lkr").style.display="none";["rcin","rn1","rn2","lkp"].forEach(function(i){$(i).value=""});$("lkm").textContent=""}
+$("rcgo").onclick=function(){var n=$("rn1").value,c=$("rn2").value;
+  if(n.length<4){$("lkm").textContent="Use at least 4 characters for the new password.";return}if(n!==c){$("lkm").textContent="The two new passwords don\u2019t match.";return}
+  rcOk().then(function(ok){if(!ok)return;var sl=String(Date.now())+Math.random();hash2(n,sl).then(function(h){st.salt=sl;st.pin=h;st.hv=2;setRC().then(function(){lkClose();pinUI();showTab("p1");showH("c3");$("pwc").scrollIntoView();toast("New password set. Save your new recovery code below.")})})})};
+$("rcoff").onclick=function(){rcOk().then(function(ok){if(!ok)return;delete st.pin;delete st.salt;delete st.hv;delete st.rc;delete st.fid;save();lkClose();pinUI();toast("Password turned off.")})};
+$("rcnew").onclick=function(){chk($("pw0").value).then(function(ok){if(!ok){toast("Enter your current password first.");return}setRC().then(function(){$("pw0").value="";toast("New recovery code made. Save it now.")})})};
+$("rccp").onclick=function(){cp2($("rcv").textContent)};
+$("rcsh").onclick=function(){var t="Timesheet recovery code: "+$("rcv").textContent;if(navigator.share){navigator.share({title:"Timesheet recovery code",text:t}).catch(function(){})}else cp2(t)};
+$("rcdone").onclick=function(){$("rcbox").style.display="none";$("rcv").textContent=""};
+$("pwset").onclick=function(){var n=$("pw1").value,c=$("pw2").value;
+  function go(){if(n.length<4){toast("Use at least 4 characters.");return}if(n!==c){toast("The two new passwords don\u2019t match.");return}
+    var sl=String(Date.now())+Math.random();hash2(n,sl).then(function(h){st.salt=sl;st.pin=h;st.hv=2;save();["pw0","pw1","pw2"].forEach(function(i){$(i).value=""});pinUI();setRC().then(function(){toast("Password set. Save your recovery code now.")})})}
+  if(st.pin){chk($("pw0").value).then(function(ok){if(!ok){toast("The current password is wrong.");return}go()})}else go()};
+$("pwoff").onclick=function(){chk($("pw0").value).then(function(ok){if(!ok){toast("Enter your current password first.");return}delete st.pin;delete st.salt;delete st.hv;delete st.rc;delete st.fid;save();$("pw0").value="";$("rcbox").style.display="none";pinUI();toast("Password removed.")})};
+$("pwnow").onclick=lock;$("lknow").onclick=lock;
+$("pws2").onchange=function(){var t=this.checked?"text":"password";["pw0","pw1","pw2"].forEach(function(i){$(i).type=t})};
+$("pwauto").onchange=function(){st.lockMs=+this.value;save()};
+$("lkb1").onclick=function(){showTab("p1");showH("c3");$("pwc").scrollIntoView({behavior:"smooth"})};
+$("lkb2").onclick=function(){st.lkNudge=1;save();pinUI()};
+$("nm").value=st.name||"";$("nm").onchange=function(){st.name=this.value.trim();save();nameUI()};
+document.addEventListener("visibilitychange",function(){if(document.hidden){hiddenAt=Date.now();if(!(st.lockMs>0))lock()}else if(st.pin&&st.lockMs>0&&hiddenAt&&Date.now()-hiddenAt>=st.lockMs)lock()});
+function wUI(){var h=WH();Array.prototype.forEach.call(document.querySelectorAll(".wh"),function(e){e.textContent=h});$("lh").value=(TARGET/300).toFixed(1).replace(/\.0$/,"");$("sbt").textContent="saved on this phone";$("emp").textContent=st.place||""}
+$("wkh").value=st.weekly||38;$("pl").value=st.place||"";
+$("wkh").onchange=function(){var v=parseFloat(this.value);if(!(v>=1&&v<=80)){this.value=st.weekly||38;toast("Enter hours between 1 and 80.");return}st.weekly=v;setTarget();save();wUI();render();bkUI()};
+$("pl").onchange=function(){st.place=this.value.trim();save();wUI()};
+setTarget();wUI();
+$("ss").value=st.sickOpen||"";$("se").value=st.sickYear!=null?st.sickYear:"";$("se").placeholder=String(2*TARGET/60);
+$("ss").addEventListener("change",function(){st.sickOpen=parseFloat(this.value)||0;save();render()});
+$("se").addEventListener("change",function(){st.sickYear=this.value===""?null:(parseFloat(this.value)||0);save();render()});
+["dt1","dt3"].forEach(function(i){$(i).onchange=drawDtl});$("dtd").addEventListener("toggle",drawDtl);
+(function(){try{var IC={192:"iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAEXElEQVR42u3dXXLUMBBF4Ykq64EFwVbggbWwIXbEQ6p4SFWIZ8aW+ra+8wwVqXV81fb45+XLj2834FGGEoBAIBAIBAIBBAKBQCAQCCAQCAQCgUAAgUAgEAgEAggEAoFAIBAIBBAIBAKBQCCAQCAQCAQCAQTCFbwqwT/+/Pp9/B9//fldxW6328u2L5i6SxdKEegSaci0hUDTvNnQpM4CLfRmH5N6ClRKnd4atRKorDeNTWoiUJA6zTQa7DHyfROowQKkR1GqQFeoc9cqLh8Agdbbc+KCFRwSgS5ZqgkrVH+Emwr0zMIsWZW4AXcW6OHFWL4SuSPvI9Bja1BqARpMIVWgB0pftu6d5pIh0L0Vj4j9TpOqK1BLdfpNcCjuKu4dc83L7vH3REf/Hvk2+OgfZCom0PGC9rgp4vgsCqo22MOhPk30wepcqs7/x3C1tRUqkJpAcbVbGEV1cmiwh0MNT+O3tSdupiUEOnIw7fbc55H5VgihwR4OBQvU5qbmbWs4ehyImqEdBbJ5NdjIhuNPDkUKpPvpUc9RdrbiJ2IjG7n14tCmW5jNq1Nth0NNCLU9C0N9Zgv0acaKnyfrM3kXk0DIEUj89AshCYQuAomfxFrNE8jln1LdQrcEEj+hFdMDIUEg+1fXXaxEAtm/cutmCwOB0FsgDVDjNmh9AmmAoqtnCwOBQCAQCASafiKgg766j776REwCgUAgEAgEAuHAOYFfZghEIwLRqAavPHjHu8sqnyry9g+2vaAlgT6XQxoRyKZmCyscPx/9xx32NQkkkAh0WTd9SoT01ohANHqKGR+ca3NHx1kGnDvlteWVQNKIQDQi0LYapeM60DndzGNZ0kDBjA/OCaSy1RszD1P72uSyTPgTeiDtEYECNWpjWMxXm6VRzbqNaXWURpOrMeev2ML0Ri0E2uc+rLMcKlKxEVc4lKp2oS3MEw6JtdIDIUegah9L6xo/M7sFCYQogYRQp/iRQOgokBAKqswCgVwQ6lTb4VATP3kCHTlQOHRvNZZE+7IEspH1qOdIP+zEz75nYTay6M0rIIE4VH/uiwXSCaXXMOODc3uGUPHNq9AWxqFQe25Zv4Xt41DQTKsIdPBg2sGhg3Ms0j4WSiAOxdlzm/OGsovSu9kZXOjEy/VAx6vTKYpyD5uKTfRuDkWH7muP6oduZ15xtz6Eclfi3jHXPEjKNdEtq9x4UtUFeixdyla801xiBLq1eIVl17dwZgj0TJezfA1yR95KoCc75bhXqKacVyYJdMoJ14SFqT/CrQW6lfzoSc3vsBDo8gV7ePGWD4BARTVaQu4Pw9kCNdAo/Z6C4fA18t0TKDGK2tzM1Eqg+ib1e4ypp0AFNer6BFxngSqY1P7JyS0Emm/SPk/c7iXQpTLt+Zj2vgI9qZSn+gmEE/CaXxAIBAKBQCCAQCAQCAQCAQQCgUAgEAggEAgEAoFAAIFAIBAIBAKBAAKBQCAQCAQQCAQCgUAg4CP+AnS1Ja0oqidyAAAAAElFTkSuQmCC",512:"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAALE0lEQVR42u3dwXEbORRFUZHV8VABUalQC8fihJyRFtqotJLVbDTw3jkBTE2R+P8Ckmd8uT3uLwD0ufoIAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAABAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAABAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAABAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAABAAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAABAAAAQAAAEAYKDNR0Ckf3/+PvGf9vr+5iMlz+X2uPsUsOLlAQEA614SEACw8fUAAQAbXw8QALD0xQABAEtfDBAAsPeVAAEAe18JEADsfZQAAcDeRwkQAOx9lAABwOpHBhAArH5kAAHA3kcJEACsfmQAAcDqRwYQAKx+ZAABwOpHBhAArH5kAAHA6kcGEACsfmQAAcDqRwb46uojsP1xAPACwOTjKYAAYPUjA6TzIyDbHxwPLwDMNngKCAC2vy3m0zM4AoDVb0/5eBEAbH/7yGeOAGANWUC+BQQAe8eu8b0gANgy9ovvCAHAWrFQfGsIAPaIDeIbRADo3h22hm8TAcCywDeLABC9I2wH3zICQN1esBR83QgAXevAIvDVIwDUrQDz7ww4AwKAscd5QABIn3aj7mA4GAJA3ZCbcCfECREA6mbbYDsqjkoMfyewkTbSOab6gvwtpF4AhIyQ1e/kODkCQN0MG2BHyBESAOpG19w6S85SNr8DMLEmNtwMX6XfB3gBsMaoWP2OlqPlBYARxVPAO8ALgILxsPqdNCfNCwAziaeAd4AAYPujARqQy4+Aqre/1Y/j5wWA8cNTwDtAALD90QAN6LD5CEw7fJ4K69gLgOS7j+3PbMdDdQTA9rf90QBG86eAbH+fsA/QEfUCwGiBd4AAEHPEX9/fbH9WOTkaIAC4+OMIIQCu/0aXsgZ4BAiA7W/7owEIgO1v+6MBCAC2P44WAuD6b0QJb4BHgADY/rY/GoAA2P62PxqAAGD748ghAK7/RpHwBngECIDtb/ujAQgAAALg+u/TxiMAAbD9QQMQACMHDiQCEHn9N2zUNsAjQABsf9AABAAAAXD9B48ABMBogYOKAKRc/w0VGuARIACN2x8wegLgPgUOLQJQcwcxSGiAR4AAGCFwgBGAmus/YAwFwO0JHGMEoOPeYWzQAI8AAQBAAFz/wSPAI0AAjAo42AhA2vUfMJgC4JYEjjcC4JYBGE8BcD8ChxwBcL8ADKkAuBmBo44ArHizMBJogEeAAAAgAG5D4NgjAKfzqAQDKwC4B4HDLwBuE4CxFQDcgMAICIB7BGB4BQB3HzAIAgCAAHhCuvXAoHHwUyABAEAAABCAEx+Pfv4Dw4bCT4EEAAAByL3pgNFAADwbAeMsAAAIgEcuGBAEwIMRDDUC4HYDxkQAABAAT0XAaAsAHrZgWAQAAAEAQACyHPRTQk9amGFk/BpAAAAQAAABAEAAevkFAMzDrwEEAAABAEAAPGPB+CAAAAjAPn41BIZdAAAQAAAEgF/wKywwRAIAgABMyS+FwMgLAAACwD5+dglGSQAAEAAABAAAATiZPw8ABl8AABAA9vHnFsBACQAAAgCAAAAgAAAIAAACAIAAACAAB/BfA4LxFwCexn+0AsZKAAAQAAAEAAABgGX4hSECANUNkAEEAGQABABkAAQAZAAEAGQABABkAAQAZAAEAGQATrb5CMjz8/9x2KFr+vMf7v9ihhcAzHhP9xpAAAAZQADA9V8GEABABhAAcP2XAQQAkAEi+GOguP5P9K/kz4ziBQAeBCAAkH79lwEEAJABBMAdE1+NDBgrATia37khA8ZfAKBi4JeeeRlAAEAGZAABABkAAQAZAAEAGQABABkAAQAZAAEYMYQ+BBmQAQMlACADMoAAzDrkPgRkwOALACADCAAgAwgAIAMIAP8xYz4EGZABoyQAIAMgALPOsA+BwgzUnnwjLwAgAwgAx/CzSxlwCzZEAgAyANPZfAQw4JY9201WnPACMA94EBh2AQBqMmADIgAj+BUWXgPGRwCAKTKgPQgAeA3Q7nJ73H0KRz85TTgnHr9Fj6Jh9AIArwEQAJABl18EAGQA9vM7gO/85JHIM7nWCTSGXgCA1wACADKwIwP6gQAEPmmRAcOCADxzwHwIJGXAkfY5CAB4DYAAeNhSk4HlCmFMBMBTEbwGDLUAeATAbzPg+o8AgNcACIAHI86wjwIB8MgFoyEAAAgAQ56NbjowbCj8/EcAABAAAATgxMejnwLBgHHw8x8BAEAAOm49YBAQAE9IMLwIgLsPGAEEwD0CjC0C4AYEDr8A4DYBBlYAcA8Cx14AABAAj8ojH5VuQ7j+LzGqAoAGgKMuAB4BgCEVANyMwCEXAPcLwHgKAO5H4HgLgFsGYDAFALckHGwEwF3DqGD7u/4LAAAC4BHgEYDrv+u/ABgbcIwRgLZHAGAMBcDtCRxgBKDv9mGEsP1d/wXAIIFDiwCUPQIAoycAvQfRfQrXf9tfAAwVOKgIQN9r1Ghh+7v+CwAAAuARAK7/CIAGgO2PABg2cCARgMRHgJGjcPu7/guABmgAtj8CAIAAeASA6z8CoAFg+yMARhEcOQQg+xFgIEnd/q7/AqABGoDtjwBogAZg+yMAaACOFgLgEWBQiTpUrv8CoAEagO2PAGiABmD7IwBoAI4QT3G5Pe4+hfiJcqvCQcUL4HynHHH3OGx/BEADwPZHADQAbH8BQAPA9i+0+Qg6h9zU4WaAF0DdI8DAM89hcBERAA3QAGx/TuC/A/AAN4dOnVPnBUDrMHgK2P62vwCgAdj+tn8RPwIymYbTAXPAvACofwd4Ctj+tr8XAO2DaladKCfKC4DeUfEUsP1tfy8A2lew0XWEHCEBoPoaboadHCdHAOidZMPswDgwYfwOYHZTjZBfDNj+tr8XAO2b12w7IU6IAFB9+zbkDoaDIQD0jrppdx6cBwHA2Bt7Z8AZEABa598K8NUjAFQvAuvA140A0L4U7AXfMgJA9XawI3yzCACWhWXh20QAKN4adodvEAGgfYPYI741BAALpW6t+I4QAOyXri3je0EAsGta9o5vAQHAAipaQz5zBAD7qGI9+XgRAGQgeXn59BAANADbHwFABrD6WZ+/E9h4g+PhBYCnAFY/AoAMYPUTz4+ADD8OAF4AeApg9SMAyABWPwKADGD1IwDIAFY/AoAMYPUjAMgAVj8CgAxg9SMAyABWPwKAEmDvIwDIAFY/AoAMYPUjACgB9j4CgBJg7yMAKAH2PgKAEtj7IAAogb0PAoAYWPogAIiBpQ8CgB7Y+CAA6IGNDwKAJFj3IADIgxUPAgDQ7OojABAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAABAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABABAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAABAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABABAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAABAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAAAQAAAEAQAAAEAAABAAAAQBAAAAQAAAEAAABAEAAABAAAAQAgIE+ACPFvcysfVlsAAAAAElFTkSuQmCC"},ic=function(z){return {src:"data:image/png;base64,"+IC[z],sizes:z+"x"+z,type:"image/png",purpose:"any maskable"}},u=location.href.split("#")[0].split("?")[0],m={name:"Timesheet",short_name:"Timesheet",start_url:u,scope:u.replace(/[^\/]*$/,""),display:"standalone",background_color:"#f6f7f5",theme_color:"#2e7d5b",icons:[ic(192),ic(512)]},l=document.createElement("link");l.rel="manifest";l.href=URL.createObjectURL(new Blob([JSON.stringify(m)],{type:"application/manifest+json"}));document.head.appendChild(l)}catch(e){}})();
+dayUI();setInterval(function(){dayUI();hldUI()},60000);document.addEventListener("visibilitychange",function(){if(!document.hidden){dayUI();hldUI()}});hldUI();drawHol();bfUI();snlUI();if(data.length)setTimeout(function(){snapNow();snlUI()},1500);
+nameUI();pinUI();stgUI();bkUI();lock();if(st.fid&&$("lk").style.display==="block")setTimeout(function(){fidUnlock(true)},600);
+viewW=monday(iso(new Date()));viewY=addD(viewW,3).slice(0,4);$("jd").value=isoWk(viewW);
+clockUI();
+setMode("S");render();
+</script>
+</body>
+</html>
