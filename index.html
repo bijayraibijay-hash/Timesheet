@@ -194,7 +194,7 @@ details summary{cursor:pointer}textarea{width:100%;min-height:70px;margin-top:10
 </div>
 </div>
 <div class="pane" id="p2">
-<div class="hnav" data-g="s"><button data-h="s1" class="on">📊 Overview</button><button data-h="s2">💉 Leave</button><button data-h="s3">💰 Money</button></div>
+<div class="hnav" data-g="s"><button data-h="s1" class="on">📊 Overview</button><button data-h="s2">💉 Leave</button><button data-h="s3">💰 Money</button><button data-h="s4">📈 Balances</button></div>
 <div class="card k4"><div class="ct" style="color:var(--teal)">Summary period</div><div id="sp_box" style="margin-top:8px"></div></div>
 <div class="hsec on" id="s1" data-g="s">
 <div class="card k2">
@@ -229,6 +229,13 @@ details summary{cursor:pointer}textarea{width:100%;min-height:70px;margin-top:10
 <div class="card k1" id="ytc"><div class="ct" style="color:var(--accent)">💰 Year to date</div>
   <label style="margin-top:8px">Financial year (1 July to 30 June)</label><select id="ytY"></select>
   <div id="yto" style="margin-top:10px"></div>
+</div>
+</div>
+<div class="hsec" id="s4" data-g="s">
+<div class="card k2" id="balc"><div class="ct" style="color:var(--blue)">📈 Balances over time</div>
+  <div class="lbl" style="margin:6px 0 10px">Your banked hours, annual leave and sick leave left at the end of each week, month or year.</div>
+  <div class="grid"><div><label>Show by</label><select id="bgv"><option value="w">Weekly</option><option value="m">Monthly</option><option value="y">Yearly</option></select></div><div id="bgyw"><label>Year</label><select id="bgy"></select></div></div>
+  <div id="bgo" style="margin-top:12px"></div>
 </div>
 </div>
 </div>
@@ -516,7 +523,7 @@ function render(){
   $("sk").textContent=sg2(lfS);$("sk").className="big"+(lfS<=0?" neg":"");
   $("sksub").textContent=(lfS/60/(TARGET/300)).toFixed(1)+" days"+(st.join?"":" \u00b7 set your joining date to start earning");
   $("skb").innerHTML='<div class="row"><span>Opening balance</span><span class="hrs">'+fmt((st.sickOpen||0)*60)+'</span></div><div class="row"><span>+ Earned from working</span><span class="hrs pos">'+fmt(accS)+'</span></div><div class="row"><span>\u2212 Sick leave taken</span><span class="hrs neg">'+fmt(tkS)+'</span></div><div class="row"><span><b>= Sick leave left</b></span><span class="hrs"><b>'+sg2(lfS)+'</b></span></div>';
-  fillPrY();perFillAll();openUI();sumPeriod();ytdDraw();drawDtl();drawRep();drawHol();
+  fillPrY();perFillAll();openUI();sumPeriod();ytdDraw();balDraw();drawDtl();drawRep();drawHol();
   ctx={shown:shown,weeks:weeks,bank:bank,left:left,leftS:lfS,wp:wp,after:after};
   var sc=$("sum");
   if(!viewW&&viewY){
@@ -682,7 +689,7 @@ function openUI(){var n=data.filter(function(e){return e.open}).length;$("opn").
 function showH(id){var el=$(id);if(!el)return;var g=el.getAttribute("data-g")||"h";
   Array.prototype.forEach.call(document.querySelectorAll('.hsec[data-g="'+g+'"]'),function(x){x.className="hsec"+(x.id===id?" on":"")});
   Array.prototype.forEach.call(document.querySelectorAll('.hnav[data-g="'+g+'"] button'),function(b){b.className=b.getAttribute("data-h")===id?"on":""});
-  if(g==="s"&&$("sp_box"))$("sp_box").style.display=id==="s3"?"none":"";
+  if(g==="s"&&$("sp_box"))$("sp_box").style.display=(id==="s3"||id==="s4")?"none":"";
   $("scr").scrollTop=0}
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".hnav button");if(b)showH(b.getAttribute("data-h"))});
 function t12(t){var p=t.split(":"),h=+p[0],ap=h>=12?"pm":"am";h=h%12||12;return h+":"+p[1]+" "+ap}
@@ -929,6 +936,36 @@ function fidUnlock(auto){if(!st.fid||!fidSupported())return;
 $("lkfid").onclick=function(){fidUnlock(false)};
 $("fidc").onchange=function(){if(this.checked){if(!st.pin){this.checked=false;toast("Set a password first. Face ID works together with it.");return}fidEnable()}else{delete st.fid;save();pinUI();toast("Face ID turned off.")}};
 document.addEventListener("visibilitychange",function(){if(!document.hidden&&st.fid&&$("lk").style.display==="block")setTimeout(function(){fidUnlock(true)},400)});
+function balTools(){var today=iso(new Date()),jw=st.join?monday(st.join):"",tw=monday(today),wk={};
+  data.forEach(function(e){var w=monday(e.d);wk[w]=(wk[w]||0)+e.h});
+  var rA=st.year*60/52,rS=((st.sickYear!=null?st.sickYear:2*TARGET/60)*60)/52,oA=st.open*60,oS=(st.sickOpen||0)*60;
+  var acc=function(rate,endD){var t=0;if(st.join){for(var x=jw;x<=monday(endD)&&x<=tw;x=addD(x,7))t+=Math.min(wk[x]||0,TARGET)/TARGET*rate}return t},
+  tk=function(sick,endD){var q=0;data.forEach(function(e){if(e.t=="l"&&((e.k=="sick")===sick)&&e.d<=endD)q+=e.h});return q},
+  bank=function(endD){var b=0;Object.keys(wk).forEach(function(w){var z=addD(w,6);if(z<today&&z<=endD&&(!jw||w>=jw))b+=wk[w]-TARGET});return b};
+  return {today:today,at:function(endD){return {b:bank(endD),a:oA+acc(rA,endD)-tk(false,endD),s:oS+acc(rS,endD)-tk(true,endD)}}}}
+function balDraw(){var el=$("bgo");if(!el)return;
+  var g=$("bgv").value,now=iso(new Date()),o={};o[now.slice(0,4)]=1;data.forEach(function(e){o[e.d.slice(0,4)]=1});if(st.join)o[st.join.slice(0,4)]=1;
+  var h=Object.keys(o).sort().reverse().map(function(y){return '<option value="'+y+'">'+y+'</option>'}).join("");
+  var ye=$("bgy");if(ye.getAttribute("data-h")!==h){var keep=ye.value;ye.innerHTML=h;ye.setAttribute("data-h",h);ye.value=keep&&o[keep]?keep:now.slice(0,4)}
+  $("bgyw").style.display=g=="y"?"none":"";
+  var y=+ye.value||+now.slice(0,4),first=null;data.forEach(function(e){if(first===null||e.d<first)first=e.d});if(st.join&&(first===null||st.join<first))first=st.join;
+  var P=[];
+  if(g=="w"){var w=wkMon(String(y),1);while(addD(w,3).slice(0,4)===String(y)){P.push({ps:w,pe:addD(w,6),l:"Week "+isoWk(w),l2:pretty(w)});w=addD(w,7)}}
+  else if(g=="m"){for(var m=1;m<=12;m++){var mm=String(m).padStart(2,"0");P.push({ps:y+"-"+mm+"-01",pe:iso(new Date(y,m,0)),l:MN[m-1],l2:String(y)})}}
+  else{var ys=Object.keys(o).sort();ys.forEach(function(yy){P.push({ps:yy+"-01-01",pe:yy+"-12-31",l:yy,l2:""})})}
+  P=P.filter(function(p){return p.ps<=now&&(first===null||p.pe>=first)});
+  if(!P.length){el.innerHTML='<div class="empty">Nothing to show for this year yet.</div>';return}
+  var B=balTools(),sgn=function(v){return (v<0?"\u2212":"+")+fmt(Math.abs(v))},sv=function(v){return (v<0?"\u2212":"")+fmt(Math.abs(v))},
+  th=function(t,l){return '<th style="text-align:'+(l?"left":"right")+';padding:6px 4px;border-bottom:1px solid var(--line);color:var(--muted);font-weight:600;font-size:12px">'+t+'</th>'},
+  cell=function(v,d,pos){return '<td style="text-align:right;padding:7px 4px;border-bottom:1px solid var(--line);vertical-align:top"><b>'+v+'</b><br><span class="lbl" style="font-size:11px;color:var(--'+(pos?"accent":"danger")+')">'+(d===""?"":d)+'</span></td>'},
+  rows="";
+  P.slice().reverse().forEach(function(p){var asAt=p.pe<now?p.pe:now,e=B.at(asAt),b0=B.at(addD(p.ps,-1)),cur=p.ps<=now&&now<=p.pe,
+    db=e.b-b0.b,da=e.a-b0.a,ds=e.s-b0.s;
+    rows+='<tr'+(cur?' style="background:var(--bg)"':'')+'><td style="padding:7px 4px;border-bottom:1px solid var(--line);vertical-align:top"><b>'+p.l+'</b>'+(cur?' <span class="lbl" style="color:var(--accent)">now</span>':'')+'<br><span class="lbl" style="font-size:11px">'+p.l2+'</span></td>'
+      +cell((e.b<0?"\u2212":"+")+fmt(Math.abs(e.b)),sgn(db),db>=0)+cell(sv(e.a),sgn(da),da>=0)+cell(sv(e.s),sgn(ds),ds>=0)+'</tr>'});
+  el.innerHTML='<div style="overflow-x:auto"><table style="border-collapse:collapse;font-size:14px;width:100%"><tr>'+th("Period",1)+th("Banked hours")+th("Annual leave")+th("Sick leave")+'</tr>'+rows+'</table></div>'
+    +'<div class="lbl" style="margin-top:8px">Each box shows what you had left at the end of the '+(g=="w"?"week":g=="m"?"month":"year")+', with the change during that period underneath. Banked hours count finished weeks only against your '+WH()+'h target. Leave is earned by whole weeks worked'+(st.join?"":". Set your joining date to see leave build up")+'.</div>'}
+$("bgv").addEventListener("change",balDraw);$("bgy").addEventListener("change",balDraw);
 function dayUI(){var d=new Date(),w=d.toLocaleDateString("en-AU",{weekday:"long"}),dt=d.toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"}),t=iso(d);
   $("tdy").innerHTML='<div style="font-size:12px;color:var(--muted)">Today is</div><div style="font-size:30px;font-weight:800;color:var(--day)">'+w+'</div><div style="font-size:12px;color:var(--muted)">'+dt+'</div>';
   if(t!==lastD){lastD=t;if(!st.clk)$("ckd").value=t}}
